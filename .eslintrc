@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parser": "vue-eslint-parser",
+  "plugins": ["gridsome", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard",
+    "plugin:gridsome/recommended",
+    "plugin:vue/essential",
+    "plugin:prettier/recommended",
+    "@vue/prettier"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 2],
+    "semi": ["error", "never"]
+  }
+}  
