@@ -1,4 +1,7 @@
+/* eslint-disable import/first */
 /* eslint-disable camelcase */
+window.CMS_MANUAL_INIT = true
+
 // CMS
 import CMS from 'netlify-cms'
 import { ru } from 'netlify-cms-locales'
@@ -12,25 +15,23 @@ import other_pages from './pages/other_pages'
 import portfolio from './portfolio'
 import settings from './settings'
 
-window.CMS_MANUAL_INIT = true
-
-CMS.registerLocale('ru', ru)
-
-CMS.registerWidget('id', IdControl, IdPreview)
-
 // Manual Init
 CMS.init({
   config: {
     backend: {
       name: 'git-gateway',
       repo: 'skiglock/codespirit',
-      brach: 'main'
+      branch: 'main'
     },
+    load_config_file: false,
     local_backend: true,
     locale: 'ru',
-    load_config_file: false,
     media_folder: 'static/uploads',
     public_folder: '/uploads',
     collections: [pages, other_pages, portfolio, settings]
   }
 })
+
+CMS.registerLocale('ru', ru)
+
+CMS.registerWidget('id', IdControl, IdPreview)

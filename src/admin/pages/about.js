@@ -6,7 +6,7 @@ import sections from '../sections'
 const about = {
   name: 'about',
   label: 'О студии',
-  file: 'content/pages/about.md',
+  file: 'content/about.md',
   media_folder: '',
   public_folder: '',
   fields: [id, title, description, sections]

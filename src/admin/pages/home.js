@@ -6,7 +6,7 @@ import sections from '../sections'
 const home = {
   name: 'home',
   label: 'Главная',
-  file: 'content/pages/home.md',
+  file: 'content/home.md',
   media_folder: '',
   public_folder: '',
   fields: [id, title, description, sections]

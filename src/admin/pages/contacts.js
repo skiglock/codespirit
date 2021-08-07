@@ -6,7 +6,7 @@ import sections from '../sections'
 const contacts = {
   name: 'contacts',
   label: 'Контакты',
-  file: 'content/pages/contacts.md',
+  file: 'content/contacts.md',
   media_folder: '',
   public_folder: '',
   fields: [id, title, description, sections]
