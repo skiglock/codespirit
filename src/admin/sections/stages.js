@@ -8,7 +8,7 @@ const stages = {
   name: 'stages',
   label: 'Этапы',
   widget: 'object',
-  fields: [id, title, img, color, spoiler]
+  fields: [id, title, img(), color, spoiler]
 }
 
 export default stages

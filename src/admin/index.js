@@ -10,6 +10,7 @@ import { IdControl, IdPreview } from './widgets/uuid-widget'
 import pages from './pages'
 import other_pages from './pages/other_pages'
 import portfolio from './portfolio'
+import settings from './settings'
 
 window.CMS_MANUAL_INIT = true
 
@@ -30,6 +31,6 @@ CMS.init({
     load_config_file: false,
     media_folder: 'static/uploads',
     public_folder: '/uploads',
-    collections: [pages, other_pages, portfolio]
+    collections: [pages, other_pages, portfolio, settings]
   }
 })

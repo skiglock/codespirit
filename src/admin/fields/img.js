@@ -1,8 +1,8 @@
-const img = {
+const img = (label) => ({
   name: 'img',
-  label: 'Картинка',
+  label: label || 'Картинка',
   widget: 'image',
   default: ''
-}
+})
 
 export default img

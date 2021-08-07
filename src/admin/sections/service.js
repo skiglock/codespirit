@@ -14,7 +14,7 @@ const service = {
   fields: [
     id,
     title,
-    img,
+    img(),
     description,
     color_first,
     color_second,

@@ -6,6 +6,8 @@ import contacts from './contacts'
 const pages = {
   name: 'pages',
   label: 'Основные страницы',
+  media_folder: '',
+  public_folder: '',
   files: [home, about, portfolio, contacts]
 }
 

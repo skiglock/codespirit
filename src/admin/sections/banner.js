@@ -8,7 +8,7 @@ const banner = {
   name: 'banner',
   label: 'Баннер',
   widget: 'object',
-  fields: [id, img, title, subtitle, description]
+  fields: [id, img(), title, subtitle, description]
 }
 
 export default banner

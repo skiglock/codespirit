@@ -22,7 +22,7 @@ const needed = {
       name: 'items',
       label: 'Элементы',
       widget: 'list',
-      fields: [id, img, title]
+      fields: [id, img(), title]
     }
   ]
 }
