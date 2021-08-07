@@ -11,7 +11,8 @@
     "@gridsome/transformer-remark": "^0.6.4",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "netlify-cms": "^2.10.153"
+    "netlify-cms": "^2.10.153",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^4.5.13",
