@@ -1,6 +1,6 @@
-import id from '../fields/id'
-import title from '../fields/title'
-import description from '../fields/description'
+import id from './id'
+import title from './title'
+import description from './description'
 
 const spoiler = {
   name: 'spoiler',

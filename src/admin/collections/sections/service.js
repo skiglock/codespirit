@@ -18,7 +18,7 @@ const service = {
     description,
     color_first,
     color_second,
-    link,
+    link('Услуга', 'services'),
     { name: 'variant', label: 'Вариант', widget: 'boolean', default: false }
   ]
 }

@@ -3,15 +3,15 @@ import title from '../fields/title'
 import link from '../fields/link'
 
 const documents = {
-  name: 'documents',
-  label: 'Документы',
-  file: 'content/settings/documents.md',
+  name: 'Меню',
+  label: 'Меню',
+  file: 'content/settings/menu.yaml',
   fields: [
     {
-      name: 'docs',
-      label: 'Документы',
+      name: 'menu',
+      label: 'Меню',
       widget: 'list',
-      fields: [id, title, link]
+      fields: [id, title, link('Ссылка', 'pages')]
     }
   ]
 }

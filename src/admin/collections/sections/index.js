@@ -14,6 +14,7 @@ const sections = {
   name: 'sections',
   label: 'Секции',
   widget: 'list',
+  required: false,
   types: [
     service,
     banner,

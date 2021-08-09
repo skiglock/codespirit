@@ -4,19 +4,30 @@ module.exports = {
     remark: {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-      anchorClassName: 'icon icon-link',
-      plugins: []
+      anchorClassName: 'icon icon-link'
     }
   },
-
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: '@gridsome/vue-remark',
       options: {
-        path: 'posts/**/*.md',
-        typeName: 'Post',
-        remark: {
-          plugins: []
+        typeName: 'Pages',
+        baseDir: 'content/pages',
+        template: 'src/templates/FlexiblePage.vue'
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'PortfolioCase',
+        baseDir: 'content/portfolio',
+        pathPrefix: '/portfolio',
+        template: 'src/templates/PortfolioCase.vue',
+        refs: {
+          categories: {
+            typeName: 'PortfolioCategory',
+            create: true
+          }
         }
       }
     },
@@ -24,6 +35,7 @@ module.exports = {
       use: 'gridsome-plugin-netlify-cms',
       options: {
         publicPath: '/admin',
+        htmlPath: 'src/admin/index.html',
         modulePath: 'src/admin/index.js',
         configPath: false
       }

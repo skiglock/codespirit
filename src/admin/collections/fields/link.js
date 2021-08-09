@@ -1,11 +1,11 @@
-const link = {
+const link = (label, page) => ({
   name: 'link',
-  label: 'Ссылка',
+  label: label,
   widget: 'relation',
-  collection: 'other_pages',
+  collection: page,
   search_fields: ['title'],
   value_field: 'id',
   display_fields: ['title']
-}
+})
 
 export default link

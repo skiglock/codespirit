@@ -3,13 +3,15 @@ import title from '../fields/title'
 import img from '../fields/img'
 import number from '../fields/number'
 import mail from '../fields/mail'
+import link from '../fields/link'
 
 const main = {
   name: 'main',
   label: 'Основные настройки',
-  file: 'content/settings/main.md',
+  file: 'content/settings/main.yaml',
   fields: [
     img('Логотип'),
+    link('Главная страница', 'pages'),
     number,
     mail,
     {
