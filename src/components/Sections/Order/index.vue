@@ -1,10 +1,9 @@
 <template>
-  <div class="order">
+  <div class="order" :style="{ backgroundColor: content.color }">
     <div class="order__left">
-      <h1 class="order__title">Заказать landing</h1>
+      <h1 class="order__title">{{ content.title }}</h1>
       <p class="order__description">
-        Заполните всё что знаете о проекте. Если у Вас возникли трудности и вы
-        не знаете с чего начать, позвоните и мы поможем Вам разобраться!
+        {{ content.description }}
       </p>
       <a href="tel:+79000000000" class="order__phone">+7 900 000 00 00</a>
     </div>
@@ -65,7 +64,7 @@
           class="form__button button button--large button--white"
           type="submit"
         >
-          Вперед!
+          {{ content.button.title }}
         </button>
         <span class="form__agree">
           * Нажимая кнопку, вы даете согласие на обработку персональных данных
@@ -77,7 +76,10 @@
 
 <script>
 export default {
-  name: 'Order'
+  name: 'Order',
+  props: {
+    content: Object
+  }
 }
 </script>
 

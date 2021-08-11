@@ -1,9 +1,9 @@
 import service from './service'
-import banner from './banner'
+import bannerLogo from './banner_logo'
 import stages from './stages'
 import needed from './needed'
 import offer from './offer'
-import portfolio from './portfolio'
+import ourPortfolio from './our_portfolio'
 import other from './other'
 import order from './order'
 import orderAnother from './order_another'
@@ -22,11 +22,11 @@ const sections = {
     descriptionImage,
     descriptionSpoilers,
     service,
-    banner,
+    bannerLogo,
     stages,
     needed,
     offer,
-    portfolio,
+    ourPortfolio,
     other,
     order,
     orderAnother,

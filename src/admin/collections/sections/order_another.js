@@ -4,7 +4,7 @@ import title from '../fields/title'
 import button from '../fields/button'
 
 const orderAnother = {
-  name: 'order-another',
+  name: 'orderAnother',
   label: 'Форма заказа (2)',
   widget: 'object',
   fields: [id, color, title, button]

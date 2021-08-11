@@ -1,5 +1,5 @@
 <template>
-  <div class="order-another">
+  <div class="order-another" :style="{ backgroundColor: content.color }">
     <div class="order-another__left">
       <form class="form" action="">
         <div class="form__group">
@@ -30,7 +30,7 @@
           class="form__button button button--large button--yellow"
           type="submit"
         >
-          Оставить заявку
+          {{ content.button.title }}
         </button>
         <span class="form__agree">
           * Нажимая кнопку <u>Оставить заявку</u>, вы даете согласие на
@@ -40,7 +40,7 @@
     </div>
     <div class="order-another__right">
       <h1 class="order-another__title">
-        Свяжитесь с нами позвонив по телефону:
+        {{ content.title }}
       </h1>
       <div class="order-another__phone">
         <h2 class="order-another__number">+7 996 850 26 93</h2>
@@ -51,7 +51,10 @@
 
 <script>
 export default {
-  name: 'OrderAnother'
+  name: 'OrderAnother',
+  props: {
+    content: Object
+  }
 }
 </script>
 

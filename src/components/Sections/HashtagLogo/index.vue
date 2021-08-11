@@ -1,15 +1,21 @@
 <template>
   <div class="hashtag-logo">
-    <h1 class="hashtag-logo__title"><span>#</span>codespirit</h1>
-    <div class="hashtag-logo__description">
-      <p>О студии</p>
+    <h1 class="hashtag-logo__title"><span>#</span>{{ content.title }}</h1>
+    <div
+      class="hashtag-logo__description"
+      :style="{ backgroundColor: content.color }"
+    >
+      <p>{{ content.subtitle }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HashtagLogo'
+  name: 'HashtagLogo',
+  props: {
+    content: Object
+  }
 }
 </script>
 

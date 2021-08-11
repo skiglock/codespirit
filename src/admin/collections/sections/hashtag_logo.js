@@ -4,7 +4,7 @@ import subtitle from '../fields/subtitle'
 import color from '../fields/color'
 
 const hashtagLogo = {
-  name: 'hashtag-logo',
+  name: 'hashtagLogo',
   label: 'Заголовок с хештегом',
   widget: 'object',
   fields: [id, title, subtitle, color]

@@ -1,39 +1,33 @@
 <template>
   <div class="description-spoilers">
     <div class="description-spoilers__left">
-      <h1 class="description-spoilers__title">Направления услуг</h1>
+      <h1 class="description-spoilers__title">{{ content.title }}</h1>
       <p class="description-spoilers__description">
-        Мы начинали с Social Media Marketing,но это только один из каналов,
-        который помогает бренду выстроить отношения с аудиторией. Поэтому мы
-        работаем с любыми digital-задачами: креатив, веб-разработка, стратегии,
-        дизайн, продакшн.
+        {{ content.description }}
       </p>
     </div>
     <div class="description-spoilers__right">
-      <details class="description-spoilers__spoiler">
-        <summary>Creative & Strategy</summary>
-        <ul class="description-spoilers__list">
-          <li class="description-spoilers__item">
-            <span>Креативная стратегия</span>
-          </li>
-          <li class="description-spoilers__item">
-            <span>YouTube-канал под ключ</span>
-          </li>
-          <li class="description-spoilers__item">
-            <span>Стратегия присутствия в социальных сетях</span>
-          </li>
-          <li class="description-spoilers__item">
-            <span>Digital-стратегия</span>
-          </li>
-        </ul>
-      </details>
+      <description-spoiler
+        v-for="spoiler in content.spoilers"
+        :key="spoiler.id"
+        :title="spoiler.title"
+        :description="spoiler.description"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import DescriptionSpoiler from './DescriptionSpoiler'
 export default {
-  name: 'DescriptionSpoilers'
+  name: 'DescriptionSpoilers',
+  components: {
+    DescriptionSpoiler
+  },
+  props: {
+    content: Object,
+    path: String
+  }
 }
 </script>
 

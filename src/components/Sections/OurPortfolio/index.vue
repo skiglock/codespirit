@@ -34,10 +34,10 @@
 
 <script>
 export default {
-  name: 'Portfolio'
+  name: 'OurPortfolio'
 }
 </script>
 
 <style lang="scss">
-@import './Portfolio.scss';
+@import './OurPortfolio.scss';
 </style>

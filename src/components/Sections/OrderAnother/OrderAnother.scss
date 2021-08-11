@@ -25,9 +25,6 @@
   }
   &__right {
     padding: 15px;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
     @media screen and (min-width: $small-mobile-width) {
       padding: 0;
@@ -41,6 +38,7 @@
     text-shadow: 0px 0px 2px #252525;
     color: #fff;
     font-size: 17px;
+    text-align: center;
     @media screen and (min-width: $mobile-width) {
       font-size: 18px;
     }
@@ -49,6 +47,7 @@
     }
   }
   &__phone {
+    text-align: center;
     margin-top: 2%;
     box-shadow: 0px 2px 2.67px 0.33px rgba(#252525, 0.3);
     padding: 8px 15px;

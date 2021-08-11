@@ -2,50 +2,35 @@
   <div class="stages">
     <div class="stages__left">
       <div class="stages__img">
-        <img src="@/assets/img/stages.png" alt="" />
+        <g-image
+          :src="$imagePath('pages', path, content.img)"
+          :alt="content.title"
+        />
       </div>
     </div>
     <div class="stages__right">
-      <div class="stages__item">
-        <span class="stages__number"> 01 </span>
-        <details class="stages__spoiler">
-          <summary>Аналитика & проектирование</summary>
-          <p class="stages__description">
-            Проведем аудит Вашей компании и изучим возможности и конкурентные
-            преимущества продукта. Анализ рынка и целевой аудитории поможет
-            выявить боли и потребности потенциального клиента.
-          </p>
-        </details>
-      </div>
-      <div class="stages__item">
-        <span class="stages__number"> 02 </span>
-        <details class="stages__spoiler">
-          <summary>Создание UX-прототипа и копирайтинг</summary>
-          <p class="stages__description">
-            Проведем аудит Вашей компании и изучим возможности и конкурентные
-            преимущества продукта. Анализ рынка и целевой аудитории поможет
-            выявить боли и потребности потенциального клиента.
-          </p>
-        </details>
-      </div>
-      <div class="stages__item">
-        <span class="stages__number"> 03 </span>
-        <details class="stages__spoiler">
-          <summary>UI - Дизайн</summary>
-          <p class="stages__description">
-            Проведем аудит Вашей компании и изучим возможности и конкурентные
-            преимущества продукта. Анализ рынка и целевой аудитории поможет
-            выявить боли и потребности потенциального клиента.
-          </p>
-        </details>
-      </div>
+      <stages-item
+        v-for="(item, index) in content.spoilers"
+        :key="item.id"
+        :num="index + 1"
+        :title="item.title"
+        :description="item.description"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import StagesItem from './StagesItem'
 export default {
-  name: 'Stages'
+  components: {
+    StagesItem
+  },
+  name: 'Stages',
+  props: {
+    content: Object,
+    path: String
+  }
 }
 </script>
 

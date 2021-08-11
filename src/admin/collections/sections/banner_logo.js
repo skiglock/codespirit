@@ -4,11 +4,11 @@ import title from '../fields/title'
 import subtitle from '../fields/subtitle'
 import description from '../fields/description'
 
-const banner = {
-  name: 'banner-logo',
+const bannerLogo = {
+  name: 'bannerLogo',
   label: 'Баннер',
   widget: 'object',
   fields: [id, img(), title, subtitle, description]
 }
 
-export default banner
+export default bannerLogo

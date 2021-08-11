@@ -1,11 +1,11 @@
 import id from '../fields/id'
 import title from '../fields/title'
 
-const portfolio = {
-  name: 'our-portfolio',
+const ourPortfolio = {
+  name: 'ourPortfolio',
   label: 'Портфолио',
   widget: 'object',
   fields: [id, title]
 }
 
-export default portfolio
+export default ourPortfolio

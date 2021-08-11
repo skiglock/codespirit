@@ -4,7 +4,7 @@ import description from '../fields/description'
 import img from '../fields/img'
 
 const descriptionImage = {
-  name: 'description-image',
+  name: 'descriptionImage',
   label: 'Картинка с описанием',
   widget: 'object',
   fields: [

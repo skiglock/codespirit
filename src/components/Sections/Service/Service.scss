@@ -13,30 +13,6 @@
     column-gap: 30px;
     grid-template-columns: 0.6fr 1.4fr;
   }
-  &:nth-child(1) {
-    .service__name {
-      @include background-with-shadow(#68b399);
-    }
-    .service__description {
-      @include background-with-shadow(#ffcb86);
-    }
-  }
-  &:nth-child(2) {
-    .service__name {
-      @include background-with-shadow(#efb051);
-    }
-    .service__description {
-      @include background-with-shadow(#6ac7cf);
-    }
-  }
-  &:nth-child(3) {
-    .service__name {
-      @include background-with-shadow($red_color);
-    }
-    .service__description {
-      @include background-with-shadow(#2d8e6d);
-    }
-  }
   &__name {
     display: none;
     @media screen and (min-width: $mobile-width) {
@@ -94,16 +70,13 @@
     padding-left: 20px;
     padding-right: 17px;
     border-radius: 25px;
-    background-image: url("~@/assets/img/browser.png");
-    background-repeat: no-repeat;
-    background-position-x: 95%;
-    background-size: 50%;
+    // background-image: url("~@/assets/img/browser.png");
+    // background-repeat: no-repeat;
+    // background-position-x: 95%;
+    // background-size: 50%;
     min-height: 164px;
-    @media screen and (min-width: $small-mobile-width) {
-      background-size: 30%;
-    }
+    position: relative;
     @media screen and (min-width: $mobile-width) {
-      background-size: 35%;
       align-self: center;
     }
     @media screen and (min-width: $tablet-width) {
@@ -113,12 +86,22 @@
       padding-right: 25px;
     }
     @media screen and (min-width: $desktop-width) {
-      background-size: 28%;
       border-radius: 35px;
       padding-left: 40px;
       padding-right: 30px;
     }
+    &-img {
+      z-index: 6;
+      position: absolute;
+      top: 0;
+      right: 16px;
+      width: 160px;
+      img {
+        width: 100%;
+      }
+    }
     &-title {
+      z-index: 7;
       font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
       color: #2a2a2a;
       font-size: 19px;
@@ -127,6 +110,7 @@
       }
     }
     &-text {
+      z-index: 7;
       margin-top: 4px;
       color: #131313;
       font-size: 13px;
@@ -154,6 +138,7 @@
       }
     }
     &-button {
+      z-index: 7;
       margin-top: 8px;
       justify-self: end;
     }
@@ -164,46 +149,6 @@
     }
     &:nth-child(even) {
       margin-right: 10%;
-    }
-    &:nth-child(2) {
-      .service__name {
-        @include background-with-shadow(#007785);
-      }
-      .service__description {
-        @include background-with-shadow(#bfd5e3);
-      }
-    }
-    &:nth-child(3) {
-      .service__name {
-        @include background-with-shadow(#f39369);
-      }
-      .service__description {
-        @include background-with-shadow(#fccab4);
-      }
-    }
-    &:nth-child(4) {
-      .service__name {
-        @include background-with-shadow(#268a70);
-      }
-      .service__description {
-        @include background-with-shadow(#9ac6ba);
-      }
-    }
-    &:nth-child(5) {
-      .service__name {
-        @include background-with-shadow(#9a6c6e);
-      }
-      .service__description {
-        @include background-with-shadow(#efbb94);
-      }
-    }
-    &:nth-child(6) {
-      .service__name {
-        @include background-with-shadow(#29343c);
-      }
-      .service__description {
-        @include background-with-shadow(#fedabf);
-      }
     }
     & + .service--custom {
       margin-top: 5%;

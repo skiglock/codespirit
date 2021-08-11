@@ -1,17 +1,22 @@
 <template>
   <div class="description-image description-image--row">
-    <img src="@/assets/img/Cola.png" alt="" />
+    <g-image
+      :src="$imagePath('pages', path, content.img)"
+      :alt="content.description"
+    />
     <p>
-      Агенство Codespirit занимается созданием вашего бренда. Быстро и со вкусом
-      сделаем для Вас сайт любого типа, видео различного формата, оформление
-      социальных сетей. Мы преследуем только новые технологии!
+      {{ content.description }}
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DescriptionImage'
+  name: 'DescriptionImage',
+  props: {
+    content: Object,
+    path: String
+  }
 }
 </script>
 
