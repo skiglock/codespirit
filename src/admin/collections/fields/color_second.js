@@ -1,9 +1,8 @@
-/* eslint-disable camelcase */
-const color_second = {
+const colorSecond = {
   name: 'color_second',
   label: 'Цвет второй',
   widget: 'color',
   default: '#ffeab3'
 }
 
-export default color_second
+export default colorSecond

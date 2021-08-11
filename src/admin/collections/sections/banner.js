@@ -5,7 +5,7 @@ import subtitle from '../fields/subtitle'
 import description from '../fields/description'
 
 const banner = {
-  name: 'banner',
+  name: 'banner-logo',
   label: 'Баннер',
   widget: 'object',
   fields: [id, img(), title, subtitle, description]

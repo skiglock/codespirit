@@ -1,11 +1,11 @@
 import id from '../fields/id'
 import description from '../fields/description'
 
-const text = {
-  name: 'text',
-  label: 'Текст',
+const word = {
+  name: 'word',
+  label: 'Любой текст',
   widget: 'object',
   fields: [id, description]
 }
 
-export default text
+export default word

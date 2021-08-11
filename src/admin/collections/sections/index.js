@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import service from './service'
 import banner from './banner'
 import stages from './stages'
@@ -7,8 +6,11 @@ import offer from './offer'
 import portfolio from './portfolio'
 import other from './other'
 import order from './order'
-import order_another from './order_another'
-import text from './text'
+import orderAnother from './order_another'
+import word from './word'
+import hashtagLogo from './hashtag_logo'
+import descriptionImage from './description_image'
+import descriptionSpoilers from './description_spoilers'
 
 const sections = {
   name: 'sections',
@@ -16,6 +18,9 @@ const sections = {
   widget: 'list',
   required: false,
   types: [
+    hashtagLogo,
+    descriptionImage,
+    descriptionSpoilers,
     service,
     banner,
     stages,
@@ -24,8 +29,8 @@ const sections = {
     portfolio,
     other,
     order,
-    order_another,
-    text
+    orderAnother,
+    word
   ]
 }
 

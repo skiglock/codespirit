@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout title="Портфолио">
     <h1 v-for="{ node } in $static.allPortfolioCategory.edges" :key="node.id">
       {{ node.id }}
     </h1>

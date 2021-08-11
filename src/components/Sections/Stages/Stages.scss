@@ -1,0 +1,60 @@
+.stages {
+  padding: 20px;
+  display: grid;
+  background-image: linear-gradient(#66cc99, #66cc99);
+  @media screen and (min-width: $mobile-width) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+  }
+  &__left {
+    justify-self: center;
+    align-self: center;
+  }
+  &__right {
+    display: grid;
+    row-gap: 20px;
+  }
+  &__img {
+    img {
+      width: 250px;
+    }
+  }
+  &__item {
+    border-radius: 5px;
+    padding: 10px;
+    @include background-with-shadow(#fff);
+  }
+  &__number {
+    font-family: "Chalet-NewYorkNineteenEighty";
+    color: #252525;
+    font-size: 24px;
+    @media screen and (min-width: $desktop-width) {
+      font-size: 28px;
+    }
+  }
+  &__spoiler {
+    summary {
+      cursor: pointer;
+      font-family: "Chalet-NewYorkNineteenEighty";
+      font-size: 20px;
+      color: #252525;
+      @media screen and (min-width: $desktop-width) {
+        font-size: 25px;
+      }
+      &::marker {
+        font-size: 0;
+      }
+    }
+  }
+  &__description {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #252525;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 17px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 19px;
+    }
+  }
+}

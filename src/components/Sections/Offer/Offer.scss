@@ -1,0 +1,53 @@
+.offer {
+  min-height: 220px;
+  color: #fff;
+  @include background-with-shadow($red_color);
+  padding: 20px;
+  display: grid;
+  row-gap: 20px;
+  @media screen and (min-width: $small-mobile-width) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+  @media screen and (min-width: $tablet-width) {
+    min-height: 250px;
+    padding: 30px;
+  }
+  &__left {
+    display: grid;
+    row-gap: 10px;
+  }
+  &__right {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+  }
+  &__title {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    font-size: 20px;
+    @media screen and (min-width: $tablet-width) {
+      font-size: 24px;
+    }
+  }
+  &__description {
+    font-size: 16px;
+    @media screen and (min-width: $tablet-width) {
+      font-size: 19px;
+    }
+  }
+  &__price {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    text-align: center;
+    font-size: 24px;
+    align-self: center;
+    @media screen and (min-width: $tablet-width) {
+      font-size: 28px;
+    }
+  }
+  &__button {
+    justify-self: end;
+    font-size: 16px;
+    @media screen and (min-width: $small-mobile-width) {
+      align-self: end;
+    }
+  }
+}

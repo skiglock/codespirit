@@ -2,7 +2,7 @@ import id from '../fields/id'
 import title from '../fields/title'
 
 const portfolio = {
-  name: 'portfolio',
+  name: 'our-portfolio',
   label: 'Портфолио',
   widget: 'object',
   fields: [id, title]

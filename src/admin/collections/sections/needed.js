@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 import id from '../fields/id'
 import color from '../fields/color'
 import title from '../fields/title'
-import color_first from '../fields/color_first'
+import colorFirst from '../fields/color_first'
 import subtitle from '../fields/subtitle'
-import color_second from '../fields/color_second'
+import colorSecond from '../fields/color_second'
 import img from '../fields/img'
 
 const needed = {
@@ -15,9 +14,9 @@ const needed = {
     id,
     color,
     title,
-    color_first,
+    colorFirst,
     subtitle,
-    color_second,
+    colorSecond,
     {
       name: 'items',
       label: 'Элементы',

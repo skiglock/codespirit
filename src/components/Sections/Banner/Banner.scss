@@ -1,0 +1,107 @@
+.banner-logo {
+  position: relative;
+  min-height: 300px;
+  @include background-with-shadow(#fff);
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  border-radius: 20px;
+  @media screen and (min-width: $tablet-width) {
+    min-height: 370px;
+    border-radius: 30px;
+    .banner-logo__img {
+      border-radius: 30px;
+      img {
+        border-radius: 30px;
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 20px;
+    z-index: 3;
+    img {
+      border-radius: 20px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &::before {
+    z-index: 4;
+    position: absolute;
+    content: "";
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(#252525, 0.2);
+    @media screen and (min-width: $tablet-width) {
+      border-radius: 30px;
+    }
+  }
+  &__header {
+    z-index: 5;
+    place-self: center;
+  }
+  &__title {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    font-size: 20px;
+    @include background-with-shadow(#fff);
+    color: #252525;
+    padding: 10px;
+    border-radius: 10px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 25px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 30px;
+    }
+  }
+  &__subtitle {
+    font-size: 15px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 25px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 30px;
+      letter-spacing: 2px;
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+  }
+  &__bottom {
+    align-self: center;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+  }
+  &__description {
+    margin-top: 1%;
+    align-self: start;
+    background-color: $red_color;
+    border-radius: 30px;
+    padding: 15px;
+    @media screen and (min-width: $tablet-width) {
+      min-height: 100px;
+      border-radius: 40px;
+      width: 90%;
+      padding: 15px 25px;
+    }
+    p {
+      font-size: 16px;
+      color: #f7f7f7;
+      @media screen and (min-width: $mobile-width) {
+        font-size: 17px;
+      }
+      @media screen and (min-width: $tablet-width) {
+        font-size: 19px;
+      }
+    }
+  }
+}

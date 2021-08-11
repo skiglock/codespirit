@@ -1,0 +1,89 @@
+.description-spoilers {
+  margin-top: 5%;
+
+  @media screen and (min-width: $mobile-width) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  &__left {
+    padding: 20px;
+    @media screen and (min-width: $mobile-width) {
+      padding: 0;
+    }
+  }
+  &__right {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 11px 15px;
+    @media screen and (min-width: $small-mobile-width) {
+      align-items: center;
+      justify-items: center;
+    }
+    @media screen and (min-width: $mobile-width) {
+      align-items: stretch;
+      justify-items: stretch;
+    }
+  }
+  &__title {
+    margin-bottom: 3%;
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    color: #313131;
+    font-size: 20px;
+
+    @media screen and (min-width: $tablet-width) {
+      font-size: 23px;
+    }
+  }
+  &__description {
+    font-size: 14px;
+    color: #313131;
+    @media screen and (min-width: $small-mobile-width) {
+      font-size: 17px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 18px;
+    }
+  }
+  &__spoiler {
+    @media screen and (min-width: $small-mobile-width) {
+      text-align: center;
+    }
+    @media screen and (min-width: $mobile-width) {
+      text-align: inherit;
+    }
+    summary {
+      cursor: pointer;
+      font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+      color: #313131;
+      font-size: 16px;
+      @media screen and (min-width: $tablet-width) {
+        font-size: 18px;
+      }
+      &::marker {
+        font-size: 0;
+      }
+    }
+  }
+  &__list {
+    margin: 5px;
+    list-style: none;
+    display: grid;
+    row-gap: 5px;
+  }
+  &__item {
+    span {
+      color: #313131;
+      font-size: 13px;
+      @media screen and (min-width: $mobile-width) {
+        font-size: 14px;
+      }
+      @media screen and (min-width: $tablet-width) {
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.order {
+  border-radius: 20px;
+  padding: 30px 15px;
+  background-color: #66cccc;
+  box-shadow: 5px 8px 0px rgba(#66cccc, 0.85);
+  display: grid;
+  gap: 20px;
+  @media screen and (min-width: $mobile-width) {
+    grid-template-columns: 1fr 1fr;
+    padding: 25px;
+    gap: 35px;
+  }
+  @media screen and (min-width: $tablet-width) {
+    padding: 35px;
+  }
+  &__title {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    color: #252525;
+    font-size: 19px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 25px;
+    }
+    @media screen and (min-width: $mobile-width) {
+      font-size: 27px;
+    }
+  }
+  &__description {
+    line-height: 1.45;
+    color: #252525;
+    font-size: 15px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 17px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 19px;
+    }
+  }
+  &__phone {
+    color: #252525;
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    font-size: 19px;
+    text-decoration: none;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 25px;
+    }
+  }
+  &__left {
+    display: grid;
+    align-items: center;
+    height: 50%;
+    gap: 10px;
+    justify-items: center;
+    @media screen and (min-width: $mobile-width) {
+      justify-items: start;
+    }
+  }
+}

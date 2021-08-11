@@ -1,0 +1,79 @@
+.needed {
+  position: relative;
+  @include background-with-shadow(#bfd5e3);
+  border-radius: 20px;
+  padding: 30px 10px;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @media screen and (min-width: $mobile-width) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  &__header {
+    position: absolute;
+    content: "";
+    color: #fff;
+    @include background-with-shadow(#007785);
+    border-radius: 20px;
+    padding: 7px 10px;
+    top: -20px;
+    left: 0;
+  }
+  &__title {
+    font-family: "Chalet-NewYorkNineteenEighty";
+    font-size: 17px;
+    text-align: center;
+  }
+  &__bottom {
+    position: absolute;
+    content: "";
+    color: #fff;
+    @include background-with-shadow($red_color);
+    border-radius: 20px;
+    padding: 7px 10px;
+    bottom: -20px;
+    right: 0;
+  }
+  &__subtitle {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    font-size: 17px;
+    text-align: center;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    row-gap: 30px;
+    align-items: start;
+    justify-items: center;
+  }
+  &__item {
+    &:last-child {
+      figcaption {
+        font-size: 0;
+      }
+    }
+    display: grid;
+    justify-items: center;
+    row-gap: 10px;
+    img {
+      max-width: 60%;
+    }
+    figcaption {
+      text-align: center;
+      font-size: 14px;
+      @media screen and (min-width: $tablet-width) {
+        font-size: 15px;
+      }
+    }
+  }
+  &__img {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 95px;
+    height: 95px;
+  }
+}

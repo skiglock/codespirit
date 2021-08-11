@@ -1,7 +1,5 @@
 <template>
-  <Layout>
-    <h1>Страница</h1>
-    <br />
+  <Layout :title="$page.pages.title">
     {{ $page.pages.title }}
   </Layout>
 </template>

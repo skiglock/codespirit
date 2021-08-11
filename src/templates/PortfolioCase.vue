@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :title="$page.portfolioCase.title">
     {{ $page.portfolioCase.title }}
   </Layout>
 </template>

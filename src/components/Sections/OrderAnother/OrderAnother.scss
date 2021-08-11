@@ -1,0 +1,71 @@
+.order-another {
+  border-radius: 17px;
+  @include background-with-shadow(#48b08d);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  @media screen and (min-width: $small-mobile-width) {
+    gap: 5%;
+    padding: 10px;
+  }
+  @media screen and (min-width: $small-mobile-width) {
+    padding: 30px;
+  }
+  @media screen and (min-width: $tablet-width) {
+    grid-template-columns: 2fr 2.5fr;
+    border-radius: 35px;
+  }
+  &__left {
+    padding-top: 26px;
+    padding-bottom: 7px;
+    padding-left: 43px;
+    padding-right: 43px;
+    @media screen and (min-width: $small-mobile-width) {
+      padding: 0;
+    }
+  }
+  &__right {
+    padding: 15px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    @media screen and (min-width: $small-mobile-width) {
+      padding: 0;
+    }
+    @media screen and (min-width: $mobile-width) {
+      grid-row: span 1;
+      grid-column: span 1;
+    }
+  }
+  &__title {
+    text-shadow: 0px 0px 2px #252525;
+    color: #fff;
+    font-size: 17px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      font-size: 22px;
+    }
+  }
+  &__phone {
+    margin-top: 2%;
+    box-shadow: 0px 2px 2.67px 0.33px rgba(#252525, 0.3);
+    padding: 8px 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    @media screen and (min-width: $tablet-width) {
+      border-radius: 30px;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-bottom: auto;
+    }
+  }
+  &__number {
+    color: #323232;
+    font-size: 18px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 22px;
+    }
+  }
+}
