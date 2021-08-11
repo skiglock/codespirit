@@ -37,5 +37,5 @@ init({
   }
 })
 
-// Register Previw Template
+// Register Preview Template
 CMS.registerPreviewTemplate('pages', pagesPreview)

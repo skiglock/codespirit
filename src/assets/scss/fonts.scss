@@ -1,0 +1,25 @@
+@font-face {
+  font-weight: 400;
+  font-family: "HebarExtraLight-Normal";
+  font-style: normal;
+  font-display: swap;
+  src: url("~@/assets/fonts/HebarExtraLight-Normal.woff2") format("woff2"),
+    url("~@/assets/fonts/HebarExtraLight-Normal.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Chalet-NewYorkNineteenEighty";
+  font-style: normal;
+  font-display: swap;
+  src: url("~@/assets/fonts/Chalet-NewYorkNineteenEighty.woff2") format("woff2"),
+    url("~@/assets/fonts/Chalet-NewYorkNineteenEighty.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "OksFree";
+  font-style: normal;
+  font-display: swap;
+  src: url("~@/assets/fonts/OksFree.woff2") format("woff2"), url("~@/assets/fonts/OksFree.woff") format("woff");
+}

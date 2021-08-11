@@ -1,0 +1,4 @@
+@mixin background-with-shadow($color) {
+  background-color: $color;
+  box-shadow: 5px 8px 0px rgba($color, 0.85);
+}
