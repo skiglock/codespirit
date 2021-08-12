@@ -3,10 +3,16 @@
     class="needed"
     :style="{
       backgroundColor: content.color,
-      boxShadow: '5px 8px 0px' + content.color
+      boxShadow: $boxShadow(content.color)
     }"
   >
-    <div class="needed__header">
+    <div
+      class="needed__header"
+      :style="{
+        backgroundColor: content.color_first,
+        boxShadow: $boxShadow(content.color_first)
+      }"
+    >
       <h1 class="needed__title">{{ content.title }}</h1>
     </div>
     <div class="needed__items">
@@ -17,7 +23,13 @@
         :img="$imagePath('pages', path, item.img)"
       />
     </div>
-    <div class="needed__bottom">
+    <div
+      class="needed__bottom"
+      :style="{
+        backgroundColor: content.color_second,
+        boxShadow: $boxShadow(content.color_second)
+      }"
+    >
       <h2 class="needed__subtitle">{{ content.subtitle }}</h2>
     </div>
   </div>

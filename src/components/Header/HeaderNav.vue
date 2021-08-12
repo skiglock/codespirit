@@ -1,11 +1,14 @@
 <template>
   <nav
     class="nav"
+    :class="navOpen ? 'nav--opened' : ''"
     aria-label="Основное меню"
     itemscope
     itemtype="http://www.schema.org/SiteNavigationElement"
   >
-    <button class="nav__burger" type="button">Открыть меню</button>
+    <button @click="navOpen = !navOpen" class="nav__burger" type="button">
+      Открыть меню
+    </button>
     <div class="nav__wrapper">
       <ul class="nav__list">
         <li class="nav__item" itemprop="name">
@@ -27,7 +30,12 @@
 
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'HeaderNav',
+  data() {
+    return {
+      navOpen: false
+    }
+  }
 }
 </script>
 
@@ -74,7 +82,7 @@ export default {
     }
     .nav__burger {
       display: block;
-      z-index: 3;
+      z-index: 31;
       position: absolute;
       width: 25px;
       height: 25px;

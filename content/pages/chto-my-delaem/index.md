@@ -9,13 +9,6 @@ sections:
     subtitle: Подзаголовок
     color: "#eb563a"
     id: 79232fb7-a4fa-4525-9b6f-10cc8f006073
-  - type: descriptionImage
-    title: Заголовок
-    description: Описание
-    img: banner-item.png
-    reverse: false
-    id: 93f0c1fc-58f6-4dba-97c8-6e63fcffacfe
-    position: row
   - type: descriptionSpoilers
     title: Заголовок
     description: Описание
@@ -23,12 +16,15 @@ sections:
     spoilers:
       - title: Заголовок
         description: Описание
-        id: 081312ba-7e0e-48e5-b81e-1d636cc5b11b
+        id: 7af47fe5-6a3f-420d-b896-e4efcef92ce5
       - title: Заголовок
         description: Описание
-        id: 8d9020bb-8f1e-426a-a980-94fcd50237d1
+        id: 13c3969d-a473-4e58-9535-336862c142ea
+      - title: Заголовок
+        description: Описание
+        id: 2c8377f9-8dc5-4abd-b93f-2bc461fdd8d9
   - img: banner-item.png
-    variant: false
+    variant: true
     color_second: "#ffeab3"
     color_first: "#eb563a"
     title: Заголовок
@@ -36,12 +32,6 @@ sections:
     link: 8be1ba70-02e1-4159-9936-970142ab6b07
     id: dc9672aa-a668-4f12-b548-5e51295dbec8
     description: Описание
-  - type: bannerLogo
-    img: banner-item.png
-    title: Заголовок
-    subtitle: Подзаголовок
-    description: Описание
-    id: 168d938a-1254-4c66-8293-eb4b9db406cc
   - type: stages
     title: Заголовок
     img: banner-item.png
@@ -78,13 +68,13 @@ sections:
       color_first: "#eb563a"
       color_second: "#ffeab3"
     id: 95855f94-c0d3-4c98-8488-340a518149cf
-  - type: ourPortfolio
-    title: Заголовок
-    id: fd116124-d507-4994-a6a6-dcac26ebcaf6
   - type: other
     title: Заголовок
     color: "#eb563a"
     id: 76e93a3d-5ed6-4806-b1ff-14cf67281ddd
+    link_list:
+      - id: 263544ac-73a8-4d87-a9d5-c38643111285
+        link: 8be1ba70-02e1-4159-9936-970142ab6b07
   - type: order
     color: "#eb563a"
     title: Заголовок
@@ -102,4 +92,32 @@ sections:
       color_first: "#eb563a"
       color_second: "#ffeab3"
     id: 7a8f4cca-f39a-40b5-8db1-b18d718182a2
+  - type: descriptionImage
+    title: Заголовок
+    description: Описание
+    img: banner-item.png
+    reverse: false
+    id: 39d9be37-4c20-4d21-b1ce-3158ca2be049
+    position: column
+  - type: ourPortfolio
+    id: 8b7ca62c-d8f6-43d4-b335-a9d9281c44c3
+    link_list:
+      - id: b7b7f5cb-8692-4b23-8982-26be83760866
+        link: 9c2e6b94-c63a-4465-9075-5659221a5c41
+  - img: banner-item.png
+    variant: false
+    color_second: "#ffeab3"
+    color_first: "#eb563a"
+    title: Заголовок1
+    type: service
+    link: 8be1ba70-02e1-4159-9936-970142ab6b07
+    id: f3f5e98a-822c-4420-a010-e2c45e009776
+    description: Описание
+  - type: bannerLogo
+    img: banner-item.png
+    title: Заголовок
+    color: "#eb563a"
+    subtitle: Подзаголовок
+    description: Описание
+    id: f3b7f1f5-5520-4e20-9d40-19bb95cb9594
 ---

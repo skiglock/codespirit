@@ -1,20 +1,31 @@
 <template>
-  <div class="service">
+  <div class="service" :class="content.variant ? 'service--custom' : ''">
     <div
       class="service__name"
-      :style="{ backgroundColor: content.color_first }"
+      :style="{
+        backgroundColor: content.color_first,
+        boxShadow: $boxShadow(content.color_first)
+      }"
     >
-      <span class="service__number"> 1 </span>
+      <span class="service__number" v-if="!content.variant"> 1 </span>
       <h2 class="service__title">{{ content.title }}</h2>
     </div>
     <div
       class="service__description"
-      :style="{ backgroundColor: content.color_second }"
+      :style="{
+        backgroundColor: content.color_second,
+        boxShadow: $boxShadow(content.color_second)
+      }"
     >
-      <div class="service__description-img">
-        <g-image src="@/assets/img/browser.png" :alt="content.title" />
+      <div class="service__description-img" v-if="!content.variant">
+        <g-image
+          :src="$imagePath('pages', path, content.img)"
+          :alt="content.title"
+        />
       </div>
-      <h3 class="service__description-title">{{ content.title }}</h3>
+      <h3 class="service__description-title" v-if="!content.variant">
+        {{ content.title }}
+      </h3>
       <p class="service__description-text">
         {{ content.description }}
       </p>

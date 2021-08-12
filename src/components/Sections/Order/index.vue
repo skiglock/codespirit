@@ -1,10 +1,14 @@
 <template>
-  <div class="order" :style="{ backgroundColor: content.color }">
+  <div
+    class="order"
+    :style="{
+      backgroundColor: content.color,
+      boxShadow: $boxShadow(content.color)
+    }"
+  >
     <div class="order__left">
       <h1 class="order__title">{{ content.title }}</h1>
-      <p class="order__description">
-        {{ content.description }}
-      </p>
+      <div class="order__description" v-html="content.description"></div>
       <a href="tel:+79000000000" class="order__phone">+7 900 000 00 00</a>
     </div>
     <div class="order__right">

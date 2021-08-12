@@ -31,6 +31,7 @@ init({
     },
     local_backend: true,
     load_config_file: false,
+    locale: 'ru',
     media_folder: 'static/uploads',
     public_folder: '/uploads',
     collections: [pages, portfolio, settings]

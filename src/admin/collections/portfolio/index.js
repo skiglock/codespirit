@@ -11,6 +11,7 @@ const portfolio = {
   label: 'Портфолио',
   label_singular: 'кейс',
   folder: 'content/portfolio',
+  path: '{{slug}}/index',
   create: true,
   fields: [
     id,
@@ -34,7 +35,8 @@ const portfolio = {
     { label: categories[3], field: 'categories', pattern: categories[3] },
     { label: categories[4], field: 'categories', pattern: categories[4] },
     { label: categories[5], field: 'categories', pattern: categories[5] }
-  ]
+  ],
+  meta: { path: { widget: 'parent', label: 'Папка', index_file: 'index' } }
 }
 
 export default portfolio

@@ -11,11 +11,14 @@
     </div>
     <div class="banner-logo__bottom">
       <h2 class="banner-logo__subtitle">{{ content.subtitle }}</h2>
-      <div class="banner-logo__description">
-        <p>
-          {{ content.description }}
-        </p>
-      </div>
+      <div
+        class="banner-logo__description"
+        :style="{
+          backgroundColor: content.color,
+          boxShadow: $boxShadow(content.color)
+        }"
+        v-html="content.description"
+      ></div>
     </div>
   </div>
 </template>

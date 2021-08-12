@@ -3,9 +3,7 @@
     <span class="stages__number">{{ num }}</span>
     <details class="stages__spoiler">
       <summary>{{ title }}</summary>
-      <p class="stages__description">
-        {{ description }}
-      </p>
+      <div class="stages__description" v-html="description"></div>
     </details>
   </div>
 </template>

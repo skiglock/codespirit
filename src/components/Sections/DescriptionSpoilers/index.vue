@@ -2,9 +2,10 @@
   <div class="description-spoilers">
     <div class="description-spoilers__left">
       <h1 class="description-spoilers__title">{{ content.title }}</h1>
-      <p class="description-spoilers__description">
-        {{ content.description }}
-      </p>
+      <div
+        class="description-spoilers__description"
+        v-html="content.description"
+      ></div>
     </div>
     <div class="description-spoilers__right">
       <description-spoiler

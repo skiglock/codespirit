@@ -76,8 +76,7 @@ export default {
     font-size: 30px;
     color: #fff;
     border-radius: 30px;
-    background-color: $red_color;
-    box-shadow: 5px 8px 0px rgba($red_color, 0.6);
+    @include background-with-shadow($red_color);
     padding-top: 3px;
     padding-left: 37px;
     padding-right: 13px;

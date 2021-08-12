@@ -2,13 +2,35 @@
   <Layout :title="mainPage.title">
     <components
       :is="section.type"
-      v-for="section in mainPage.sections"
+      v-for="section in getMainPageSections"
       :key="section.id"
       :content="section"
       :path="mainPage.path"
     />
   </Layout>
 </template>
+
+<script>
+import sanitizeSections from '@/utils/sanitizeSections'
+import sections from '@/mixins/sections'
+import { link } from '../../content/settings/main.yaml'
+export default {
+  mixins: [sections],
+  computed: {
+    getMainPageId() {
+      return link
+    },
+    mainPage() {
+      return this.$static.allPages.edges.find(
+        ({ node }) => node.id === this.getMainPageId
+      ).node
+    },
+    getMainPageSections() {
+      return sanitizeSections(this.mainPage.sections)
+    }
+  }
+}
+</script>
 
 <static-query>
 {
@@ -31,6 +53,7 @@
           ...ourPortfolio
           ...service
           ...stages
+          ...word
         }
       }
     }
@@ -42,6 +65,7 @@ fragment bannerLogo on Sections {
   type
   img
   title
+  color
   subtitle
   description
 }
@@ -81,7 +105,6 @@ fragment needed on Sections {
   type
   color
   title
-  color
   color_first
   subtitle
   color_second
@@ -111,7 +134,6 @@ fragment orderAnother on Sections {
   type
   color
   title
-  title
   button {
     title
     color_first
@@ -123,7 +145,6 @@ fragment order on Sections {
   id
   type
   color
-  title
   title
   description
   button {
@@ -138,12 +159,20 @@ fragment other on Sections {
   type
   title
   color
+  link_list {
+    id
+    link
+  }
 }
 
 fragment ourPortfolio on Sections {
   id
   type
   title
+  link_list {
+    id
+    link
+  }
 }
 
 fragment service on Sections {
@@ -170,25 +199,9 @@ fragment stages on Sections {
     description
   }
 }
-</static-query>
-
-<script>
-import sections from '@/mixins/sections'
-import { link } from '../../content/settings/main.yaml'
-export default {
-  mixins: [sections],
-  computed: {
-    getMainPageId() {
-      return link
-    },
-    mainPage() {
-      return this.$static.allPages.edges.find(
-        ({ node }) => node.id === this.getMainPageId
-      ).node
-    }
-  },
-  mounted() {
-    console.log(this.mainPage.sections)
-  }
+fragment word on Sections {
+  id
+  type
+  description
 }
-</script>
+</static-query>

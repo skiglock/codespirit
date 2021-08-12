@@ -1,12 +1,17 @@
 <template>
-  <div class="description-image description-image--row">
+  <div
+    class="description-image"
+    :class="[
+      content.position ? `description-image--${content.position}` : '',
+      content.reverse ? 'description-image--reverse' : ''
+    ]"
+  >
     <g-image
       :src="$imagePath('pages', path, content.img)"
       :alt="content.description"
     />
-    <p>
-      {{ content.description }}
-    </p>
+    <div v-html="content.description"></div>
+    <p></p>
   </div>
 </template>
 

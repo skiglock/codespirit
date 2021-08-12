@@ -24,6 +24,12 @@ module.exports = (api) => {
       reverse: Boolean
       items: [item]
       variant: Boolean
+      link_list: [Link]
+    }
+
+    type Link {
+      id: ID!
+      link: String
     }
 
     type Button {

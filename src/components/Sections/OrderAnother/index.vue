@@ -1,5 +1,11 @@
 <template>
-  <div class="order-another" :style="{ backgroundColor: content.color }">
+  <div
+    class="order-another"
+    :style="{
+      backgroundColor: content.color,
+      boxShadow: $boxShadow(content.color)
+    }"
+  >
     <div class="order-another__left">
       <form class="form" action="">
         <div class="form__group">

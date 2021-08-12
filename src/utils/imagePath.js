@@ -1,6 +1,8 @@
-export const imagePath = (folder, subFolder, imagePath) => {
+const imagePath = (folder, subFolder, imagePath = '') => {
   return require('!!assets-loader!../../content/' +
     folder +
-    subFolder +
+    subFolder.replace('/portfolio', '') +
     imagePath)
 }
+
+export default imagePath

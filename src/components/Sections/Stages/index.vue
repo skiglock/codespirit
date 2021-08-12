@@ -1,5 +1,11 @@
 <template>
-  <div class="stages">
+  <div
+    class="stages"
+    :style="{
+      backgroundColor: content.color,
+      boxShadow: $boxShadow(content.color)
+    }"
+  >
     <div class="stages__left">
       <div class="stages__img">
         <g-image

@@ -3,7 +3,10 @@
     <h1 class="hashtag-logo__title"><span>#</span>{{ content.title }}</h1>
     <div
       class="hashtag-logo__description"
-      :style="{ backgroundColor: content.color }"
+      :style="{
+        backgroundColor: content.color,
+        boxShadow: $boxShadow(content.color)
+      }"
     >
       <p>{{ content.subtitle }}</p>
     </div>

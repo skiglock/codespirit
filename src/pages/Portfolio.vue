@@ -27,3 +27,22 @@
   }
 }
 </static-query>
+
+<style lang="scss">
+.portfolio {
+  &-nav {
+    display: none;
+  }
+  &__works {
+    display: grid;
+    gap: 20px;
+    @media screen and (min-width: $small-mobile-width) {
+      grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
+    }
+    @media screen and (min-width: $tablet-width) {
+      gap: 30px;
+      grid-template-columns: auto;
+    }
+  }
+}
+</style>

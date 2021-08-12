@@ -24,6 +24,7 @@
     }
   }
   &__right {
+    align-self: center;
     padding: 15px;
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
     @media screen and (min-width: $small-mobile-width) {
