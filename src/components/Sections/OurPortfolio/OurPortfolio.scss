@@ -1,7 +1,8 @@
 .our-portfolio {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 410px));
+  justify-content: center;
   &__work {
     min-height: 230px;
     border-radius: 30px;
