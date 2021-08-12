@@ -3,51 +3,78 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   &__work {
-    min-height: 200px;
+    min-height: 230px;
     border-radius: 30px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     display: grid;
-    grid-template-columns: 1.5fr 2fr;
+    grid-template-columns: 1.8fr 1.5fr;
     padding: 15px;
-    column-gap: 25px;
-    row-gap: 5px;
+    row-gap: 15px;
+    @media screen and (min-width: $mobile-width) {
+      grid-template-columns: 1.4fr 1.5fr;
+    }
     @media screen and (min-width: $tablet-width) {
+      column-gap: 18px;
       padding: 20px;
     }
   }
   &__title {
-    font-size: 16px;
+    grid-row: span 1;
+    grid-column: span 2;
+    text-align: center;
+    font-size: 18px;
     align-self: end;
-    text-align: inherit;
     @media screen and (min-width: $tablet-width) {
-      font-size: 20px;
+      text-align: left;
+      grid-row: inherit;
+      grid-column: inherit;
     }
   }
   &__categories {
+    grid-column: span 2;
+    grid-row: 2;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    list-style: none;
     align-items: center;
-    justify-items: start;
+    justify-items: center;
     gap: 3px;
+    @media screen and (min-width: $tablet-width) {
+      grid-row: inherit;
+      grid-column: inherit;
+      justify-items: start;
+    }
   }
   &__category {
     font-size: 13px;
+    display: none;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 12px;
+    }
+    @media screen and (min-width: $tablet-width) {
+      display: block;
+      font-size: 13px;
+    }
   }
   &__button {
+    grid-column: 2;
+    grid-row: 3;
     align-self: end;
+    @media screen and (min-width: $tablet-width) {
+      grid-row: inherit;
+      grid-column: inherit;
+    }
   }
   &__img {
+    grid-row: 2;
+    grid-column: span 2;
     align-self: center;
-    max-width: 180px;
-    grid-column: span 1;
-    grid-row: span 3;
-    box-shadow: none;
+    justify-self: center;
+    max-width: 220px;
     border: 1px solid #e5e5e5;
-    border-radius: 50%;
-    img {
-      border-radius: 50%;
+    @media screen and (min-width: $tablet-width) {
+      grid-column: span 1;
+      grid-row: span 3;
     }
   }
 }

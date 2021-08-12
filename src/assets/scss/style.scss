@@ -87,12 +87,6 @@ img {
 }
 
 .work {
-  @media screen and (min-width: $tablet-width) {
-    display: grid;
-    grid-template-columns: 1.4fr 2fr;
-    gap: 30px;
-  }
-
   &__left {
     align-self: center;
     border-radius: 20px;
@@ -112,31 +106,21 @@ img {
   }
   &__title {
     color: #252525;
-    text-align: center;
-    font-size: 23px;
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
   }
   &__categories {
-    display: none;
-    @media screen and (min-width: $tablet-width) {
-      display: grid;
-      color: #252525;
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
-      gap: 5px;
-      justify-items: center;
-    }
+    color: #252525;
+    list-style: none;
   }
   &__category {
-    font-size: 10px;
+    list-style: none;
   }
   &__img {
-    box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
-    border-radius: 20px;
-
-    img {
-      border-radius: 20px;
+    &--circle {
+      border-radius: 50%;
+      img {
+        border-radius: 50%;
+      }
     }
     &--mobile {
       justify-self: center;

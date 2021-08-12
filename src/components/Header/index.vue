@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__wrapper">
       <div class="header__logo">
-        <img src="@/assets/img/logotype.png" alt="Codespirit" />
+        <g-image src="@/assets/img/logotype.png" alt="Codespirit" />
       </div>
       <header-nav />
       <button
