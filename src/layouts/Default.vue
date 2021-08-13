@@ -2,14 +2,15 @@
   <section class="content">
     <div class="content__wrapper">
       <header class="content__header">
+        <!-- Skeleton Loading -->
         <h1
           v-if="skeleton.isLoading"
           :style="{ paddingTop: '7px', paddingBottom: '7px' }"
           class="content__title"
         >
-          <skeleton class="content__title" :width="150" :height="30"></skeleton>
+          <skeleton-loader width="150px" height="30px" />
         </h1>
-
+        <!----------------------->
         <h1 v-else class="content__title">{{ title }}</h1>
       </header>
       <div class="content__body">

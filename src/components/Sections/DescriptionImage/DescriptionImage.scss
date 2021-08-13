@@ -1,6 +1,6 @@
 .description-image {
   display: grid;
-  p {
+  &__description {
     color: #313131;
     font-size: 14px;
     @media screen and (min-width: $small-mobile-width) {
@@ -32,7 +32,7 @@
   &--reverse {
     grid-auto-flow: dense;
     direction: rtl;
-    p {
+    .description-image__description {
       text-align: left;
     }
   }
@@ -43,8 +43,8 @@
       width: 70%;
       box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     }
-    p {
-      margin-top: 2%;
+    .description-image__description {
+      margin-top: 1%;
       text-align: right;
       @media screen and (min-width: $mobile-width) {
         margin-left: 15%;

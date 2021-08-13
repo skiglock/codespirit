@@ -1,11 +1,5 @@
 <template>
-  <loading-service
-    :first-color="content.color_first"
-    :second-color="content.color_second"
-    :variant="content.variant"
-    v-if="skeleton.isLoading"
-  />
-  <div v-else class="service" :class="content.variant ? 'service--custom' : ''">
+  <div class="service" :class="content.variant ? 'service--custom' : ''">
     <div
       class="service__name"
       :style="{
@@ -14,7 +8,8 @@
       }"
     >
       <span class="service__number" v-if="!content.variant"> 1 </span>
-      <h2 class="service__title">{{ content.title }}</h2>
+      <skeleton-loader v-if="skeleton.isLoading" width="100%" height="25px" />
+      <h2 v-else class="service__title">{{ content.title }}</h2>
     </div>
     <div
       class="service__description"
@@ -29,10 +24,28 @@
           :alt="content.title"
         />
       </div>
-      <h3 class="service__description-title" v-if="!content.variant">
+      <skeleton-loader
+        v-if="skeleton.isLoading"
+        class="service__description-title"
+        width="60%"
+      />
+      <h3
+        class="service__description-title"
+        v-if="!content.variant && !skeleton.isLoading"
+      >
         {{ content.title }}
       </h3>
-      <p class="service__description-text">
+      <div v-if="skeleton.isLoading" class="service__description-text">
+        <skeleton-loader
+          v-for="item in 5"
+          :key="item"
+          width="80%"
+          height="10px"
+          between="5px"
+        />
+      </div>
+
+      <p v-else class="service__description-text">
         {{ content.description }}
       </p>
       <button
@@ -45,13 +58,9 @@
 </template>
 
 <script>
-import LoadingService from './LoadingService'
 export default {
   name: 'Service',
   inject: ['skeleton'],
-  components: {
-    LoadingService
-  },
   props: {
     content: Object,
     path: String
