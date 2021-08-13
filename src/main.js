@@ -1,6 +1,7 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import imagePath from './utils/imagePath'
 import boxShadow from './utils/boxShadow'
+import VueSkeletonLoader from 'skeleton-loader-vue'
 
 // Fonts
 import HebarExtraLightNormal from '@/assets/fonts/HebarExtraLight-Normal.woff2'
@@ -11,6 +12,8 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
   Vue.prototype.$imagePath = imagePath
   Vue.prototype.$boxShadow = boxShadow
+  Vue.component('skeleton', VueSkeletonLoader)
+
   // Head
   head.htmlAttrs = { lang: 'ru' }
   head.link.push({

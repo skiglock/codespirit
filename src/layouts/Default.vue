@@ -2,7 +2,15 @@
   <section class="content">
     <div class="content__wrapper">
       <header class="content__header">
-        <h1 class="content__title">{{ title }}</h1>
+        <h1
+          v-if="skeleton.isLoading"
+          :style="{ paddingTop: '7px', paddingBottom: '7px' }"
+          class="content__title"
+        >
+          <skeleton class="content__title" :width="150" :height="30"></skeleton>
+        </h1>
+
+        <h1 v-else class="content__title">{{ title }}</h1>
       </header>
       <div class="content__body">
         <slot />
@@ -21,6 +29,7 @@ query {
 
 <script>
 export default {
+  inject: ['skeleton'],
   props: {
     title: String
   }

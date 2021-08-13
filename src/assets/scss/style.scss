@@ -208,3 +208,9 @@ img {
     color: #fff;
   }
 }
+
+.skeleton-loading {
+  &::after {
+    background-color: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
+  }
+}

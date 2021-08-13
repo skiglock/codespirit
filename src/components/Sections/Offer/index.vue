@@ -1,5 +1,7 @@
 <template>
+  <loading-offer v-if="skeleton.isLoading" />
   <div
+    v-else
     class="offer"
     :style="{
       backgroundColor: content.color,
@@ -23,8 +25,13 @@
 </template>
 
 <script>
+import LoadingOffer from './LoadingOffer'
 export default {
   name: 'Offer',
+  inject: ['skeleton'],
+  components: {
+    LoadingOffer
+  },
   props: {
     content: Object
   }

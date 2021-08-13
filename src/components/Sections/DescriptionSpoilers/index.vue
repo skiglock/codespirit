@@ -1,5 +1,9 @@
 <template>
-  <div class="description-spoilers">
+  <loading-description-spoilers
+    :spoilersLength="content.spoilers.length"
+    v-if="skeleton.isLoading"
+  />
+  <div v-else class="description-spoilers">
     <div class="description-spoilers__left">
       <h1 class="description-spoilers__title">{{ content.title }}</h1>
       <div
@@ -20,11 +24,14 @@
 
 <script>
 import DescriptionSpoiler from './DescriptionSpoiler'
+import LoadingDescriptionSpoilers from './LoadingDescriptionSpoilers'
 export default {
   name: 'DescriptionSpoilers',
   components: {
-    DescriptionSpoiler
+    DescriptionSpoiler,
+    LoadingDescriptionSpoilers
   },
+  inject: ['skeleton'],
   props: {
     content: Object,
     path: String

@@ -13,9 +13,33 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
+  provide() {
+    const skeleton = {}
+    Object.defineProperty(skeleton, 'isLoading', {
+      enumerable: true,
+      get: () => this.isLoading
+    })
+    return { skeleton }
+  },
+  data() {
+    return {
+      isLoading: false
+    }
+  },
   components: {
     Header,
     Footer
+  },
+  methods: {
+    setLoading() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+      }, 1000)
+    }
+  },
+  mounted() {
+    this.setLoading()
   }
 }
 </script>

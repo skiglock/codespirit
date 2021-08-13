@@ -1,12 +1,12 @@
 <template>
   <nav
     class="nav"
-    :class="navOpen ? 'nav--opened' : ''"
+    :class="navOpened ? 'nav--opened' : ''"
     aria-label="Основное меню"
     itemscope
     itemtype="http://www.schema.org/SiteNavigationElement"
   >
-    <button @click="navOpen = !navOpen" class="nav__burger" type="button">
+    <button @click="navOpened = !navOpened" class="nav__burger" type="button">
       Открыть меню
     </button>
     <div class="nav__wrapper">
@@ -33,7 +33,7 @@ export default {
   name: 'HeaderNav',
   data() {
     return {
-      navOpen: false
+      navOpened: false
     }
   }
 }
@@ -42,12 +42,17 @@ export default {
 <style lang="scss">
 .nav {
   position: relative;
+  &__wrapper {
+    transition: transform 0.5s ease;
+  }
   &--opened {
     .nav__wrapper {
+      width: 200px;
       position: fixed;
       top: 0;
       right: 0;
-      left: 45%;
+      left: 100%;
+      bottom: 0;
       background-color: #f7f7f7;
       height: 100%;
       z-index: 30;
@@ -57,10 +62,14 @@ export default {
       padding-left: 35px;
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
       @media screen and (min-width: $small-mobile-width) {
-        left: 55%;
+        width: 230px;
       }
       @media screen and (min-width: $mobile-width) {
+        width: auto;
+        transform: inherit;
         position: sticky;
         padding: 0;
         border: 0;
@@ -81,6 +90,7 @@ export default {
       }
     }
     .nav__burger {
+      animation: fadeIn 0.5s;
       display: block;
       z-index: 31;
       position: absolute;
@@ -92,16 +102,14 @@ export default {
       bottom: 0;
       border: 1px solid #252525;
       border-radius: 50%;
-      transition: 0.2s linear;
-      &:hover,
-      &:active {
-        border: 1px solid #f7f7f7;
-        background-color: #252525;
-        &::before,
-        &::after {
-          background-color: #fff;
-        }
-      }
+      // &:hover {
+      //   border: 1px solid #f7f7f7;
+      //   background-color: #252525;
+      //   &::before,
+      //   &::after {
+      //     background-color: #fff;
+      //   }
+      // }
       &::before {
         box-shadow: none;
         transform: rotate(45deg);

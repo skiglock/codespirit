@@ -1,5 +1,6 @@
 <template>
-  <div class="hashtag-logo">
+  <loading-hashtag-logo :color="content.color" v-if="skeleton.isLoading" />
+  <div v-else class="hashtag-logo">
     <h1 class="hashtag-logo__title"><span>#</span>{{ content.title }}</h1>
     <div
       class="hashtag-logo__description"
@@ -14,8 +15,11 @@
 </template>
 
 <script>
+import LoadingHashtagLogo from './LoadingHashtagLogo'
 export default {
   name: 'HashtagLogo',
+  components: { LoadingHashtagLogo },
+  inject: ['skeleton'],
   props: {
     content: Object
   }

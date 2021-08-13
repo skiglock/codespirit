@@ -1,5 +1,11 @@
 <template>
-  <div class="service" :class="content.variant ? 'service--custom' : ''">
+  <loading-service
+    :first-color="content.color_first"
+    :second-color="content.color_second"
+    :variant="content.variant"
+    v-if="skeleton.isLoading"
+  />
+  <div v-else class="service" :class="content.variant ? 'service--custom' : ''">
     <div
       class="service__name"
       :style="{
@@ -39,8 +45,13 @@
 </template>
 
 <script>
+import LoadingService from './LoadingService'
 export default {
   name: 'Service',
+  inject: ['skeleton'],
+  components: {
+    LoadingService
+  },
   props: {
     content: Object,
     path: String

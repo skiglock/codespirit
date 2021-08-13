@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <div class="header__wrapper">
-      <div class="header__logo">
+      <g-link to="/" class="header__logo">
         <g-image src="@/assets/img/logotype.png" alt="Codespirit" />
-      </div>
+      </g-link>
       <header-nav />
       <button
         class="header__button button button--primary button--medium"
