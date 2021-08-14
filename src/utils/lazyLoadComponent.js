@@ -15,10 +15,11 @@ export default function lazyLoadComponent({
           componentFactory().then(resolveComponent)
           return
         }
+
         const observer = new IntersectionObserver((entries) => {
           if (entries[0].intersectionRatio <= 0) return
           observer.unobserve(this.$el)
-          setTimeout(() => componentFactory().then(resolveComponent), 1000)
+          componentFactory().then(resolveComponent)
         })
         observer.observe(this.$el)
       },

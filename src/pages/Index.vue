@@ -1,12 +1,14 @@
 <template>
   <Layout :title="mainPage.title">
-    <components
-      :is="section.type"
-      v-for="section in getMainPageSections"
-      :key="section.id"
-      :content="section"
-      :path="mainPage.path"
-    />
+    <ClientOnly>
+      <components
+        :is="section.type"
+        v-for="section in getMainPageSections"
+        :key="section.id"
+        :content="section"
+        :path="mainPage.path"
+      />
+    </ClientOnly>
   </Layout>
 </template>
 
