@@ -8,7 +8,7 @@ export default {
   props: {
     width: String,
     height: String,
-    border: String,
+    radius: String,
     color: String,
     between: String
   },
@@ -17,8 +17,8 @@ export default {
       return {
         width: this.width,
         height: this.height,
-        border: this.border,
-        backgroundColor: this.color,
+        borderRadius: this.radius,
+        backgroundColor: this.color === 'gray' ? '#c5c5c5' : this.color,
         '--between': this.between
       }
     }
@@ -34,9 +34,9 @@ export default {
   position: relative;
   overflow: hidden;
   cursor: wait;
-  width: fit-content;
-  height: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.12);
   &::before {
     content: '';
     display: block;
