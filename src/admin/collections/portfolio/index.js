@@ -3,7 +3,7 @@ import date from '../fields/date'
 import published from '../fields/published'
 import img from '../fields/img'
 import title from '../fields/title'
-import sections from '../sections'
+import description from '../fields/description'
 import categories from './categories'
 
 const portfolio = {
@@ -26,7 +26,7 @@ const portfolio = {
       multiple: true,
       options: categories
     },
-    sections
+    description
   ],
   view_filters: [
     { label: categories[0], field: 'categories', pattern: categories[0] },

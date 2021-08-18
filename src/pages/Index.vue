@@ -34,19 +34,21 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes zoom {
+@keyframes Fade {
   0% {
-    transform: translate3d(0, 0, 0) scale(0.8);
+    opacity: 0;
+    transform: translateY(1rem);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .enter {
-  animation-duration: 0.8s;
+  animation-duration: 0.7s;
   animation-fill-mode: both;
-  animation-name: zoom;
+  animation-name: Fade;
 }
 </style>
 <static-query>

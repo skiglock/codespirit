@@ -28,12 +28,33 @@ img {
   height: auto;
 }
 
+details[open] summary ~ * {
+  animation: open 0.3s linear;
+}
+
+@keyframes open {
+  0% {
+    filter: blur(2px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+.skeleton-loading {
+  &::after {
+    background-color: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
+  }
+}
+
 .work {
   &__left {
     align-self: center;
     border-radius: 20px;
     background-color: #fff;
-    box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     padding: 20px 10px 15px;
     display: grid;
     gap: 10px;
@@ -44,6 +65,7 @@ img {
     }
   }
   &__right {
+    justify-self: center;
     align-self: center;
   }
   &__title {
@@ -101,58 +123,5 @@ img {
   }
   &__button {
     justify-self: end;
-  }
-}
-
-.form {
-  display: grid;
-  gap: 15px;
-  @media screen and (min-width: $tablet-width) {
-    gap: 10px;
-  }
-  &__group {
-    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
-    display: grid;
-    gap: 2px;
-  }
-  &__subgroup {
-    display: grid;
-    grid-auto-flow: row;
-    gap: 5px;
-  }
-  &__label {
-    color: #fff;
-    font-size: 14px;
-    text-shadow: 0px 0px 2px #252525;
-    margin-left: 5%;
-  }
-  &__text {
-    box-shadow: 0px 2px 2.67px 0.33px rgba(#252525, 0.2);
-    border: none;
-    outline: none;
-    max-width: 100%;
-    padding: 10px 15px;
-    border-radius: 20px;
-    &::placeholder {
-      color: #b9b8b8;
-    }
-    &--large {
-      min-height: 200px;
-    }
-  }
-  &__button {
-    @media screen and (min-width: $small-mobile-width) {
-      justify-self: center;
-    }
-  }
-  &__agree {
-    font-size: 10px;
-    color: #fff;
-  }
-}
-
-.skeleton-loading {
-  &::after {
-    background-color: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
   }
 }

@@ -12,92 +12,25 @@
       <a href="tel:+79000000000" class="order__phone">+7 900 000 00 00</a>
     </div>
     <div class="order__right">
-      <form class="order__form form" action="">
-        <div class="form__group form__group--column">
-          <div class="form__subgroup">
-            <label for="form-name" class="form__label">Имя</label>
-            <input
-              class="form__text"
-              aria-label="Имя"
-              type="text"
-              name="name"
-              id="form-name"
-              required
-              placeholder="Введите ваше имя"
-            />
-          </div>
-          <div class="form__subgroup">
-            <label for="form-phone" class="form__label">Телефон</label>
-            <input
-              class="form__text"
-              aria-label="Телефон"
-              type="tel"
-              name="phone"
-              id="form-phone"
-              required
-              placeholder="+7"
-            />
-          </div>
-        </div>
-        <div class="form__group">
-          <label for="form-mail" class="form__label">E-mail</label>
-          <input
-            class="form__text"
-            aria-label="Почта"
-            type="text"
-            name="mail"
-            id="form-mail"
-            required
-            placeholder="Введите email адрес"
-          />
-        </div>
-        <div class="form__group">
-          <label for="form-message" class="form__label"
-            >Расскажите о проекте</label
-          >
-          <textarea
-            class="form__text form__text--large"
-            aria-label="Сообщение"
-            type="text"
-            name="message"
-            id="form-message"
-            required
-          ></textarea>
-        </div>
-        <Button
-          @click.native="setModalSettings"
-          class="form__button"
-          type="button"
-          color="white"
-          size="large"
-        >
-          {{ content.button.title }}
-        </Button>
-        <span class="form__agree">
-          * Нажимая кнопку, вы даете согласие на обработку персональных данных
-        </span>
-      </form>
+      <Form
+        :title="content.title"
+        email
+        textarea
+        :buttonTitle="content.button.title"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/Base/Button'
-import { mapMutations } from 'vuex'
+import Form from '@/components/Base/Form'
 export default {
   name: 'Order',
   props: {
     content: Object
   },
-  methods: {
-    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
-    setModalSettings() {
-      this.setModalTitle(this.content.title)
-      this.setModalIsOpen(true)
-    }
-  },
   components: {
-    Button
+    Form
   }
 }
 </script>

@@ -43,8 +43,8 @@ sections:
   - type: ourPortfolio
     id: a27bd64f-3f6d-4f70-af30-12db324830a0
     link_list:
-      - id: 5df56627-7e21-4b94-8196-6b46bf5c81d5
-        link: 9c2e6b94-c63a-4465-9075-5659221a5c41
+      - id: 3c097c80-3738-454c-a88c-c49a9e2428a3
+        link: 19397816-efe4-4a77-9a08-332fdf433a44
   - type: order
     color: "#eb563a"
     title: Заголовок

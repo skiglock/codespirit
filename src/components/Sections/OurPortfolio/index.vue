@@ -13,7 +13,7 @@
 
 <static-query>
 {
-  allPortfolioCase {
+  allPortfolioCase(filter: { published: { eq: true } }) {
     edges {
       node {
         id
