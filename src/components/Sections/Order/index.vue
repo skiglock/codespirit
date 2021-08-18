@@ -64,12 +64,15 @@
             required
           ></textarea>
         </div>
-        <button
-          class="form__button button button--large button--white"
-          type="submit"
+        <Button
+          @click.native="setModalSettings"
+          class="form__button"
+          type="button"
+          color="white"
+          size="large"
         >
           {{ content.button.title }}
-        </button>
+        </Button>
         <span class="form__agree">
           * Нажимая кнопку, вы даете согласие на обработку персональных данных
         </span>
@@ -79,10 +82,22 @@
 </template>
 
 <script>
+import Button from '@/components/Base/Button'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Order',
   props: {
     content: Object
+  },
+  methods: {
+    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    setModalSettings() {
+      this.setModalTitle(this.content.title)
+      this.setModalIsOpen(true)
+    }
+  },
+  components: {
+    Button
   }
 }
 </script>

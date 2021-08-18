@@ -9,7 +9,7 @@
     <div class="stages__left">
       <div class="stages__img">
         <g-image
-          :src="$imagePath('pages', path, content.img)"
+          :src="content.img ? $imagePath('pages', path, content.img) : ''"
           :alt="content.title"
         />
       </div>

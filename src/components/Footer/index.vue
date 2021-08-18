@@ -3,12 +3,15 @@
     <div class="footer__wrapper">
       <div class="footer__promo">
         <h2 class="footer__title">Ждем вас!</h2>
-        <button
-          class="footer__button button button--large button--primary"
+        <Button
+          @click.native="setModalSettings"
+          color="primary"
+          size="large"
+          class="footer__button"
           type="button"
         >
           Оставить заявку
-        </button>
+        </Button>
       </div>
       <div class="footer__info">
         <div class="footer__contacts">
@@ -56,8 +59,20 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import Button from '@/components/Base/Button'
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  components: {
+    Button
+  },
+  methods: {
+    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    setModalSettings() {
+      this.setModalTitle('Мы все еще ждем вас!')
+      this.setModalIsOpen(true)
+    }
+  }
 }
 </script>
 

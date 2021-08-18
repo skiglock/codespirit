@@ -19,7 +19,7 @@
     >
       <div class="service__description-img" v-if="!content.variant">
         <g-image
-          :src="$imagePath('pages', path, content.img)"
+          :src="content.img ? $imagePath('pages', path, content.img) : ''"
           :alt="content.title"
         />
       </div>
@@ -29,21 +29,48 @@
       <p class="service__description-text">
         {{ content.description }}
       </p>
-      <button
-        class="service__description-button button button--primary button--small"
+      <Button
+        class="service__description-button"
+        :href="findLink"
+        color="primary"
+        size="small"
       >
         Посмотреть
-      </button>
+      </Button>
     </div>
   </div>
 </template>
 
+<static-query>
+{
+  allPages {
+    edges {
+      node {
+        id
+        path
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
+import Button from '@/components/Base/Button'
 export default {
   name: 'Service',
   props: {
     content: Object,
     path: String
+  },
+  components: {
+    Button
+  },
+  computed: {
+    findLink() {
+      return this.$static.allPages.edges.find(
+        (edge) => edge.node.id === this.content.link
+      ).node.path
+    }
   }
 }
 </script>

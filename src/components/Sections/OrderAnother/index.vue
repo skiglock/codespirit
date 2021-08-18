@@ -32,12 +32,9 @@
             placeholder="Телефон"
           />
         </div>
-        <button
-          class="form__button button button--large button--yellow"
-          type="submit"
-        >
+        <Button class="form__button" type="button" color="yellow" size="large">
           {{ content.button.title }}
-        </button>
+        </Button>
         <span class="form__agree">
           * Нажимая кнопку <u>Оставить заявку</u>, вы даете согласие на
           обработку персональных данных
@@ -56,10 +53,14 @@
 </template>
 
 <script>
+import Button from '@/components/Base/Button'
 export default {
   name: 'OrderAnother',
   props: {
     content: Object
+  },
+  components: {
+    Button
   }
 }
 </script>

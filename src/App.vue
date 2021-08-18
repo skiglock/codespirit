@@ -5,41 +5,30 @@
       <router-view />
     </main>
     <Footer />
+    <Modal v-show="getModalIsOpen" @close="setModalSettings" />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
+import Modal from '@/components/Base/Modal'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-  provide() {
-    const skeleton = {}
-    Object.defineProperty(skeleton, 'isLoading', {
-      enumerable: true,
-      get: () => this.isLoading
-    })
-    return { skeleton }
-  },
-  data() {
-    return {
-      isLoading: false
-    }
-  },
   components: {
     Header,
-    Footer
+    Footer,
+    Modal
   },
   methods: {
-    setLoading() {
-      this.isLoading = true
-      setTimeout(() => {
-        this.isLoading = false
-      }, 1500)
+    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    setModalSettings() {
+      this.setModalTitle('')
+      this.setModalIsOpen(false)
     }
   },
-  mounted() {
-    this.setLoading()
+  computed: {
+    ...mapGetters('modal', ['getModalIsOpen'])
   }
 }
 </script>

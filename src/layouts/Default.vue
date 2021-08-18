@@ -2,16 +2,7 @@
   <section class="content">
     <div class="content__wrapper">
       <header class="content__header">
-        <!-- Skeleton Loading -->
-        <h1
-          v-if="skeleton.isLoading"
-          :style="{ paddingTop: '7px', paddingBottom: '7px' }"
-          class="content__title"
-        >
-          <skeleton-loader width="150px" height="30px" />
-        </h1>
-        <!----------------------->
-        <h1 v-else class="content__title">{{ title }}</h1>
+        <h1 class="content__title">{{ title }}</h1>
       </header>
       <div class="content__body">
         <slot />
@@ -30,7 +21,6 @@ query {
 
 <script>
 export default {
-  inject: ['skeleton'],
   props: {
     title: String
   }
@@ -72,13 +62,7 @@ export default {
   }
   &__body {
     display: grid;
-    gap: 2em;
-    @media screen and (min-width: $mobile-width) {
-      gap: 3em;
-    }
-    @media screen and (min-width: $tablet-width) {
-      gap: 4em;
-    }
+    gap: 5em;
   }
   &__title {
     font-family: 'OksFree', sans-serif;

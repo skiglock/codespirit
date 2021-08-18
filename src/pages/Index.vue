@@ -1,14 +1,13 @@
 <template>
   <Layout :title="mainPage.title">
-    <ClientOnly>
-      <components
-        :is="section.type"
-        v-for="section in getMainPageSections"
-        :key="section.id"
-        :content="section"
-        :path="mainPage.path"
-      />
-    </ClientOnly>
+    <component
+      v-animate="'enter'"
+      v-for="section in getMainPageSections"
+      :key="section.id"
+      :is="section.type"
+      :content="section"
+      :path="mainPage.path"
+    />
   </Layout>
 </template>
 
@@ -34,6 +33,22 @@ export default {
 }
 </script>
 
+<style lang="scss">
+@keyframes zoom {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.8);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.enter {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-name: zoom;
+}
+</style>
 <static-query>
 {
   allPages {

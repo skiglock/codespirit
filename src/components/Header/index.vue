@@ -5,22 +5,36 @@
         <g-image src="@/assets/img/logotype.png" alt="Codespirit" />
       </g-link>
       <header-nav />
-      <button
-        class="header__button button button--primary button--medium"
+      <Button
+        @click.native="setModalSettings"
+        color="primary"
+        size="medium"
+        class="header__button"
         type="button"
       >
         Связаться
-      </button>
+      </Button>
     </div>
   </header>
 </template>
 
 <script>
-import HeaderNav from './HeaderNav.vue'
+import HeaderNav from './HeaderNav'
+import Button from '@/components/Base/Button'
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Header',
   components: {
-    HeaderNav
+    HeaderNav,
+    Button
+  },
+  methods: {
+    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    setModalSettings() {
+      this.setModalTitle('Связаться с командой Codespirit')
+      this.setModalIsOpen(true)
+    }
   }
 }
 </script>

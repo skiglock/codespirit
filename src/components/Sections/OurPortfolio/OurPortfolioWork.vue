@@ -13,25 +13,29 @@
         <span>#{{ category.id }}</span>
       </li>
     </ul>
-    <button
-      class="
-        our-portfolio__button
-        work__button
-        button button--primary button--small
-      "
+    <Button
+      :href="link"
+      class="our-portfolio__button work__button"
+      color="primary"
+      size="small"
     >
       Открыть
-    </button>
+    </Button>
   </article>
 </template>
 
 <script>
+import Button from '@/components/Base/Button'
 export default {
   name: 'OurPortfolioWork',
   props: {
     title: String,
     img: Object,
-    categories: Array
+    categories: Array,
+    link: String
+  },
+  components: {
+    Button
   }
 }
 </script>

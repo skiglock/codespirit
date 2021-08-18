@@ -7,11 +7,17 @@
     }"
   >
     <h1 class="other__title">{{ content.title }}</h1>
-    <ul class="other__list">
-      <li class="other__item" v-for="{ node } in filterAllPages" :key="node.id">
-        <g-link class="other__link" :to="node.path">{{ node.title }}</g-link>
-      </li>
-    </ul>
+    <div class="other__links">
+      <Button
+        :href="node.path"
+        color="white"
+        size="small"
+        v-for="{ node } in filterAllPages"
+        :key="node.id"
+      >
+        {{ node.title }}
+      </Button>
+    </div>
   </div>
 </template>
 
@@ -30,10 +36,14 @@
 </static-query>
 
 <script>
+import Button from '@/components/Base/Button'
 export default {
   name: 'Other',
   props: {
     content: Object
+  },
+  components: {
+    Button
   },
   computed: {
     filterAllPages() {

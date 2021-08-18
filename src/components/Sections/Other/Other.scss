@@ -8,24 +8,9 @@
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
     color: #fff;
   }
-  &__list {
-    list-style: none;
+  &__links {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
-  }
-  &__item {
-    background-color: #f2f3f4;
-    border-radius: 30px;
-    padding: 5px 15px;
-    transition: 0.1s linear;
-    &:hover {
-      background-color: rgba(#f2f3f4, 0.9);
-    }
-  }
-  &__link {
-    color: #282828;
-    text-decoration: none;
-    font-size: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(152px, 152px));
   }
 }

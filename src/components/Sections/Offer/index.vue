@@ -13,21 +13,22 @@
     </div>
     <div class="offer__right">
       <h2 class="offer__price">от {{ content.price }}</h2>
-      <button
-        class="offer__button button button--large button--white"
-        type="button"
-      >
+      <Button class="offer__button" type="button" color="white" size="large">
         {{ content.button.title }}
-      </button>
+      </Button>
     </div>
   </div>
 </template>
 
 <script>
+import Button from '@/components/Base/Button'
 export default {
   name: 'Offer',
   props: {
     content: Object
+  },
+  components: {
+    Button
   }
 }
 </script>

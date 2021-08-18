@@ -6,6 +6,7 @@
       :title="node.title"
       :img="$imagePath('portfolio', node.path, node.img)"
       :categories="node.categories"
+      :link="node.path"
     />
   </div>
 </template>
