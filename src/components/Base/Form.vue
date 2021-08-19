@@ -266,10 +266,12 @@ export default {
     @media screen and (min-width: $small-mobile-width) {
       justify-self: center;
     }
+    width: 200px;
   }
   &__agree {
     font-size: 10px;
-    color: #fff;
+
+    color: #252525;
   }
   &__error {
     text-align: center;

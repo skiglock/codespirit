@@ -29,6 +29,11 @@ export default {
     getMainPageSections() {
       return sanitizeSections(this.mainPage.sections)
     }
+  },
+  metaInfo() {
+    return {
+      title: this.mainPage.title
+    }
   }
 }
 </script>

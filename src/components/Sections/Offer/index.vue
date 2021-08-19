@@ -13,7 +13,13 @@
     </div>
     <div class="offer__right">
       <h2 class="offer__price">от {{ content.price }}</h2>
-      <Button class="offer__button" type="button" color="white" size="large">
+      <Button
+        @click.native="setModalSettings"
+        class="offer__button"
+        type="button"
+        color="white"
+        size="large"
+      >
         {{ content.button.title }}
       </Button>
     </div>
@@ -21,6 +27,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import Button from '@/components/Base/Button'
 export default {
   name: 'Offer',
@@ -29,6 +36,13 @@ export default {
   },
   components: {
     Button
+  },
+  methods: {
+    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    setModalSettings() {
+      this.setModalTitle('Закажите Landing прямо сейчас!')
+      this.setModalIsOpen(true)
+    }
   }
 }
 </script>

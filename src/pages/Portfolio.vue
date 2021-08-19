@@ -73,6 +73,11 @@ import Work from '@/components/Base/Work'
 export default {
   components: {
     Work
+  },
+  metaInfo() {
+    return {
+      title: 'Портфолио'
+    }
   }
 }
 </script>
@@ -116,7 +121,7 @@ export default {
       box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     }
     &-category {
-      font-size: 11px;
+      font-size: 13px;
     }
     &-img {
       box-shadow: 0px 2px 3.76px 0.24px rgba(37, 37, 37, 0.35);

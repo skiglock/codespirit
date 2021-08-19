@@ -3,7 +3,7 @@
     <div class="our-portfolio__img work__img work__img--circle">
       <g-image :src="img" :alt="title" />
     </div>
-    <h4 class="our-portfolio__title work__title">{{ title }}</h4>
+    <h4 class="our-portfolio__name work__title">{{ title }}</h4>
     <ul class="our-portfolio__categories work__categories">
       <li
         class="our-portfolio__category work__category"

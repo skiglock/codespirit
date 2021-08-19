@@ -1,13 +1,16 @@
 <template>
   <div class="our-portfolio">
-    <our-portfolio-work
-      v-for="{ node } in filterAllPortfolioCase"
-      :key="node.id"
-      :title="node.title"
-      :img="$imagePath('portfolio', node.path, node.img)"
-      :categories="node.categories"
-      :link="node.path"
-    />
+    <h2 class="our-portfolio__title">{{ content.title }}</h2>
+    <div class="our-portfolio__list">
+      <our-portfolio-work
+        v-for="{ node } in filterAllPortfolioCase"
+        :key="node.id"
+        :title="node.title"
+        :img="$imagePath('portfolio', node.path, node.img)"
+        :categories="node.categories"
+        :link="node.path"
+      />
+    </div>
   </div>
 </template>
 

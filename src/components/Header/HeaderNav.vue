@@ -105,6 +105,15 @@ export default {
     background-color: #f7f7f7;
     z-index: 30;
     transition: transform 0.7s;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(37, 37, 37, 0.3);
+      backdrop-filter: blur(5px);
+    }
     .nav__close {
       position: absolute;
       top: 15px;

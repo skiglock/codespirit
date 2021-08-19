@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__wrapper">
       <div class="footer__promo">
-        <h2 class="footer__title">Ждем вас!</h2>
+        <h2 class="footer__title">Ждем вас! ❤️</h2>
         <Button
           @click.native="setModalSettings"
           color="primary"
@@ -90,7 +90,7 @@ export default {
   methods: {
     ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
     setModalSettings() {
-      this.setModalTitle('Мы все еще ждем вас!')
+      this.setModalTitle('Ваша идея, наше воплощение!')
       this.setModalIsOpen(true)
     }
   },

@@ -14,7 +14,7 @@ sections:
       целевого трафика и получение лидов."
     id: c495e668-b0ef-4cd7-a485-2f1cd0106801
   - type: stages
-    title: Этапы создания Landing-page
+    title: Этапы создания Landing страницы
     img: analytic.png
     color: "#e5e5e5"
     id: b60c192f-24d0-44a9-bd42-dc8eaa8eedd6
@@ -69,7 +69,10 @@ sections:
     id: 4ff5711c-017a-481e-932a-c4a9875442de
     link_list:
       - id: ade2fc4e-12d7-4394-ac06-6510e10b9034
-        link: 19397816-efe4-4a77-9a08-332fdf433a44
+        link: 82e467b8-2690-4a05-b04b-2a7ef7af2ae4
+      - id: 562803c6-6d43-4685-851a-a8275e117c1e
+        link: 6da0d64b-c488-4323-92a2-dbcd06eb84e7
+    title: Наше портфолио
   - type: other
     title: Также предлагаем
     color: "#afdbe0"

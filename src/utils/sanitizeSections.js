@@ -1,5 +1,9 @@
 import marked from 'marked'
 
+export const markedToHtml = (markdown) => {
+  return marked(markdown)
+}
+
 const sanitizeSections = (sections) => {
   return sections.map((section) => {
     switch (section.type) {

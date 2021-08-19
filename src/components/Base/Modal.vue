@@ -7,7 +7,9 @@
           class="modal__close"
           aria-label="Закрыть модальное окно"
         />
-        <h2 class="modal__title">{{ getModalTitle }}</h2>
+        <h2 class="modal__title">
+          <img src="@/assets/img/rocket.gif" />{{ getModalTitle }}
+        </h2>
         <Form textarea title="Модальное окно" />
       </div>
     </div>
@@ -45,8 +47,8 @@ export default {
   backdrop-filter: blur(5px);
   &__close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 18px;
+    right: 23px;
   }
   &__dialog {
     position: relative;
@@ -68,10 +70,17 @@ export default {
     }
   }
   &__title {
-    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    text-align: left;
+    align-items: center;
     color: #252525;
     font-size: 18px;
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
+    img {
+      justify-self: center;
+      width: 20px;
+    }
   }
 }
 </style>

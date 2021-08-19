@@ -20,6 +20,11 @@ export default {
     getFlexiblePageSections() {
       return sanitizeSections(this.$page.pages.sections)
     }
+  },
+  metaInfo() {
+    return {
+      title: this.$page.pages.title
+    }
   }
 }
 </script>

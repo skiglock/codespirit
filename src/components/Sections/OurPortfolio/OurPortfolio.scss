@@ -1,8 +1,17 @@
 .our-portfolio {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 410px));
-  justify-content: center;
+  &__title {
+    font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5%;
+    color: #252525;
+  }
+  &__list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 410px));
+    justify-content: center;
+  }
   &__work {
     min-height: 230px;
     border-radius: 30px;
@@ -20,7 +29,7 @@
       padding: 20px;
     }
   }
-  &__title {
+  &__name {
     grid-row: span 1;
     grid-column: span 2;
     text-align: center;
@@ -72,7 +81,11 @@
     align-self: center;
     justify-self: center;
     max-width: 220px;
+    height: 160px;
     border: 1px solid #e5e5e5;
+    img {
+      height: 100%;
+    }
     @media screen and (min-width: $tablet-width) {
       grid-column: span 1;
       grid-row: span 3;
