@@ -79,6 +79,8 @@
         {{ errors.message }}
       </p>
     </div>
+    <input type="hidden" name="from" v-model="formData.from" />
+    <input type="hidden" name="ref" v-model="formData.ref" />
     <Button type="submit" class="form__button" color="white" size="large">
       {{ buttonTitle }}
     </Button>
