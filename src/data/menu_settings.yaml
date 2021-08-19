@@ -1,0 +1,10 @@
+menu:
+  - title: Главная
+    id: 03bce95b-7e09-4f82-8026-58f14577b8f4
+    link: 9841f890-8115-4f17-85e8-795f9fffd065
+  - title: О нашей студии
+    id: 85729fa7-5cb1-43f1-88b1-f80b436dd68d
+    link: fc25a95b-13bc-4a72-8734-89c29a61e89a
+  - title: Контакты
+    id: 400141e1-45cd-4b06-a941-23bd0db6eaed
+    link: 1492cd72-e554-4491-83d1-6becc3c1569b

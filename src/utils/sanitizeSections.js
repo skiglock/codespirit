@@ -102,9 +102,10 @@ const sanitizeSections = (sections) => {
         return {
           id: section.id,
           type: section.type,
+          number: section.number,
           title: section.title,
           img: section.img,
-          description: section.description,
+          description: marked(section.description),
           color_first: section.color_first,
           color_second: section.color_second,
           link: section.link,

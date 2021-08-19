@@ -70,11 +70,11 @@ export default {
     text-align: center;
   }
   &--primary {
-    background-color: $red_color;
+    background-color: var(--main_color);
     color: #fff;
     font-weight: 100;
     &:hover {
-      background-color: rgba($red_color, 0.8);
+      background-color: var(--main_color_hover);
     }
     @media screen and (min-width: $desktop-width) {
       font-size: 18px;

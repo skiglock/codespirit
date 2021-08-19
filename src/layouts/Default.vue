@@ -7,6 +7,7 @@
       <div class="content__body">
         <slot />
       </div>
+      <back-button v-if="$route.path !== '/'" class="content__back-button" />
     </div>
   </section>
 </template>
@@ -20,9 +21,13 @@ query {
 </static-query>
 
 <script>
+import BackButton from '@/components/Base/BackButton'
 export default {
   props: {
     title: String
+  },
+  components: {
+    BackButton
   }
 }
 </script>
@@ -31,9 +36,8 @@ export default {
 .content {
   padding-bottom: 40px;
   &__wrapper {
-    min-height: 320px;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--content_color);
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 33px;
@@ -63,6 +67,9 @@ export default {
   &__body {
     display: grid;
     gap: 5em;
+    @media screen and (min-width: $desktop-width) {
+      gap: 2em;
+    }
   }
   &__title {
     font-family: 'OksFree', sans-serif;
@@ -70,7 +77,7 @@ export default {
     font-size: 30px;
     color: #fff;
     border-radius: 30px;
-    @include background-with-shadow($red_color);
+    @include background-with-shadow(var(--main_color));
     padding-top: 3px;
     padding-left: 37px;
     padding-right: 13px;
@@ -83,6 +90,10 @@ export default {
       letter-spacing: 1.3px;
       padding-left: 60px;
     }
+  }
+  &__back-button {
+    justify-self: start;
+    margin-top: 5%;
   }
 }
 </style>

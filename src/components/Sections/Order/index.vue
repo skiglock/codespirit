@@ -9,7 +9,9 @@
     <div class="order__left">
       <h1 class="order__title">{{ content.title }}</h1>
       <div class="order__description" v-html="content.description"></div>
-      <a href="tel:+79000000000" class="order__phone">+7 900 000 00 00</a>
+      <a :href="`tel:${getSiteMobile}`" class="order__phone">{{
+        getSiteMobile
+      }}</a>
     </div>
     <div class="order__right">
       <Form
@@ -31,6 +33,11 @@ export default {
   },
   components: {
     Form
+  },
+  computed: {
+    getSiteMobile() {
+      return this.$store.state.settings.appSettings.number
+    }
   }
 }
 </script>

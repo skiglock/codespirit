@@ -2,7 +2,12 @@
   <header class="header">
     <div class="header__wrapper">
       <g-link to="/" class="header__logo">
-        <g-image src="@/assets/img/logotype.png" alt="Codespirit" />
+        <g-image
+          :src="
+            require(`!!assets-loader!../../../static/${getLogotype.substr(1)}`)
+          "
+          alt="Codespirit"
+        />
       </g-link>
       <header-nav />
       <Button
@@ -28,6 +33,11 @@ export default {
   components: {
     HeaderNav,
     Button
+  },
+  computed: {
+    getLogotype() {
+      return this.$store.state.settings.appSettings.img
+    }
   },
   methods: {
     ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),

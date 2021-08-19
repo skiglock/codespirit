@@ -145,10 +145,10 @@
   }
   &--custom {
     &:nth-child(odd) {
-      margin-left: 10%;
+      margin-right: 10%;
     }
     &:nth-child(even) {
-      margin-right: 10%;
+      margin-left: 10%;
     }
     & + .service--custom {
       margin-top: 5%;

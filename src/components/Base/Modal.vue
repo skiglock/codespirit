@@ -2,7 +2,11 @@
   <transition name="fade">
     <div class="modal">
       <div class="modal__dialog">
-        <Close @click.native="$emit('close')" class="modal__close" />
+        <close-button
+          @click.native="$emit('close')"
+          class="modal__close"
+          aria-label="Закрыть модальное окно"
+        />
         <h2 class="modal__title">{{ getModalTitle }}</h2>
         <Form textarea title="Модальное окно" />
       </div>
@@ -11,31 +15,23 @@
 </template>
 
 <script>
-import Close from '@/components/Base/Close'
+import CloseButton from '@/components/Base/CloseButton'
 import Form from '@/components/Base/Form'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Modal',
   components: {
-    Close,
+    CloseButton,
     Form
   },
   computed: {
-    ...mapGetters('modal', ['getModalTitle'])
+    ...mapGetters('modal', ['getModalTitle', 'getModalIsOpen'])
   }
 }
 </script>
 
 <style lang="scss">
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 .modal {
   display: grid;
   justify-items: center;
@@ -59,9 +55,12 @@ export default {
     padding-top: 40px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 10px;
     box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
-    background-color: #fff;
+    background-color: #ffeab3;
     border-radius: 20px;
+    width: auto;
+    margin: 0 10px;
     @media screen and (min-width: $tablet-width) {
       padding-left: 40px;
       padding-right: 40px;

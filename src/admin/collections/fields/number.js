@@ -2,7 +2,8 @@ const number = {
   name: 'number',
   label: 'Номер',
   widget: 'number',
-  default: '+7900000000'
+  default: '123',
+  required: false
 }
 
 export default number

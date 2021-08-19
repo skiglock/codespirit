@@ -14,7 +14,9 @@
         {{ content.title }}
       </h1>
       <div class="order-another__phone">
-        <h2 class="order-another__number">+7 996 850 26 93</h2>
+        <h2 class="order-another__number">
+          <a :href="`tel:${getSiteMobile}`">{{ getSiteMobile }}</a>
+        </h2>
       </div>
     </div>
   </div>
@@ -29,6 +31,11 @@ export default {
   },
   components: {
     Form
+  },
+  computed: {
+    getSiteMobile() {
+      return this.$store.state.settings.appSettings.number
+    }
   }
 }
 </script>

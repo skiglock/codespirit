@@ -6,6 +6,7 @@ const spoilers = {
   name: 'spoilers',
   label: 'Спойлеры',
   widget: 'list',
+  summary: '{{title}}',
   fields: [id, title, description]
 }
 

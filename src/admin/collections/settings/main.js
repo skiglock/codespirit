@@ -8,7 +8,7 @@ import link from '../fields/link'
 const main = {
   name: 'main',
   label: 'Основные настройки',
-  file: 'content/settings/main.yaml',
+  file: 'src/data/main_settings.yaml',
   fields: [
     img('Логотип'),
     link('Главная страница', 'pages'),
@@ -18,6 +18,7 @@ const main = {
       name: 'socials',
       label: 'Социальные сети',
       widget: 'list',
+      summary: 'Соц. сеть',
       fields: [
         id,
         title,

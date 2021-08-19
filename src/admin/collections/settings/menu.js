@@ -5,10 +5,11 @@ import link from '../fields/link'
 const documents = {
   name: 'Меню',
   label: 'Меню',
-  file: 'content/settings/menu.yaml',
+  file: 'src/data/menu_settings.yaml',
   fields: [
     {
       name: 'menu',
+      summary: 'Меню',
       label: 'Меню',
       widget: 'list',
       fields: [id, title, link('Ссылка', 'pages')]

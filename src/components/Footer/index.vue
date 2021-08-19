@@ -15,16 +15,29 @@
       </div>
       <div class="footer__info">
         <div class="footer__contacts">
-          <a class="footer__contacts-item" href="tel:+79968502693">
-            +7 996 850 26 93
+          <a
+            class="footer__contacts-item"
+            :href="`tel:${getAppSettings.number}`"
+          >
+            {{ getAppSettings.number }}
           </a>
-          <a class="footer__contacts-item" href="mailto:info@codespirit.ru">
-            info@codespirit.ru
+          <a
+            class="footer__contacts-item"
+            :href="`mailto:${getAppSettings.mail}`"
+          >
+            {{ getAppSettings.mail }}
           </a>
         </div>
         <div class="footer__social">
-          <a class="footer__social-item" href="#"> Telegram </a>
-          <a class="footer__social-item" href="#"> Instagram </a>
+          <a
+            class="footer__social-item"
+            :href="social.link"
+            v-for="social in getAppSettings.socials"
+            :key="social.id"
+            target="_blank"
+          >
+            {{ social.title }}
+          </a>
         </div>
       </div>
       <div
@@ -35,31 +48,39 @@
         itemtype="http://www.schema.org/SiteNavigationElement"
       >
         <ul class="footer__list">
-          <li itemprop="name">
-            <a href="#" itemprop="url">О студии</a>
-          </li>
-          <li itemprop="name">
-            <a href="#" itemprop="url">Портфолио</a>
-          </li>
-          <li itemprop="name">
-            <a href="#" itemprop="url">Что делаем?</a>
-          </li>
-          <li itemprop="name">
-            <a href="#" itemprop="url">Контакты</a>
+          <li itemprop="name" v-for="menu in filterMenu" :key="menu.id">
+            <g-link :to="menu.path" itemprop="url">{{ menu.title }}</g-link>
           </li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom" role="contentinfo">
-      <a>© 2020 CODESPIRIT. Все права защищены</a>
-      <a href="#">Политика конфиденциальности</a>
-      <a href="#">Политика обработки данных</a>
+      <a>© 2021 CODESPIRIT. Все права защищены</a>
+      <g-link
+        v-for="{ node } in filterDocuments"
+        :key="node.id"
+        :to="node.path"
+      >
+        {{ node.title }}
+      </g-link>
     </div>
   </footer>
 </template>
-
+<static-query>
+{
+  allPages {
+    edges {
+      node {
+        id
+        path
+        title
+      }
+    }
+  }
+}
+</static-query>
 <script>
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import Button from '@/components/Base/Button'
 export default {
   name: 'Footer',
@@ -72,13 +93,47 @@ export default {
       this.setModalTitle('Мы все еще ждем вас!')
       this.setModalIsOpen(true)
     }
+  },
+  computed: {
+    ...mapGetters('settings', [
+      'getAppSettings',
+      'getMenuSettings',
+      'getDocumentsSettings'
+    ]),
+    filterDocuments() {
+      return this.$static.allPages.edges.filter((edge) =>
+        this.getDocumentsSettings.docs.some((doc) => edge.node.id === doc.link)
+      )
+    },
+    getMainPageLink() {
+      return this.getAppSettings.link
+    },
+    findMenuPages() {
+      return this.$static.allPages.edges.filter((edge) =>
+        this.getMenuSettings.menu.some((menu) => edge.node.id === menu.link)
+      )
+    },
+    filterMenu() {
+      const newMenuArray = this.findMenuPages.map((menu) => {
+        return {
+          id: menu.node.id,
+          path: menu.node.id === this.getMainPageLink ? '/' : menu.node.path,
+          title:
+            menu.node.id === this.getMainPageLink ? 'Главная' : menu.node.title
+        }
+      })
+      return [
+        ...newMenuArray,
+        { id: Math.random(100, 21), path: '/portfolio', title: 'Наши работы' }
+      ]
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .footer {
-  background-color: #f5f5f5;
+  background-color: var(--footer_color);
   padding-top: 25px;
   padding-bottom: 10px;
   border-top-left-radius: 10px;
@@ -126,7 +181,7 @@ export default {
       text-decoration: none;
       transition: 0.1s linear;
       &:hover {
-        color: rgba(#171717, 0.9);
+        color: var(--main_color_hover);
       }
     }
   }
@@ -141,7 +196,7 @@ export default {
       text-decoration: none;
       transition: 0.1s linear;
       &:hover {
-        color: rgba(#171717, 0.9);
+        color: var(--main_color_hover);
       }
     }
   }
@@ -161,7 +216,7 @@ export default {
       text-decoration: none;
       transition: 0.1s linear;
       &:hover {
-        color: rgba($red_color, 0.9);
+        color: var(--main_color_hover);
       }
     }
   }
@@ -177,8 +232,8 @@ export default {
       color: #171717;
       text-decoration: none;
       font-size: 14px;
-      &:hover {
-        color: rgba($red_color, 0.9);
+      &:not(:first-child):hover {
+        color: var(--main_color_hover);
       }
     }
   }

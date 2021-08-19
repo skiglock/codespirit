@@ -1,0 +1,15 @@
+img: /uploads/logotype.png
+link: 9841f890-8115-4f17-85e8-795f9fffd065
+number: 7900000000
+mail: info@codespirit.ru
+socials:
+  - title: Instagram
+    id: 8bebeb6d-601f-41b4-9656-1880faf528ef
+    link: https://instagram.com
+  - title: Telegram
+    id: f5172a7a-3655-403f-8eb0-630e1d34af2d
+    link: https://telegram.org
+main_color: "#eb563a"
+background_color: "#ffeab3"
+content_color: "#f7f7f7"
+footer_color: "#f5f5f5"

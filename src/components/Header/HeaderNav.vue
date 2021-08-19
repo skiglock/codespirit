@@ -1,7 +1,6 @@
 <template>
   <nav
     class="nav"
-    :class="navOpened ? 'nav--opened' : ''"
     aria-label="Основное меню"
     itemscope
     itemtype="http://www.schema.org/SiteNavigationElement"
@@ -9,31 +8,80 @@
     <button @click="navOpened = !navOpened" class="nav__burger" type="button">
       Открыть меню
     </button>
-    <div class="nav__wrapper">
+    <div
+      class="nav__wrapper"
+      :class="navOpened ? 'nav__wrapper--opened' : 'nav__wrapper--closed'"
+    >
+      <close-button
+        class="nav__close"
+        @click.native="navOpened = false"
+        aria-label="Закрыть меню"
+      />
       <ul class="nav__list">
-        <li class="nav__item" itemprop="name">
-          <a href="#" itemprop="url">Что мы делаем?</a>
-        </li>
-        <li class="nav__item" itemprop="name">
-          <a href="#" itemprop="url">О студии</a>
-        </li>
-        <li class="nav__item" itemprop="name">
-          <a href="#" itemprop="url">Портфолио</a>
-        </li>
-        <li class="nav__item" itemprop="name">
-          <a href="#" itemprop="url">Контакты</a>
+        <li
+          class="nav__item"
+          itemprop="name"
+          v-for="menu in filterMenu"
+          :key="menu.id"
+        >
+          <g-link :to="menu.path" itemprop="url">{{ menu.title }}</g-link>
         </li>
       </ul>
     </div>
   </nav>
 </template>
 
+<static-query>
+{
+  allPages {
+    edges {
+      node {
+        id
+        path
+        title
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
+import { mapGetters } from 'vuex'
+
+import CloseButton from '@/components/Base/CloseButton'
 export default {
   name: 'HeaderNav',
   data() {
     return {
       navOpened: false
+    }
+  },
+  components: {
+    CloseButton
+  },
+  computed: {
+    ...mapGetters('settings', ['getAppSettings', 'getMenuSettings']),
+    getMainPageLink() {
+      return this.getAppSettings.link
+    },
+    findMenuPages() {
+      return this.$static.allPages.edges.filter((edge) =>
+        this.getMenuSettings.menu.some((menu) => edge.node.id === menu.link)
+      )
+    },
+    filterMenu() {
+      const newMenuArray = this.findMenuPages.map((menu) => {
+        return {
+          id: menu.node.id,
+          path: menu.node.id === this.getMainPageLink ? '/' : menu.node.path,
+          title:
+            menu.node.id === this.getMainPageLink ? 'Главная' : menu.node.title
+        }
+      })
+      return [
+        ...newMenuArray,
+        { id: Math.random(100, 21), path: '/portfolio', title: 'Наши работы' }
+      ]
     }
   }
 }
@@ -43,102 +91,63 @@ export default {
 .nav {
   position: relative;
   &__wrapper {
-    transition: transform 0.5s ease;
-  }
-  &--opened {
-    .nav__wrapper {
-      width: 200px;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 100%;
-      bottom: 0;
-      background-color: #f7f7f7;
-      height: 100%;
-      z-index: 30;
-      padding-top: 60px;
-      padding-right: 20px;
-      padding-bottom: 10px;
-      padding-left: 35px;
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-      transform: translateX(-100%);
-      transition: transform 0.5s ease;
-      @media screen and (min-width: $small-mobile-width) {
-        width: 230px;
-      }
-      @media screen and (min-width: $mobile-width) {
-        width: auto;
-        transform: inherit;
-        position: sticky;
-        padding: 0;
-        border: 0;
-        background-color: inherit;
-      }
+    position: fixed;
+    padding-top: 60px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f7f7f7;
+    z-index: 30;
+    transition: transform 0.7s;
+    .nav__close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
     }
     .nav__list {
-      list-style-type: none;
       display: block;
       .nav__item + .nav__item {
         margin-top: 15px;
       }
-      @media screen and (min-width: $mobile-width) {
+    }
+    &--closed {
+      transform: translateX(100%);
+    }
+    &--opened {
+      transform: translateX(0);
+    }
+    @media screen and (min-width: $mobile-width) {
+      position: sticky;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+      z-index: auto;
+      .nav__list {
         display: grid;
         .nav__item + .nav__item {
-          margin: 0;
+          margin-top: 0;
         }
       }
-    }
-    .nav__burger {
-      animation: fadeIn 0.5s;
-      display: block;
-      z-index: 31;
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      top: -10px;
-      left: -20px;
-      right: 0;
-      bottom: 0;
-      border: 1px solid #252525;
-      border-radius: 50%;
-      // &:hover {
-      //   border: 1px solid #f7f7f7;
-      //   background-color: #252525;
-      //   &::before,
-      //   &::after {
-      //     background-color: #fff;
-      //   }
-      // }
-      &::before {
-        box-shadow: none;
-        transform: rotate(45deg);
-        height: 1px;
-        width: 15px;
-        top: 11px;
-        left: 4px;
+      &--closed {
+        transform: none;
       }
-      &::after {
-        width: 15px;
-        border-radius: 10px;
-        position: absolute;
-        content: '';
-        height: 1px;
-        background-color: #252525;
-        top: 11px;
-        left: 4px;
-        right: 0;
-        transform: rotate(-45deg);
-      }
-      @media screen and (min-width: $mobile-width) {
+      .nav__close {
         display: none;
       }
     }
   }
   &__list {
     display: none;
+    list-style-type: none;
     @media screen and (min-width: $mobile-width) {
-      list-style-type: none;
       display: grid;
       grid-auto-flow: column;
       column-gap: 33px;
@@ -151,7 +160,7 @@ export default {
       font-size: 16px;
       transition: 0.1s linear;
       &:hover {
-        color: $red_color;
+        color: var(--main_color_hover);
       }
       @media screen and (min-width: $desktop-width) {
         font-size: 17px;
@@ -162,7 +171,6 @@ export default {
     cursor: pointer;
     outline: none;
     border: none;
-    z-index: 1;
     font-size: 0;
     background-color: transparent;
     width: 30px;

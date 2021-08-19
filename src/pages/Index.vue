@@ -14,7 +14,7 @@
 <script>
 import sanitizeSections from '@/utils/sanitizeSections'
 import sections from '@/mixins/sections'
-import { link } from '../../content/settings/main.yaml'
+import { link } from '@/data/main_settings.yaml'
 export default {
   mixins: [sections],
   computed: {
@@ -197,6 +197,7 @@ fragment ourPortfolio on Sections {
 fragment service on Sections {
   id
   type
+  number
   title
   img
   description

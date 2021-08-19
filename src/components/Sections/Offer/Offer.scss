@@ -1,7 +1,7 @@
 .offer {
   min-height: 220px;
   color: #fff;
-  @include background-with-shadow($red_color);
+  @include background-with-shadow(var(--main_color));
   padding: 20px;
   display: grid;
   row-gap: 20px;

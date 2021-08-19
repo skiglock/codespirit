@@ -1,5 +1,7 @@
 import id from '../fields/id'
 import title from '../fields/title'
+import number from '../fields/number'
+
 import img from '../fields/img'
 import colorFirst from '../fields/color_first'
 import description from '../fields/description'
@@ -12,6 +14,7 @@ const service = {
   widget: 'object',
   fields: [
     id,
+    number,
     title,
     img(),
     description,

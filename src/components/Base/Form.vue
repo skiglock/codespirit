@@ -173,8 +173,8 @@ export default {
       ) {
         this.errors.name = this.checkName
         this.errors.phone = this.checkPhone
-        this.errors.email = this.checkEmail
-        this.errors.message = this.checkMessage
+        this.errors.email = this.email ? this.checkEmail : ''
+        this.errors.message = this.textarea ? this.checkMessage : ''
       } else {
         fetch('/', {
           method: 'POST',
@@ -254,7 +254,10 @@ export default {
     }
     &--large {
       resize: none;
-      min-height: 200px;
+      min-height: 130px;
+      @media screen and (min-width: $tablet-width) {
+        min-height: 200px;
+      }
     }
   }
   &__button {

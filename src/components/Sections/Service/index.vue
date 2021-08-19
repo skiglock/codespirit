@@ -7,7 +7,9 @@
         boxShadow: $boxShadow(content.color_first)
       }"
     >
-      <span class="service__number" v-if="!content.variant"> 1 </span>
+      <span class="service__number" v-if="!content.variant">{{
+        content.number
+      }}</span>
       <h2 class="service__title">{{ content.title }}</h2>
     </div>
     <div
@@ -26,9 +28,7 @@
       <h3 class="service__description-title" v-if="!content.variant">
         {{ content.title }}
       </h3>
-      <p class="service__description-text">
-        {{ content.description }}
-      </p>
+      <div class="service__description-text" v-html="content.description"></div>
       <Button
         class="service__description-button"
         :href="findLink"

@@ -1,19 +1,3 @@
-// import lazyLoadComponent from '@/utils/lazyLoadComponent'
-
-// import BannerLogoLoading from '@/components/Sections/BannerLogo/BannerLogoLoading'
-// import DescriptionImageLoading from '@/components/Sections/DescriptionImage/DescriptionImageLoading'
-// import DescriptionSpoilersLoading from '@/components/Sections/DescriptionSpoilers/DescriptionSpoilersLoading'
-// import HashtagLogoLoading from '@/components/Sections/HashtagLogo/HashtagLogoLoading'
-// import NeededLoading from '@/components/Sections/Needed/NeededLoading'
-// import OfferLoading from '@/components/Sections/Offer/OfferLoading'
-// import OrderLoading from '@/components/Sections/Order/OrderLoading'
-// import OtherLoading from '@/components/Sections/Other/OtherLoading'
-// import OrderAnotherLoading from '@/components/Sections/OrderAnother/OrderAnotherLoading'
-// import ServiceLoading from '@/components/Sections/Service/ServiceLoading'
-// import StagesLoading from '@/components/Sections/Stages/StagesLoading'
-// import OurPortfolioLoading from '@/components/Sections/OurPortfolio/OurPortfolioLoading'
-// import WordLoading from '@/components/Sections/Word/WordLoading'
-
 export default {
   components: {
     HashtagLogo: () => import('@/components/Sections/HashtagLogo'),

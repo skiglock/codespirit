@@ -5,6 +5,7 @@ const linkList = (path) => ({
   name: 'link_list',
   label: 'Выбрать ссылки',
   widget: 'list',
+  summary: 'Ссылка',
   fields: [id, link('Ссылка', path)]
 })
 

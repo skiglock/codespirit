@@ -16,7 +16,6 @@ body {
   -webkit-text-size-adjust: 100%;
   font-family: "HebarExtraLight-Normal", sans-serif;
   min-width: 320px;
-  background-color: #ffeab3;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,6 +25,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+strong,
+b {
+  font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
 }
 
 details[open] summary ~ * {
@@ -108,7 +112,7 @@ details summary::-webkit-details-marker {
         content: "";
         position: absolute;
         height: 100%;
-        background-color: $red_color;
+        background-color: var(--main_color);
         width: 5px;
         border-radius: 10px;
         left: 0;
@@ -124,4 +128,13 @@ details summary::-webkit-details-marker {
   &__button {
     justify-self: end;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
