@@ -5,7 +5,7 @@
       <router-view />
     </main>
     <Footer />
-    <Modal v-show="getModalIsOpen" @close="setModalSettings" />
+    <Modal v-show="getModalIsOpen" @close="resetModalSettings" />
   </div>
 </template>
 
@@ -25,16 +25,12 @@ export default {
     Modal
   },
   methods: {
-    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
+    ...mapMutations('modal', ['resetModalSettings']),
     ...mapMutations('settings', [
       'setAppSettings',
       'setMenuSettings',
       'setDocumentsSettings'
-    ]),
-    setModalSettings() {
-      this.setModalTitle('')
-      this.setModalIsOpen(false)
-    }
+    ])
   },
   computed: {
     ...mapGetters('modal', ['getModalIsOpen']),

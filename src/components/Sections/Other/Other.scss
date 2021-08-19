@@ -11,6 +11,6 @@
   &__links {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(152px, 152px));
+    grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
   }
 }

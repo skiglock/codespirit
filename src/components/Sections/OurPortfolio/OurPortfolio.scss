@@ -9,8 +9,7 @@
   &__list {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 410px));
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
   &__work {
     min-height: 230px;
@@ -80,8 +79,8 @@
     grid-column: span 2;
     align-self: center;
     justify-self: center;
-    max-width: 220px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     border: 1px solid #e5e5e5;
     img {
       height: 100%;

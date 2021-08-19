@@ -1,7 +1,7 @@
 const state = () => ({
-  appSettings: [],
-  menuSettings: [],
-  documentsSettings: []
+  appSettings: null,
+  menuSettings: null,
+  documentsSettings: null
 })
 
 const getters = {

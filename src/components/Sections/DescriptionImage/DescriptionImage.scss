@@ -1,5 +1,6 @@
 .description-image {
   display: grid;
+  gap: 3%;
   &__description {
     color: #313131;
     font-size: 14px;
@@ -18,7 +19,6 @@
     border-radius: 30px;
   }
   &--column {
-    gap: 3%;
     @media screen and (min-width: $mobile-width) {
       grid-template-columns: 1fr 1fr;
       align-items: center;

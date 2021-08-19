@@ -20,6 +20,14 @@ const mutations = {
   },
   setModalIsOpen(state, payload) {
     state.isOpen = payload
+  },
+  setModalSettings(state, payload) {
+    state.title = payload
+    state.isOpen = true
+  },
+  resetModalSettings(state) {
+    state.title = ''
+    state.isOpen = false
   }
 }
 

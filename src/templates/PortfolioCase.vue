@@ -1,8 +1,14 @@
 <template>
   <Layout :title="$page.portfolioCase.title">
-    <div :style="{ textAlign: 'center' }">
+    <div
+      :style="{
+        textAlign: 'center',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(141px, 1fr))',
+        gap: '5px'
+      }"
+    >
       <strong
-        :style="{ marginRight: '1em' }"
         v-for="category in $page.portfolioCase.categories"
         :key="category.id"
         >#{{ category.id }}</strong

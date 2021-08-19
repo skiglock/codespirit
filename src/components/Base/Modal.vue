@@ -35,8 +35,8 @@ export default {
 
 <style lang="scss">
 .modal {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
@@ -45,19 +45,20 @@ export default {
   bottom: 0;
   background-color: rgba(#252525, 0.3);
   backdrop-filter: blur(5px);
+  z-index: 31;
   &__close {
     position: absolute;
-    top: 18px;
-    right: 23px;
+    top: 15px;
+    right: 15px;
   }
   &__dialog {
     position: relative;
     display: grid;
-    row-gap: 30px;
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 10px;
+    row-gap: 15px;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
     box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     background-color: #ffeab3;
     border-radius: 20px;
@@ -72,13 +73,13 @@ export default {
   &__title {
     display: grid;
     grid-auto-flow: column;
-    text-align: left;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
     color: #252525;
-    font-size: 18px;
+    font-size: 17px;
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     img {
-      justify-self: center;
       width: 20px;
     }
   }

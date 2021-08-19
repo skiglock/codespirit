@@ -1,5 +1,4 @@
 import id from '../fields/id'
-import title from '../fields/title'
 import link from '../fields/link'
 
 const documents = {
@@ -12,7 +11,7 @@ const documents = {
       summary: 'Меню',
       label: 'Меню',
       widget: 'list',
-      fields: [id, title, link('Ссылка', 'pages')]
+      fields: [id, link('Ссылка', 'pages')]
     }
   ]
 }

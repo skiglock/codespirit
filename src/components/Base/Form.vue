@@ -224,10 +224,7 @@ export default {
 <style lang="scss">
 .form {
   display: grid;
-  gap: 15px;
-  @media screen and (min-width: $tablet-width) {
-    gap: 10px;
-  }
+  gap: 10px;
   &__group {
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     display: grid;
@@ -263,9 +260,7 @@ export default {
     }
   }
   &__button {
-    @media screen and (min-width: $small-mobile-width) {
-      justify-self: center;
-    }
+    justify-self: center;
     width: 200px;
   }
   &__agree {

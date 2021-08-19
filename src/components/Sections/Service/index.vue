@@ -25,7 +25,7 @@
           :alt="content.title"
         />
       </div>
-      <h3 class="service__description-title" v-if="!content.variant">
+      <h3 class="service__description-title">
         {{ content.title }}
       </h3>
       <div class="service__description-text" v-html="content.description"></div>

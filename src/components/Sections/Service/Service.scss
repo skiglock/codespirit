@@ -70,10 +70,6 @@
     padding-left: 20px;
     padding-right: 17px;
     border-radius: 25px;
-    // background-image: url("~@/assets/img/browser.png");
-    // background-repeat: no-repeat;
-    // background-position-x: 95%;
-    // background-size: 50%;
     min-height: 164px;
     position: relative;
     @media screen and (min-width: $mobile-width) {
@@ -159,8 +155,15 @@
       grid-template-rows: auto;
     }
     .service__description {
-      grid-template-rows: 1fr min-content;
+      @media screen and (min-width: $mobile-width) {
+        grid-template-rows: 1fr min-content;
+      }
       background-image: none;
+      &-title {
+        @media screen and (min-width: $mobile-width) {
+          display: none;
+        }
+      }
       &-text {
         font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
         align-self: center;

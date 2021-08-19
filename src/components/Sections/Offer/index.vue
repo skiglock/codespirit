@@ -14,7 +14,7 @@
     <div class="offer__right">
       <h2 class="offer__price">от {{ content.price }}</h2>
       <Button
-        @click.native="setModalSettings"
+        @click.native="setModalSettings('Закажите Landing прямо сейчас!')"
         class="offer__button"
         type="button"
         color="white"
@@ -38,11 +38,7 @@ export default {
     Button
   },
   methods: {
-    ...mapMutations('modal', ['setModalTitle', 'setModalIsOpen']),
-    setModalSettings() {
-      this.setModalTitle('Закажите Landing прямо сейчас!')
-      this.setModalIsOpen(true)
-    }
+    ...mapMutations('modal', ['setModalSettings'])
   }
 }
 </script>
