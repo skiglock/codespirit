@@ -206,8 +206,10 @@ export default {
         })
           .then(() => {
             this.$router.push('/success')
-            if (!localStorage.getItem('showRocket')) {
-              setWithExpiry('showRocket', true, 1200000)
+            if (process.isClient) {
+              if (!localStorage.getItem('showRocket')) {
+                setWithExpiry('showRocket', true, 1200000)
+              }
             }
           })
           .catch((error) => alert(error))

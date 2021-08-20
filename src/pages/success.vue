@@ -16,9 +16,11 @@ export default {
     }
   },
   created() {
-    const showRocket = getWithExpiry('showRocket')
-    if (!showRocket) {
-      this.$router.push('/')
+    if (process.isClient) {
+      const showRocket = getWithExpiry('showRocket')
+      if (!showRocket) {
+        this.$router.push('/')
+      }
     }
   }
 }
