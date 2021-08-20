@@ -110,14 +110,18 @@ export default {
       )
     },
     filterMenu() {
-      const newMenuArray = this.findMenuPages.map((menu) => {
-        return {
-          id: menu.node.id,
-          path: menu.node.id === this.getMainPageLink ? '/' : menu.node.path,
-          title:
-            menu.node.id === this.getMainPageLink ? 'Главная' : menu.node.title
-        }
-      })
+      const newMenuArray = this.findMenuPages
+        .map((menu) => {
+          return {
+            id: menu.node.id,
+            path: menu.node.id === this.getMainPageLink ? '/' : menu.node.path,
+            title:
+              menu.node.id === this.getMainPageLink
+                ? 'Главная'
+                : menu.node.title
+          }
+        })
+        .reverse()
       return [
         ...newMenuArray,
         { id: Math.random(100, 21), path: '/portfolio', title: 'Наши работы' }

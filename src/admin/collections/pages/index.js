@@ -1,6 +1,5 @@
 import id from '../fields/id'
 import date from '../fields/date'
-import published from '../fields/published'
 import sections from '../sections'
 
 const portfolio = {
@@ -16,7 +15,6 @@ const portfolio = {
   fields: [
     id,
     date,
-    published,
     {
       name: 'title',
       label: 'Заголовок страницы',
