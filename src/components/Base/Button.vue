@@ -10,7 +10,7 @@
       icon ? 'button--icon' : ''
     ]"
   >
-    <img v-if="icon" :src="icon" /> <slot />
+    <g-image v-if="icon" :src="icon" /> <slot />
   </component>
 </template>
 
@@ -39,7 +39,7 @@ export default {
         return sizes[value]
       }
     },
-    icon: String
+    icon: Object
   },
   computed: {
     buttonType() {

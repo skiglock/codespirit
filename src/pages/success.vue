@@ -15,7 +15,7 @@ export default {
       title: 'Успешно! Мы свяжемся с вами'
     }
   },
-  created() {
+  mounted() {
     if (process.isClient) {
       const showRocket = getWithExpiry('showRocket')
       if (!showRocket) {

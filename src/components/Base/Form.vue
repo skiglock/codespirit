@@ -86,7 +86,7 @@
       class="form__button"
       color="white"
       size="large"
-      icon="../../assets/img/rocket.gif"
+      :icon="require('!!assets-loader!../../assets/img/rocket.gif')"
     >
       {{ buttonTitle }}
     </Button>
@@ -165,13 +165,15 @@ export default {
       )
     },
     checkEmail() {
-      return isRequired(this.formData.email) || validEmail(this.formData.email)
+      return this.email
+        ? isRequired(this.formData.email) || validEmail(this.formData.email)
+        : false
     },
     checkMessage() {
-      return (
-        isRequired(this.formData.message) ||
-        minLength(this.formData.message, 10)
-      )
+      return this.textarea
+        ? isRequired(this.formData.message) ||
+            minLength(this.formData.message, 10)
+        : false
     }
   },
   methods: {
@@ -185,11 +187,10 @@ export default {
     },
     handleSubmit(e) {
       if (
-        this.checkName || this.checkPhone || this.email
-          ? this.checkEmail
-          : true || this.textarea
-          ? this.checkMessage
-          : true
+        this.checkName ||
+        this.checkPhone ||
+        this.checkEmail ||
+        this.checkMessage
       ) {
         this.errors.name = this.checkName
         this.errors.phone = this.checkPhone
