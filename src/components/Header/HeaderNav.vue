@@ -8,31 +8,27 @@
     <button @click="navOpened = !navOpened" class="nav__burger" type="button">
       Открыть меню
     </button>
-    <div
-      class="nav__wrapper"
-      :class="navOpened ? 'nav__wrapper--opened' : 'nav__wrapper--closed'"
-    >
-      <close-button
-        class="nav__close"
-        @click.native="navOpened = false"
-        aria-label="Закрыть меню"
+    <!-- Sidebar Without Vuex -->
+    <div class="blur" v-if="navOpened" @click="navOpened = false"></div>
+    <transition name="transform">
+      <header-nav-sidebar
+        v-if="navOpened"
+        :links="filterMenu"
+        @close="navOpened = false"
+        @close-click="navOpened = false"
       />
-      <ul class="nav__list">
-        <li
-          class="nav__item"
-          itemprop="name"
-          v-for="menu in filterMenu"
-          :key="menu.id"
-        >
-          <g-link
-            @click.native="navOpened = false"
-            :to="menu.path"
-            itemprop="url"
-            >{{ menu.title }}</g-link
-          >
-        </li>
-      </ul>
-    </div>
+    </transition>
+    <!-- Sidebar Without Vuex -->
+    <ul class="nav__list">
+      <li
+        class="nav__item"
+        itemprop="name"
+        v-for="menu in filterMenu"
+        :key="menu.id"
+      >
+        <g-link :to="menu.path" itemprop="url">{{ menu.title }}</g-link>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -52,17 +48,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import HeaderNavSidebar from './HeaderNavSidebar'
 
-import CloseButton from '@/components/Base/CloseButton'
 export default {
+  components: { HeaderNavSidebar },
   name: 'HeaderNav',
   data() {
     return {
       navOpened: false
     }
-  },
-  components: {
-    CloseButton
   },
   computed: {
     ...mapGetters('settings', ['getAppSettings', 'getMenuSettings']),
@@ -92,80 +86,32 @@ export default {
         { id: Math.random(100, 21), path: '/portfolio', title: 'Наши работы' }
       ]
     }
-  },
-  methods: {
-    close(e) {
-      if (!this.$el.contains(e.target)) {
-        this.navOpened = false
-      }
-    }
-  },
-  mounted() {
-    document.addEventListener('click', this.close)
-  },
-  beforeDestroy() {
-    document.removeEventListener('click', this.close)
   }
 }
 </script>
 
 <style lang="scss">
+.transform-enter-active,
+.transform-leave-active {
+  transform: translateX(0%);
+  transition: transform 0.3s;
+}
+.transform-enter,
+.transform-leave-to {
+  transform: translateX(100%);
+}
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(#252525, 0.3);
+  backdrop-filter: blur(5px);
+  z-index: 30;
+}
 .nav {
   position: relative;
-  &__wrapper {
-    position: fixed;
-    padding-top: 60px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    padding-left: 35px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #f7f7f7;
-    z-index: 30;
-    transition: transform 0.7s;
-    .nav__close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-    .nav__list {
-      display: block;
-      .nav__item + .nav__item {
-        margin-top: 15px;
-      }
-    }
-    &--closed {
-      transform: translateX(100%);
-    }
-    &--opened {
-      transform: translateX(0);
-    }
-    @media screen and (min-width: $mobile-width) {
-      position: sticky;
-      width: auto;
-      height: auto;
-      background-color: transparent;
-      padding: 0;
-      border-radius: 0;
-      z-index: auto;
-      .nav__list {
-        display: grid;
-        .nav__item + .nav__item {
-          margin-top: 0;
-        }
-      }
-      &--closed {
-        transform: none;
-      }
-      .nav__close {
-        display: none;
-      }
-    }
-  }
   &__list {
     display: none;
     list-style-type: none;
