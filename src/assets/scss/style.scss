@@ -159,3 +159,20 @@ details summary::-webkit-details-marker {
 .fade-leave-to {
   opacity: 0;
 }
+
+@keyframes Fade {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enter {
+  animation-duration: 0.65s;
+  animation-fill-mode: both;
+  animation-name: Fade;
+}

@@ -6,10 +6,11 @@
     :class="[
       buttonColor,
       buttonSize,
-      buttonType === 'g-link' ? 'button--link' : ''
+      buttonType === 'g-link' ? 'button--link' : '',
+      icon ? 'button--icon' : ''
     ]"
   >
-    <slot />
+    <img v-if="icon" :src="icon" /> <slot />
   </component>
 </template>
 
@@ -37,7 +38,8 @@ export default {
       validator: (value) => {
         return sizes[value]
       }
-    }
+    },
+    icon: String
   },
   computed: {
     buttonType() {
@@ -69,6 +71,15 @@ export default {
     text-decoration: none;
     text-align: center;
   }
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: 8px;
+      width: 16px;
+    }
+  }
   &--primary {
     background-color: var(--main_color);
     color: #fff;
@@ -84,7 +95,7 @@ export default {
     background-color: #fff;
     color: #313131;
     &:hover {
-      background-color: rgba(#fff, 0.5);
+      background-color: rgb(238, 237, 237);
     }
   }
   &--yellow {

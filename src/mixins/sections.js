@@ -1,19 +1,31 @@
+import HashtagLogo from '@/components/Sections/HashtagLogo'
+import DescriptionImage from '@/components/Sections/DescriptionImage'
+import DescriptionSpoilers from '@/components/Sections/DescriptionSpoilers'
+import BannerLogo from '@/components/Sections/BannerLogo'
+import Needed from '@/components/Sections/Needed'
+import Offer from '@/components/Sections/Offer'
+import Order from '@/components/Sections/Order'
+import OrderAnother from '@/components/Sections/OrderAnother'
+import Other from '@/components/Sections/Other'
+import OurPortfolio from '@/components/Sections/OurPortfolio'
+import Service from '@/components/Sections/Service'
+import Stages from '@/components/Sections/Stages'
+import Word from '@/components/Sections/Word'
 export default {
   components: {
-    HashtagLogo: () => import('@/components/Sections/HashtagLogo'),
-    DescriptionImage: () => import('@/components/Sections/DescriptionImage'),
-    DescriptionSpoilers: () =>
-      import('@/components/Sections/DescriptionSpoilers'),
-    BannerLogo: () => import('@/components/Sections/BannerLogo'),
-    Needed: () => import('@/components/Sections/Needed'),
-    Offer: () => import('@/components/Sections/Offer'),
-    Order: () => import('@/components/Sections/Order'),
-    OrderAnother: () => import('@/components/Sections/OrderAnother'),
-    Other: () => import('@/components/Sections/Other'),
-    OurPortfolio: () => import('@/components/Sections/OurPortfolio'),
-    Service: () => import('@/components/Sections/Service'),
-    Stages: () => import('@/components/Sections/Stages'),
-    Word: () => import('@/components/Sections/Word')
+    HashtagLogo,
+    DescriptionImage,
+    DescriptionSpoilers,
+    BannerLogo,
+    Needed,
+    Offer,
+    Order,
+    OrderAnother,
+    Other,
+    OurPortfolio,
+    Service,
+    Stages,
+    Word
   },
   props: {
     components: Array

@@ -14,7 +14,9 @@
     <div class="offer__right">
       <h2 class="offer__price">от {{ content.price }}</h2>
       <Button
-        @click.native="setModalSettings('Закажите Landing прямо сейчас!')"
+        @click.native="
+          setModalSettings(`Закажите ${findPageTitle} прямо сейчас!`)
+        "
         class="offer__button"
         type="button"
         color="white"
@@ -25,7 +27,18 @@
     </div>
   </div>
 </template>
-
+<static-query>
+{
+  allPages {
+    edges {
+      node {
+        title
+        path
+      }
+    }
+  }
+}
+</static-query>
 <script>
 import { mapMutations } from 'vuex'
 import Button from '@/components/Base/Button'
@@ -39,6 +52,13 @@ export default {
   },
   methods: {
     ...mapMutations('modal', ['setModalSettings'])
+  },
+  computed: {
+    findPageTitle() {
+      return this.$static.allPages.edges.find(
+        (edge) => edge.node.path === this.$route.path
+      ).node.title
+    }
   }
 }
 </script>

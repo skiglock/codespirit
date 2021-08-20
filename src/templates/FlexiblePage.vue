@@ -29,25 +29,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@keyframes Fade {
-  0% {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.enter {
-  animation-duration: 0.7s;
-  animation-fill-mode: both;
-  animation-name: Fade;
-}
-</style>
-
 <page-query>
 query ($id: ID!) {
   pages(id: $id) {

@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__wrapper">
       <div class="footer__promo">
-        <h2 class="footer__title">Ждем вас! ❤️</h2>
+        <h2 class="footer__title">Ждем вас! &#128150;</h2>
         <Button
           @click.native="setModalSettings('Ваша идея, наше воплощение!')"
           color="primary"

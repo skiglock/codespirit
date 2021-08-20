@@ -53,11 +53,12 @@ export default {
   }
   &__list {
     display: grid;
-    gap: 10px;
+    gap: 20px;
     a {
       font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
       text-decoration: none;
       color: #252525;
+      font-size: 17px;
       transition: 0.1s linear;
       &:hover {
         color: var(--main_color_hover);

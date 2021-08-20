@@ -8,7 +8,7 @@
           aria-label="Закрыть модальное окно"
         />
         <h2 class="modal__title">
-          <img src="@/assets/img/rocket.gif" />{{ getModalTitle }}
+          {{ getModalTitle }}
         </h2>
         <Form textarea title="Модальное окно" />
       </div>
@@ -71,17 +71,11 @@ export default {
     }
   }
   &__title {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #252525;
-    font-size: 17px;
+    -webkit-text-stroke: 1px #2b2b2b;
+    text-align: center;
+    color: transparent;
+    font-size: 23px;
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
-    img {
-      width: 20px;
-    }
   }
 }
 </style>

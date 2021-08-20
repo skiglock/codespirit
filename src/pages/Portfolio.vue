@@ -28,6 +28,7 @@
     </div>
     <div class="portfolio__works">
       <Work
+        v-animate="'enter'"
         joinClass="portfolio__work"
         v-for="{ node } in $static.allPortfolioCase.edges"
         :key="node.id"

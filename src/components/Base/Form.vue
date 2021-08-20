@@ -81,7 +81,13 @@
     </div>
     <input type="hidden" name="from" v-model="formData.from" />
     <input type="hidden" name="ref" v-model="formData.ref" />
-    <Button type="submit" class="form__button" color="white" size="large">
+    <Button
+      type="submit"
+      class="form__button"
+      color="white"
+      size="large"
+      icon="../../assets/img/rocket.gif"
+    >
       {{ buttonTitle }}
     </Button>
     <span class="form__agree">
@@ -93,7 +99,8 @@
 <script>
 /* eslint-disable no-constant-condition */
 /* eslint-disable indent */
-
+import { mapGetters, mapMutations } from 'vuex'
+import { setWithExpiry } from '@/utils/localStorage'
 import {
   isRequired,
   isValidPhone,
@@ -120,6 +127,10 @@ export default {
     buttonTitle: {
       type: String,
       default: 'Отправить'
+    },
+    buttonIcon: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -139,6 +150,8 @@ export default {
     Button
   },
   computed: {
+    ...mapGetters('modal', ['getModalIsOpen']),
+
     checkName() {
       return (
         isRequired(this.formData.name) ||
@@ -162,6 +175,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('modal', ['setModalIsOpen']),
     encode(data) {
       return Object.keys(data)
         .map(
@@ -190,8 +204,14 @@ export default {
             ...this.formData
           })
         })
-          .then(() => this.$router.push('/success'))
+          .then(() => {
+            this.$router.push('/success')
+            if (!localStorage.getItem('showRocket')) {
+              setWithExpiry('showRocket', true, 1200000)
+            }
+          })
           .catch((error) => alert(error))
+        this.setModalIsOpen(false)
         this.formData = {
           name: '',
           phone: '',
@@ -218,9 +238,23 @@ export default {
       this.formData.ref = 'Скорее всего ввел сам'
     }
   },
-  destroyed() {
-    this.errors[0] = undefined
-    this.$forceUpdate()
+  watch: {
+    getModalIsOpen(value) {
+      if (!value) {
+        this.errors.name = ''
+        this.errors.phone = ''
+        this.errors.email = ''
+        this.errors.message = ''
+        this.formData = {
+          name: '',
+          phone: '',
+          email: '',
+          message: '',
+          from: '',
+          ref: ''
+        }
+      }
+    }
   }
 }
 </script>
@@ -267,7 +301,6 @@ export default {
   }
   &__button {
     justify-self: center;
-    width: 200px;
   }
   &__agree {
     font-size: 10px;
