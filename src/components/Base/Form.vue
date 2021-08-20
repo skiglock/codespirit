@@ -91,6 +91,9 @@
 </template>
 
 <script>
+/* eslint-disable no-constant-condition */
+/* eslint-disable indent */
+
 import {
   isRequired,
   isValidPhone,
@@ -168,10 +171,11 @@ export default {
     },
     handleSubmit(e) {
       if (
-        this.checkName ||
-        this.checkPhone ||
-        this.checkEmail ||
-        this.checkMessage
+        this.checkName || this.checkPhone || this.email
+          ? this.checkEmail
+          : true || this.textarea
+          ? this.checkMessage
+          : true
       ) {
         this.errors.name = this.checkName
         this.errors.phone = this.checkPhone
@@ -242,6 +246,7 @@ export default {
     margin-left: 5%;
   }
   &__text {
+    font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     box-shadow: 0px 2px 2.67px 0.33px rgba(#252525, 0.2);
     border: none;
     outline: none;
@@ -249,6 +254,7 @@ export default {
     padding: 10px 15px;
     border-radius: 20px;
     &::placeholder {
+      font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
       color: #b9b8b8;
     }
     &--large {
