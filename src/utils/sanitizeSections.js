@@ -25,7 +25,7 @@ const sanitizeSections = (sections) => {
           description: marked(section.description),
           img: section.img,
           position: section.position,
-          reverse: section.position
+          reverse: section.reverse
         }
       case 'descriptionSpoilers':
         return {
