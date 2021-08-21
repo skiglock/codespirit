@@ -119,17 +119,21 @@ export default {
   },
   watch: {
     selectedCategory(value) {
-      localStorage.setItem('selectedCategory', value)
+      if (process.isClient) {
+        localStorage.setItem('selectedCategory', value)
+      }
     }
   },
   mounted() {
-    const selectedCategoryLocalStorage =
-      localStorage.getItem('selectedCategory')
-    if (selectedCategoryLocalStorage) {
-      this.selectedCategory = selectedCategoryLocalStorage
-      this.filteredCategoryArray = this.filterAllCategory
-    } else {
-      this.filteredCategoryArray = this.setAllCategory
+    if (process.isClient) {
+      const selectedCategoryLocalStorage =
+        localStorage.getItem('selectedCategory')
+      if (selectedCategoryLocalStorage) {
+        this.selectedCategory = selectedCategoryLocalStorage
+        this.filteredCategoryArray = this.filterAllCategory
+      } else {
+        this.filteredCategoryArray = this.setAllCategory
+      }
     }
   }
 }
