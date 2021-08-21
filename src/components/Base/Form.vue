@@ -211,10 +211,10 @@ export default {
             if (process.isClient) {
               if (!localStorage.getItem('showRocket')) {
                 setWithExpiry('showRocket', true, 1200000)
-                this.$router.push('/success')
-              } else {
-                this.$router.push('/success')
               }
+              setTimeout(() => {
+                this.$router.push('/success')
+              }, 500)
             }
           })
           .catch((error) => alert(error))
