@@ -18,7 +18,7 @@
         </li>
         <li
           class="portfolio-nav__item"
-          v-for="category in $page.allPortfolioCategory.edges"
+          v-for="category in $static.allPortfolioCategory.edges"
           :key="category.node.id"
         >
           <a
@@ -39,7 +39,7 @@
       <Work
         v-animate="'enter'"
         joinClass="portfolio__work"
-        v-for="{ node } in filterPortfolioCases"
+        v-for="{ node } in filteredCategoryArray"
         :key="node.id"
         :title="node.title"
         :categories="node.categories"
@@ -48,26 +48,19 @@
         :link="node.path"
       />
     </div>
-    <ClientOnly>
-      <infinite-loading @infinite="infiniteHandler" spinner="spiral">
-        <span slot="no-more"></span>
-        <span slot="no-results"></span>
-      </infinite-loading>
-    </ClientOnly>
   </Layout>
 </template>
 
-<page-query>
-query ($page: Int) {
-  allPortfolioCase(
-    perPage: 2
-    page: $page
-    filter: { published: { eq: true } }
-  ) @paginate {
-    pageInfo {
-      totalPages
-      currentPage
+<static-query>
+{
+  allPortfolioCategory {
+    edges {
+      node {
+        id
+      }
     }
+  }
+  allPortfolioCase(filter: { published: { eq: true } }) {
     edges {
       node {
         id
@@ -82,31 +75,19 @@ query ($page: Int) {
       }
     }
   }
-  allPortfolioCategory {
-    edges {
-      node {
-        id
-      }
-    }
-  }
 }
-</page-query>
+</static-query>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
-
 import Work from '@/components/Base/Work'
 export default {
   data() {
     return {
-      loadedPortfolioCases: [],
-      filterPortfolioCases: [],
-      currentPage: 1,
+      filteredCategoryArray: [],
       selectedCategory: ''
     }
   },
   components: {
-    InfiniteLoading,
     Work
   },
   metaInfo() {
@@ -118,32 +99,18 @@ export default {
     checkClickedCategory(clickedCategory) {
       this.selectedCategory = clickedCategory
       if (!this.selectedCategory) {
-        this.filterPortfolioCases = this.loadedPortfolioCases
+        this.filteredCategoryArray = this.setAllCategory
       } else {
-        this.filterPortfolioCases = this.filterAllCategory
-      }
-    },
-    async infiniteHandler($state) {
-      if (
-        this.currentPage + 1 >
-        this.$page.allPortfolioCase.pageInfo.totalPages
-      ) {
-        $state.complete()
-      } else {
-        const { data } = await this.$fetch(`/portfolio/${this.currentPage + 1}`)
-        if (data.allPortfolioCase.edges.length) {
-          this.currentPage = data.allPortfolioCase.pageInfo.currentPage
-          this.loadedPortfolioCases.push(...data.allPortfolioCase.edges)
-          $state.loaded()
-        } else {
-          $state.complete()
-        }
+        this.filteredCategoryArray = this.filterAllCategory
       }
     }
   },
   computed: {
+    setAllCategory() {
+      return this.$static.allPortfolioCase.edges
+    },
     filterAllCategory() {
-      return this.loadedPortfolioCases.filter((edge) =>
+      return this.setAllCategory.filter((edge) =>
         edge.node.categories.some(
           (category) => category.id === this.selectedCategory
         )
@@ -155,16 +122,15 @@ export default {
       localStorage.setItem('selectedCategory', value)
     }
   },
-  created() {
+  mounted() {
     const selectedCategoryLocalStorage =
       localStorage.getItem('selectedCategory')
     if (selectedCategoryLocalStorage) {
       this.selectedCategory = selectedCategoryLocalStorage
+      this.filteredCategoryArray = this.filterAllCategory
     } else {
-      this.filterPortfolioCases.push(...this.$page.allPortfolioCase.edges)
+      this.filteredCategoryArray = this.setAllCategory
     }
-    this.loadedPortfolioCases.push(...this.$page.allPortfolioCase.edges)
-    this.filterPortfolioCases.push(...this.filterAllCategory)
   }
 }
 </script>
