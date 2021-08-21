@@ -8,6 +8,7 @@ import { IdControl, IdPreview } from './widgets/uuid-widget'
 // Collections
 import pages from './collections/pages'
 import portfolio from './collections/portfolio'
+import technologies from './collections/technologies'
 import settings from './collections/settings'
 
 // Preview Template
@@ -34,7 +35,7 @@ init({
     locale: 'ru',
     media_folder: 'static/uploads',
     public_folder: '/uploads',
-    collections: [pages, portfolio, settings]
+    collections: [pages, portfolio, technologies, settings]
   }
 })
 

@@ -30,10 +30,42 @@
     <div class="work__right">
       <figure class="work__img work__img--tablet" :class="`${joinClass}-img`">
         <g-image :src="img" :alt="title" />
+        <figcaption v-if="technologies.length > 0" class="work__technologies">
+          <a
+            v-for="{ node } in filterTechnologies"
+            :key="node.id"
+            class="work__technologies-item"
+            :href="node.link"
+            target="_blank"
+          >
+            <g-image
+              :src="$imagePath('technologies', node.path, node.img)"
+              :alt="node.title"
+              class="work__technologies-logo"
+            />
+            <p>{{ node.title }}</p>
+          </a>
+        </figcaption>
       </figure>
     </div>
   </article>
 </template>
+
+<static-query>
+{
+  allTechnologies {
+    edges {
+      node {
+        id
+        title
+        img
+        link
+        path
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import { markedToHtml } from '@/utils/sanitizeSections'
@@ -46,7 +78,8 @@ export default {
     img: Object,
     description: String,
     joinClass: String,
-    link: String
+    link: String,
+    technologies: Array
   },
   components: {
     Button
@@ -54,6 +87,11 @@ export default {
   computed: {
     descToHtml() {
       return markedToHtml(this.description)
+    },
+    filterTechnologies() {
+      return this.$static.allTechnologies.edges.filter((edge) =>
+        this.technologies.some((technology) => technology.link === edge.node.id)
+      )
     }
   }
 }

@@ -28,6 +28,13 @@ module.exports = {
     {
       use: '@gridsome/vue-remark',
       options: {
+        typeName: 'Technologies',
+        baseDir: 'content/technologies'
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
         typeName: 'PortfolioCase',
         baseDir: 'content/portfolio',
         pathPrefix: '/portfolio',

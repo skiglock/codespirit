@@ -3,6 +3,8 @@ import date from '../fields/date'
 import published from '../fields/published'
 import img from '../fields/img'
 import title from '../fields/title'
+import link from '../fields/link'
+
 import description from '../fields/description'
 import categories from './categories'
 
@@ -19,6 +21,13 @@ const portfolio = {
     published,
     img(),
     title,
+    {
+      name: 'technologies',
+      label: 'Выбрать технологии',
+      widget: 'list',
+      summary: 'Технология',
+      fields: [id, link('Выбрать технологию', 'technologies')]
+    },
     {
       name: 'categories',
       label: 'Категории',

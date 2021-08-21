@@ -3,7 +3,6 @@
     class="form"
     :name="title"
     method="post"
-    data-netlify-recaptcha="true"
     @submit.prevent="handleSubmit"
     :action="`/success`"
     data-netlify="true"
@@ -82,7 +81,6 @@
     </div>
     <input type="hidden" name="from" v-model="formData.from" />
     <input type="hidden" name="ref" v-model="formData.ref" />
-    <div data-netlify-recaptcha="true"></div>
     <Button
       type="submit"
       class="form__button"
