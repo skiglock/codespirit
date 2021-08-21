@@ -236,28 +236,8 @@ export default {
       font-size: 13px;
     }
     &-img {
-      position: relative;
       box-shadow: 0px 2px 3.76px 0.24px rgba(37, 37, 37, 0.35);
       border-radius: 20px;
-      width: 470px;
-      height: 300px;
-      overflow: hidden;
-      &:hover {
-        .work__technologies {
-          transition: opacity 0.5s;
-          visibility: visible;
-          opacity: 1;
-          transform: scale(1.1);
-        }
-      }
-      img {
-        border-radius: 20px;
-        transform: scale(1);
-        transition: 0.3s linear;
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
     }
   }
 }
