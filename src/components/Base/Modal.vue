@@ -55,7 +55,7 @@ export default {
     position: relative;
     display: grid;
     row-gap: 15px;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 15px;
@@ -64,16 +64,20 @@ export default {
     border-radius: 20px;
     width: auto;
     margin: 0 10px;
-    @media screen and (min-width: $tablet-width) {
+    @media screen and (min-width: $mobile-width) {
       padding-left: 40px;
       padding-right: 40px;
       width: 500px;
     }
   }
   &__title {
-    -webkit-text-stroke: 1px #2b2b2b;
+    display: none;
+    @media screen and (min-width: $mobile-width) {
+      display: inline-block;
+    }
+    // -webkit-text-stroke: 1.3px #2b2b2b;
     text-align: center;
-    color: transparent;
+    color: #2b2b2b;
     font-size: 23px;
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
   }

@@ -7,9 +7,6 @@ img: 01-coca-cola-600x400.jpg
 title: COCA COLA
 categories:
   - Креатив
-  - Дизайн
-  - Production
-  - Веб-разработка
 description: >-
   в 2020 году **Coca-Cola** выпустила 
 

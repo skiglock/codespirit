@@ -6,8 +6,12 @@ file: snickers_logo_symbol.jpg
 img: snickers_logo_symbol.jpg
 title: SNIKERS
 categories:
+  - Web
   - Production
-  - Веб-разработка
+  - Креатив
+  - Digital
+  - SMM
+  - Дизайн
 description: |-
   Чтобы подчеркнуть уникальность 
   бренда **Snikers** и вывести 

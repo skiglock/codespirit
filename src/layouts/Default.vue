@@ -66,7 +66,10 @@ export default {
   }
   &__body {
     display: grid;
-    gap: 2em;
+    gap: 3em;
+    @media screen and (min-width: $tablet-width) {
+      gap: 2em;
+    }
   }
   &__title {
     font-family: 'OksFree', sans-serif;

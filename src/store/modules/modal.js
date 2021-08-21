@@ -26,7 +26,9 @@ const mutations = {
     state.isOpen = true
   },
   resetModalSettings(state) {
-    state.title = ''
+    setTimeout(() => {
+      state.title = ''
+    }, 500)
     state.isOpen = false
   }
 }

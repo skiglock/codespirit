@@ -1,10 +1,3 @@
-const categories = [
-  'Digital',
-  'Креатив',
-  'Production',
-  'Дизайн',
-  'SMM',
-  'Веб-разработка'
-]
+const categories = ['Digital', 'Креатив', 'Production', 'Дизайн', 'SMM', 'Web']
 
 export default categories

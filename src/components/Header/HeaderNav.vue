@@ -26,7 +26,9 @@
         v-for="menu in filterMenu"
         :key="menu.id"
       >
-        <g-link :to="menu.path" itemprop="url">{{ menu.title }}</g-link>
+        <g-link class="nav__link" :to="menu.path" itemprop="url">{{
+          menu.title
+        }}</g-link>
       </li>
     </ul>
   </nav>
@@ -122,17 +124,20 @@ export default {
     }
   }
   &__item {
-    a {
-      text-decoration: none;
-      color: #252525;
-      font-size: 16px;
-      transition: 0.1s linear;
-      &:hover {
-        color: var(--main_color_hover);
-      }
-      @media screen and (min-width: $desktop-width) {
-        font-size: 17px;
-      }
+  }
+  &__link {
+    text-decoration: none;
+    color: #252525;
+    font-size: 16px;
+    transition: 0.1s linear;
+    &:hover {
+      color: var(--main_color_hover);
+    }
+    @media screen and (min-width: $desktop-width) {
+      font-size: 17px;
+    }
+    &--active {
+      color: var(--main_color_hover);
     }
   }
   &__burger {
