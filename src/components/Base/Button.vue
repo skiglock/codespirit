@@ -119,11 +119,14 @@ export default {
     padding-right: 20px;
   }
   &--large {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 18px;
-    padding-left: 25px;
-    padding-right: 25px;
+    font-size: 16px;
+    padding: 6px 15px;
+    @media screen and (min-width: $tablet-width) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
 }
 </style>
