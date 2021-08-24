@@ -122,25 +122,28 @@ export default {
       )
     }
   },
-  watch: {
-    selectedCategory(value) {
-      if (process.isClient) {
-        localStorage.setItem('selectedCategory', value)
-      }
-    }
-  },
   mounted() {
-    if (process.isClient) {
-      const selectedCategoryLocalStorage =
-        localStorage.getItem('selectedCategory')
-      if (selectedCategoryLocalStorage) {
-        this.selectedCategory = selectedCategoryLocalStorage
-        this.filteredCategoryArray = this.filterAllCategory
-      } else {
-        this.filteredCategoryArray = this.setAllCategory
-      }
-    }
+    this.filteredCategoryArray = this.setAllCategory
   }
+  // watch: {
+  //   selectedCategory(value) {
+  //     if (process.isClient) {
+  //       localStorage.setItem('selectedCategory', value)
+  //     }
+  //   }
+  // },
+  // mounted() {
+  //   if (process.isClient) {
+  //     const selectedCategoryLocalStorage =
+  //       localStorage.getItem('selectedCategory')
+  //     if (selectedCategoryLocalStorage) {
+  //       this.selectedCategory = selectedCategoryLocalStorage
+  //       this.filteredCategoryArray = this.filterAllCategory
+  //     } else {
+  //       this.filteredCategoryArray = this.setAllCategory
+  //     }
+  //   }
+  // }
 }
 </script>
 
@@ -152,7 +155,7 @@ export default {
     box-shadow: 0px 2px 3.76px 0.24px rgba(#000, 0.35);
     &__list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 130px);
+      grid-template-columns: repeat(auto-fill, 120px);
       justify-content: space-between;
       align-items: center;
       gap: 15px;
@@ -237,7 +240,10 @@ export default {
     }
     &-img {
       box-shadow: 0px 2px 3.76px 0.24px rgba(37, 37, 37, 0.35);
-      border-radius: 20px;
+      border-radius: 10px;
+      img {
+        border-radius: 10px;
+      }
     }
   }
 }

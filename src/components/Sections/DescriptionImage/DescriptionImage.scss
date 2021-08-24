@@ -16,7 +16,7 @@
   }
   img {
     box-shadow: 0px 2px 3.76px 0.24px rgba(37, 37, 37, 0.35);
-    border-radius: 30px;
+    border-radius: 15px;
   }
   &--column {
     @media screen and (min-width: $mobile-width) {
@@ -39,8 +39,7 @@
   &--row {
     justify-items: center;
     img {
-      border-radius: 15px;
-      width: 70%;
+      width: 85%;
       box-shadow: 0px 2px 3.76px 0.24px rgba(#252525, 0.35);
     }
     .description-image__description {

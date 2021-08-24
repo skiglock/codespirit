@@ -54,15 +54,15 @@ b {
 }
 
 details[open] summary ~ * {
-  animation: open 0.3s linear;
+  animation: open 1s linear;
 }
 
 @keyframes open {
   0% {
-    filter: blur(2px);
+    opacity: 0;
   }
   100% {
-    filter: blur(0);
+    opacity: 1;
   }
 }
 details summary::-webkit-details-marker {
@@ -120,7 +120,7 @@ details summary::-webkit-details-marker {
     }
     &--tablet {
       position: relative;
-      width: 470px;
+      width: 100%;
       height: 300px;
       overflow: hidden;
       &:hover {
@@ -132,6 +132,7 @@ details summary::-webkit-details-marker {
         }
       }
       img {
+        height: 100%;
         border-radius: 20px;
         transform: scale(1);
         transition: 0.3s linear;
