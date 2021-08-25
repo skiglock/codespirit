@@ -36,6 +36,7 @@ export default {
 .content {
   padding-bottom: 40px;
   &__wrapper {
+    position: relative;
     border-radius: 20px;
     background-color: var(--content_color);
     padding-left: 15px;

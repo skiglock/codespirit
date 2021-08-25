@@ -4,19 +4,25 @@
       <div class="portfolio-case__left">
         <div class="mobile">
           <div class="mobile__display">
-            <g-image
-              :src="
-                $imagePath(
-                  'portfolio',
-                  $page.portfolioCase.path,
-                  $page.portfolioCase.img
-                )
-              "
-            />
+            <Slider
+              :images="$page.portfolioCase.gallery_mobile"
+              :path="$page.portfolioCase.path"
+            >
+            </Slider>
           </div>
         </div>
       </div>
-      <div class="portfolio-case__right">
+      <div class="portfolio-case__right" ref="right">
+        <g-image
+          class="portfolio-case__img"
+          :src="
+            $imagePath(
+              'portfolio',
+              $page.portfolioCase.path,
+              $page.portfolioCase.img
+            )
+          "
+        />
         <ul class="portfolio-case__categories">
           <li
             class="portfolio-case__category"
@@ -27,48 +33,39 @@
           </li>
         </ul>
 
-        <div v-html="descToHtml"></div>
-        <div class="technologies">
-          <div
-            class="technologies__item"
+        <ul class="portfolio-case__technologies">
+          <li
+            class="portfolio-case__technologies-item"
             v-for="{ node } in filterTechnologies"
             :key="node.id"
           >
             <g-image
-              class="technologies__img"
+              class="portfolio-case__technologies-img"
               :src="$imagePath('technologies', node.path, node.img)"
               :alt="node.title"
             />
-            <h4 class="technologies__title">
-              <a class="technologies__link" :href="node.link" target="_blank">{{
-                node.title
-              }}</a>
+            <h4 class="portfolio-case__technologies-title">
+              <a
+                class="portfolio-case__technologies-link"
+                :href="node.link"
+                target="_blank"
+                >{{ node.title }}</a
+              >
             </h4>
-          </div>
-        </div>
-        <ul class="done">
-          <li class="done__item">Спроектировали дизайн</li>
-          <li class="done__item">Адаптивный дизайн для всех устройств</li>
-          <li class="done__item">SEO оптимизация</li>
-          <li class="done__item">Google PageSpeed 100/100</li>
+          </li>
         </ul>
+        <ul class="portfolio-case__done">
+          <li
+            class="portfolio-case__done-item"
+            v-for="done in $page.portfolioCase.done"
+            :key="done.id"
+          >
+            {{ done.title }}
+          </li>
+        </ul>
+        <div v-html="descFullToHtml"></div>
       </div>
     </div>
-    <g-image
-      :style="{
-        justifySelf: 'center',
-        borderRadius: '10px',
-        width: '100%',
-        marginTop: '5%'
-      }"
-      :src="
-        $imagePath(
-          'portfolio',
-          $page.portfolioCase.path,
-          $page.portfolioCase.img
-        )
-      "
-    />
   </Layout>
 </template>
 
@@ -79,6 +76,16 @@ query ($id: ID!) {
     img
     path
     description
+    description_full
+    gallery_mobile {
+      id
+      title
+      img
+    }
+    done {
+      id
+      title
+    }
     technologies {
       id
       link
@@ -102,6 +109,7 @@ query ($id: ID!) {
 </page-query>
 
 <script>
+import Slider from '@/components/Base/Slider'
 import { markedToHtml } from '@/utils/sanitizeSections'
 export default {
   metaInfo() {
@@ -109,9 +117,16 @@ export default {
       title: this.$page.portfolioCase.title
     }
   },
+
+  components: {
+    Slider
+  },
   computed: {
     descToHtml() {
       return markedToHtml(this.$page.portfolioCase.description)
+    },
+    descFullToHtml() {
+      return markedToHtml(this.$page.portfolioCase.description_full)
     },
     filterTechnologies() {
       return this.$page.allTechnologies.edges.filter((edge) =>
@@ -120,9 +135,6 @@ export default {
         )
       )
     }
-  },
-  mounted() {
-    console.log(this.filterTechnologies)
   }
 }
 </script>
@@ -134,65 +146,114 @@ export default {
     grid-template-columns: 1fr 1.4fr;
   }
   gap: 30px;
-  &__left {
+  &__img {
     justify-self: center;
+    width: 200px;
+    border-radius: 10px;
+    max-height: 120px;
+  }
+  &__left {
+    position: sticky;
+    top: 60px;
+    justify-self: center;
+    align-self: start;
   }
   &__right {
-    margin: auto 0;
+    align-self: center;
     display: grid;
-    row-gap: 20px;
+    row-gap: 30px;
     grid-template-rows: min-content 0.5fr min-content min-content;
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
   }
   &__categories {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 20px;
     list-style-type: none;
   }
   &__category {
+    font-size: 14px;
     justify-self: center;
     align-self: center;
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
   }
-}
-.technologies {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  &__item {
+  &__technologies {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
     display: grid;
     row-gap: 10px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    &-item {
+      display: grid;
+      row-gap: 5px;
+      justify-items: center;
+      cursor: pointer;
+    }
+    &-img {
+      width: 40px;
+      height: 40px;
+    }
+    &-title {
+      justify-self: center;
+    }
+    &-link {
+      font-size: 14px;
+      font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
+      text-decoration: none;
+      color: #252525;
+    }
   }
-  &__img {
-    width: 60px;
-    height: 60px;
-  }
-  &__title {
-    cursor: pointer;
-    justify-self: center;
-  }
-  &__link {
-    font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
-    text-decoration: none;
-    color: #252525;
+
+  &__done {
+    display: grid;
+    row-gap: 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    &-item {
+      font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
+      position: relative;
+      padding-left: 40px;
+      list-style-type: none;
+      font-size: 15px;
+      &::before {
+        content: url('../assets/img/ok.svg');
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
   }
 }
 .mobile {
   position: relative;
   display: block;
-
-  width: 280px;
+  width: 260px;
+  height: 535px;
   border: 1px solid #252525;
   padding: 10px;
-  height: 577px;
-  border-radius: 45px;
+  border-radius: 35px;
   background: transparent;
+  @media screen and (min-width: $small-mobile-width) {
+    width: 280px;
+    height: 577px;
+  }
+  @media screen and (min-width: $mobile-width) {
+    width: 300px;
+    height: 618px;
+  }
+
   &::before,
   &::after {
     content: '';
     display: block;
-    z-index: 10;
     position: absolute;
     background-color: transparent;
     border: 1px solid #252525;
@@ -218,26 +279,11 @@ export default {
     height: calc(100% - 140px);
     width: calc(100% - 15px * 2);
     position: absolute;
+    z-index: 5;
     left: 15px;
     top: 70px;
     img {
       height: 100%;
-    }
-  }
-}
-.done {
-  display: grid;
-  row-gap: 15px;
-  &__item {
-    font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
-    position: relative;
-    padding-left: 40px;
-    list-style-type: none;
-    &::before {
-      content: url('../assets/img/ok.svg');
-      position: absolute;
-      left: 0;
-      top: 0;
     }
   }
 }

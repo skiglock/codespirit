@@ -77,7 +77,7 @@ export default {
     justify-content: center;
     img {
       margin-right: 8px;
-      width: 16px;
+      width: 12px;
     }
   }
   &--primary {
@@ -120,7 +120,7 @@ export default {
   }
   &--large {
     font-size: 16px;
-    padding: 6px 15px;
+    padding: 8px 15px;
     @media screen and (min-width: $tablet-width) {
       padding-top: 10px;
       padding-bottom: 10px;

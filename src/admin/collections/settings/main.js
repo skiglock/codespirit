@@ -18,7 +18,7 @@ const main = {
       name: 'socials',
       label: 'Социальные сети',
       widget: 'list',
-      summary: 'Соц. сеть',
+      summary: '{{fields.title}}',
       fields: [
         id,
         title,

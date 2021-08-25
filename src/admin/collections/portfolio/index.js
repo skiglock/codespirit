@@ -19,8 +19,21 @@ const portfolio = {
     id,
     date,
     published,
-    img(),
     title,
+    img(),
+    {
+      name: 'gallery_desktop',
+      label: 'Галерея компьютера',
+      widget: 'list',
+      fields: [id, title, img()]
+    },
+    {
+      name: 'gallery_mobile',
+      label: 'Галерея мобильника',
+      widget: 'list',
+      summary: '{{fields.title}}',
+      fields: [id, title, img()]
+    },
     {
       name: 'technologies',
       label: 'Выбрать технологии',
@@ -35,7 +48,19 @@ const portfolio = {
       multiple: true,
       options: categories
     },
-    description
+    {
+      name: 'done',
+      label: 'Что сделали',
+      widget: 'list',
+      summary: '{{fields.title}}',
+      fields: [id, title]
+    },
+    description,
+    {
+      name: 'description_full',
+      label: 'Полное описание',
+      widget: 'markdown'
+    }
   ],
   view_filters: [
     { label: categories[0], field: 'categories', pattern: categories[0] },

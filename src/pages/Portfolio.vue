@@ -240,9 +240,9 @@ export default {
     }
     &-img {
       box-shadow: 0px 2px 3.76px 0.24px rgba(37, 37, 37, 0.35);
-      border-radius: 10px;
+      border-radius: 20px;
       img {
-        border-radius: 10px;
+        border-radius: 20px;
       }
     }
   }
