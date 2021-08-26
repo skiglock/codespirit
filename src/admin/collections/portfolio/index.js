@@ -22,9 +22,15 @@ const portfolio = {
     title,
     img(),
     {
+      name: 'logotype',
+      label: 'Логотип',
+      widget: 'image'
+    },
+    {
       name: 'gallery_desktop',
       label: 'Галерея компьютера',
       widget: 'list',
+      summary: '{{fields.title}}',
       fields: [id, title, img()]
     },
     {

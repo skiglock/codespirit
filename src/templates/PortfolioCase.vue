@@ -9,12 +9,12 @@
       </div>
       <div class="portfolio-case__right" ref="right">
         <g-image
-          class="portfolio-case__img"
+          class="portfolio-case__logotype"
           :src="
             $imagePath(
               'portfolio',
               $page.portfolioCase.path,
-              $page.portfolioCase.img
+              $page.portfolioCase.logotype
             )
           "
         />
@@ -58,6 +58,22 @@
             {{ done.title }}
           </li>
         </ul>
+
+        <div class="portfolio-case__images">
+          <LightBox
+            ref="lightbox"
+            :images="remakeDesktopGalleryArray"
+            :current-image-name="currentImageName"
+          />
+          <g-image
+            class="portfolio-case__image"
+            v-for="image in remakeDesktopGalleryArray"
+            :key="image.id"
+            :src="$imagePath('portfolio', image.path, image.name)"
+            :alt="image.alt"
+            @click="showLightbox(image.name)"
+          />
+        </div>
         <div v-html="descFullToHtml"></div>
       </div>
     </div>
@@ -69,6 +85,7 @@ query ($id: ID!) {
   portfolioCase(id: $id) {
     title
     img
+    logotype
     path
     description
     description_full
@@ -109,19 +126,41 @@ query ($id: ID!) {
 </page-query>
 
 <script>
+import LightBox from '@/components/Base/LightBox'
 import Mobile from '@/components/Base/Mobile'
 import { markedToHtml } from '@/utils/sanitizeSections'
 export default {
   metaInfo() {
     return {
-      title: this.$page.portfolioCase.title
+      title: `${this.$page.portfolioCase.title} - Портфолио`
+    }
+  },
+  components: {
+    LightBox,
+    Mobile
+  },
+  data() {
+    return {
+      currentImageName: ''
+    }
+  },
+  methods: {
+    showLightbox(imageName) {
+      this.$refs.lightbox.show(imageName)
     }
   },
 
-  components: {
-    Mobile
-  },
   computed: {
+    remakeDesktopGalleryArray() {
+      return this.$page.portfolioCase.gallery_desktop.map((image) => {
+        return {
+          id: image.id,
+          name: image.img,
+          alt: image.title,
+          path: this.$page.portfolioCase.path
+        }
+      })
+    },
     descToHtml() {
       return markedToHtml(this.$page.portfolioCase.description)
     },
@@ -145,18 +184,23 @@ export default {
   @media screen and (min-width: $tablet-width) {
     grid-template-columns: 1fr 1.4fr;
   }
-  gap: 30px;
-  &__img {
+  gap: 20px;
+  &__logotype {
     justify-self: center;
     width: 200px;
     border-radius: 10px;
-    max-height: 120px;
+    max-height: 60px;
   }
   &__left {
-    position: sticky;
-    top: 60px;
+    grid-row: 2;
     justify-self: center;
-    align-self: start;
+    @media screen and (min-width: $tablet-width) {
+      grid-row: 1;
+      position: sticky;
+      top: 60px;
+      justify-self: center;
+      align-self: start;
+    }
   }
   &__right {
     align-self: center;
@@ -173,7 +217,7 @@ export default {
     border-radius: 20px;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
     gap: 20px;
     list-style-type: none;
   }
@@ -230,6 +274,15 @@ export default {
         top: 0;
       }
     }
+  }
+  &__images {
+    font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
+    display: grid;
+    gap: 2px;
+  }
+  &__image {
+    cursor: pointer;
+    border-radius: 5px;
   }
 }
 </style>
