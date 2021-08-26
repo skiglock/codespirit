@@ -307,6 +307,7 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 80px;
   }
   &__image {
     img {
@@ -319,14 +320,12 @@ export default {
     width: 100%;
     z-index: 100;
     text-align: center;
+    color: #fff;
     text-shadow: 1px 1px 3px rgb(26, 26, 26);
     span {
       border-radius: 12px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 2px 10px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
     }
   }

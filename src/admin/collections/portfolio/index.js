@@ -24,7 +24,8 @@ const portfolio = {
     {
       name: 'logotype',
       label: 'Логотип',
-      widget: 'image'
+      widget: 'image',
+      default: ''
     },
     {
       name: 'gallery_desktop',

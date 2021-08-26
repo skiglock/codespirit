@@ -11,11 +11,13 @@
         <g-image
           class="portfolio-case__logotype"
           :src="
-            $imagePath(
-              'portfolio',
-              $page.portfolioCase.path,
-              $page.portfolioCase.logotype
-            )
+            $page.portfolioCase.logotype
+              ? $imagePath(
+                  'portfolio',
+                  $page.portfolioCase.path,
+                  $page.portfolioCase.logotype
+                )
+              : ''
           "
         />
         <ul class="portfolio-case__categories">
