@@ -2,15 +2,10 @@
   <Layout :title="$page.portfolioCase.title">
     <div class="portfolio-case">
       <div class="portfolio-case__left">
-        <div class="mobile">
-          <div class="mobile__display">
-            <Slider
-              :images="$page.portfolioCase.gallery_mobile"
-              :path="$page.portfolioCase.path"
-            >
-            </Slider>
-          </div>
-        </div>
+        <Mobile
+          :images="$page.portfolioCase.gallery_mobile"
+          :path="$page.portfolioCase.path"
+        />
       </div>
       <div class="portfolio-case__right" ref="right">
         <g-image
@@ -77,6 +72,11 @@ query ($id: ID!) {
     path
     description
     description_full
+    gallery_desktop {
+      id
+      title
+      img
+    }
     gallery_mobile {
       id
       title
@@ -109,7 +109,7 @@ query ($id: ID!) {
 </page-query>
 
 <script>
-import Slider from '@/components/Base/Slider'
+import Mobile from '@/components/Base/Mobile'
 import { markedToHtml } from '@/utils/sanitizeSections'
 export default {
   metaInfo() {
@@ -119,7 +119,7 @@ export default {
   },
 
   components: {
-    Slider
+    Mobile
   },
   computed: {
     descToHtml() {
@@ -229,61 +229,6 @@ export default {
         left: 0;
         top: 0;
       }
-    }
-  }
-}
-.mobile {
-  position: relative;
-  display: block;
-  width: 260px;
-  height: 535px;
-  border: 1px solid #252525;
-  padding: 10px;
-  border-radius: 35px;
-  background: transparent;
-  @media screen and (min-width: $small-mobile-width) {
-    width: 280px;
-    height: 577px;
-  }
-  @media screen and (min-width: $mobile-width) {
-    width: 300px;
-    height: 618px;
-  }
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    background-color: transparent;
-    border: 1px solid #252525;
-    transform: translate(-50%, -50%);
-  }
-  &::before {
-    top: 35px;
-    left: 50%;
-    border-radius: 20px;
-    width: 60px;
-    height: 5px;
-  }
-  &::after {
-    bottom: -15px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    right: 50%;
-    left: 50%;
-  }
-  &__display {
-    display: block;
-    height: calc(100% - 140px);
-    width: calc(100% - 15px * 2);
-    position: absolute;
-    z-index: 5;
-    left: 15px;
-    top: 70px;
-    img {
-      height: 100%;
     }
   }
 }

@@ -4,7 +4,10 @@ date: 2021-08-19T17:09:20.057Z
 published: true
 title: SNIKERS
 img: snickers_logo_symbol.jpg
-gallery_desktop: []
+gallery_desktop:
+  - title: Пустыня
+    img: montain.jpg
+    id: 3bd81f4f-a45f-4914-83f5-9fd9c35c7adc
 gallery_mobile:
   - title: Главная страница
     img: img-home.jpg
