@@ -30,7 +30,6 @@ init({
       repo: 'skiglock/codespirit',
       branch: 'main'
     },
-    logo_url: 'https://codespirit.ru/admin/img/logotype.png',
     local_backend: true,
     load_config_file: false,
     locale: 'ru',
