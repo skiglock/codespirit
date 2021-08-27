@@ -14,7 +14,6 @@ import settings from './collections/settings'
 // Preview Template
 import pagesPreview from './preview/pages'
 import portfolioPreview from './preview/portfolio'
-
 // CMS Locale
 CMS.registerLocale('ru', ru)
 

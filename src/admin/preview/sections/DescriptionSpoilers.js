@@ -1,5 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable no-undef */
+import { markedToHtml } from '../../../utils/sanitizeSections'
+
 export default createClass({
   render() {
     const { title, description, spoilers } = this.props
@@ -32,7 +34,7 @@ export default createClass({
             h('div', {
               className: 'description-spoilers__spoiler-text',
               dangerouslySetInnerHTML: {
-                __html: spoiler.getIn(['description'])
+                __html: markedToHtml(spoiler.getIn(['description']))
               }
             })
           )

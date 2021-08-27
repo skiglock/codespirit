@@ -29,7 +29,11 @@ export default createClass({
       h(
         'div',
         { className: 'order__right' },
-        h(form, { buttonTitle: button.getIn(['title']) })
+        h(form, {
+          buttonTitle: button.getIn(['title']),
+          textarea: true,
+          email: true
+        })
       )
     )
   }

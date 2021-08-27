@@ -17,10 +17,10 @@
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
     color: #252525;
     font-size: 19px;
-    @media screen and (min-width: $mobile-width) {
+    @media screen and (min-width: $tablet-width) {
       font-size: 25px;
     }
-    @media screen and (min-width: $mobile-width) {
+    @media screen and (min-width: $desktop-width) {
       font-size: 27px;
     }
   }
@@ -28,10 +28,10 @@
     line-height: 1.45;
     color: #252525;
     font-size: 15px;
-    @media screen and (min-width: $mobile-width) {
+    @media screen and (min-width: $tablet-width) {
       font-size: 17px;
     }
-    @media screen and (min-width: $tablet-width) {
+    @media screen and (min-width: $desktop-width) {
       font-size: 19px;
     }
   }
@@ -40,7 +40,7 @@
     font-family: "Chalet-NewYorkNineteenEighty", sans-serif;
     font-size: 19px;
     text-decoration: none;
-    @media screen and (min-width: $mobile-width) {
+    @media screen and (min-width: $tablet-width) {
       font-size: 25px;
     }
   }

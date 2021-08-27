@@ -13,6 +13,10 @@ import HashtagLogo from './sections/HashtagLogo'
 import Needed from './sections/Needed'
 import Offer from './sections/Offer'
 import Order from './sections/Order'
+import OrderAnother from './sections/OrderAnother'
+import Stages from './sections/Stages'
+import Word from './sections/Word'
+import Service from './sections/Service'
 
 export default createClass({
   render() {
@@ -20,7 +24,7 @@ export default createClass({
 
     return h(
       layout,
-      null,
+      { title: entry.getIn(['data', 'title']) },
       entry.getIn(['data', 'sections'])
         ? widgetsFor('sections').map((section) => {
             // ---------------------------------------------
@@ -44,6 +48,8 @@ export default createClass({
             const items = section.getIn(['data', 'items'])
             const price = section.getIn(['data', 'price'])
             const button = section.getIn(['data', 'button'])
+            const variant = section.getIn(['data', 'variant'])
+            const number = section.getIn(['data', 'number'])
 
             // ---------------------------------------------
             if (section.getIn(['data', 'type']) === 'hashtagLogo') {
@@ -116,7 +122,15 @@ export default createClass({
               )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'orderAnother') {
-              return h('div', {}, 'Форма заказа (2)')
+              return h(
+                OrderAnother,
+                {
+                  color,
+                  title,
+                  button
+                },
+                null
+              )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'order') {
               return h(
@@ -137,13 +151,40 @@ export default createClass({
               return h('div', {}, 'Портфолио')
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'service') {
-              return h('div', {}, 'Услуга')
+              return h(
+                Service,
+                {
+                  number,
+                  title,
+                  description,
+                  colorFirst,
+                  colorSecond,
+                  img,
+                  variant
+                },
+                null
+              )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'stages') {
-              return h('div', {}, 'Этапы')
+              return h(
+                Stages,
+                {
+                  title,
+                  color,
+                  spoilers,
+                  img
+                },
+                null
+              )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'word') {
-              return h('div', {}, 'Текст')
+              return h(
+                Word,
+                {
+                  description
+                },
+                null
+              )
               // ---------------------------------------------
             }
             return false

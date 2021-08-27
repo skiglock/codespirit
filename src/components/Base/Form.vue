@@ -290,7 +290,7 @@ export default {
     border: none;
     outline: none;
     max-width: 100%;
-    padding: 12px 15px;
+    padding: 10px 15px;
     border-radius: 20px;
     &::placeholder {
       font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
@@ -298,7 +298,7 @@ export default {
     }
     &--large {
       resize: none;
-      min-height: 130px;
+      min-height: 150px;
       @media screen and (min-width: $tablet-width) {
         min-height: 200px;
       }
@@ -318,8 +318,5 @@ export default {
     color: red;
     font-size: 13px;
   }
-}
-div[data-netlify-recaptcha='true'] {
-  justify-self: center;
 }
 </style>

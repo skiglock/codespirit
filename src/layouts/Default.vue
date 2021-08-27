@@ -75,7 +75,7 @@ export default {
   &__title {
     font-family: 'OksFree', sans-serif;
     font-weight: 100;
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
     border-radius: 30px;
     @include background-with-shadow(var(--main_color));
@@ -83,6 +83,9 @@ export default {
     padding-left: 37px;
     padding-right: 13px;
     padding-bottom: 13px;
+    @media screen and (min-width: $mobile-width) {
+      font-size: 28px;
+    }
     @media screen and (min-width: $tablet-width) {
       font-size: 35px;
     }

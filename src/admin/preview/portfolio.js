@@ -7,6 +7,7 @@ export default createClass({
   render() {
     const { entry, widgetsFor, getAsset } = this.props
     const data = {
+      title: entry.getIn(['data', 'title']),
       logotype: getAsset(entry.getIn(['data', 'logotype'])),
       description_full: markedToHtml(entry.getIn(['data', 'description_full'])),
       categories: widgetsFor('categories'),
@@ -17,7 +18,7 @@ export default createClass({
     }
     return h(
       layout,
-      null,
+      { title: data.title },
       h(
         'div',
         { className: 'portfolio-case' },
