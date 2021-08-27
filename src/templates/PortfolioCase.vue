@@ -52,6 +52,7 @@
             </h4>
           </li>
         </ul>
+
         <ul v-animate="'enter'" class="portfolio-case__done">
           <li
             class="portfolio-case__done-item"
@@ -62,7 +63,9 @@
           </li>
         </ul>
 
-        <div class="portfolio-case__images" v-animate="'enter'">
+        <div v-animate="'enter'" v-html="descFullToHtml"></div>
+
+        <div class="portfolio-case__images">
           <LightBox
             ref="lightbox"
             :images="remakeDesktopGalleryArray"
@@ -77,7 +80,16 @@
             @click="showLightbox(image.name)"
           />
         </div>
-        <div v-animate="'enter'" v-html="descFullToHtml"></div>
+        <div class="portfolio-case__buttons">
+          <Button
+            :href="$page.portfolioCase.project_link"
+            size="small"
+            color="primary"
+            target="_blank"
+          >
+            Перейти на сайт проекта
+          </Button>
+        </div>
       </div>
     </div>
   </Layout>
@@ -113,6 +125,7 @@ query ($id: ID!) {
     categories {
       id
     }
+    project_link
   }
   allTechnologies {
     edges {
@@ -131,6 +144,7 @@ query ($id: ID!) {
 <script>
 import LightBox from '@/components/Base/LightBox'
 import Mobile from '@/components/Base/Mobile'
+import Button from '@/components/Base/Button'
 import { markedToHtml } from '@/utils/sanitizeSections'
 export default {
   metaInfo() {
@@ -140,7 +154,8 @@ export default {
   },
   components: {
     LightBox,
-    Mobile
+    Mobile,
+    Button
   },
   data() {
     return {
@@ -253,7 +268,10 @@ export default {
       color: #252525;
     }
   }
-
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
   &__done {
     display: grid;
     row-gap: 15px;
@@ -277,11 +295,16 @@ export default {
   &__images {
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+    grid-auto-rows: minmax(180px, 1fr);
     gap: 2px;
   }
   &__image {
     cursor: pointer;
     border-radius: 5px;
+    height: 100%;
+    img {
+    }
   }
 }
 </style>

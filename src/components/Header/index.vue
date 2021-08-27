@@ -56,8 +56,7 @@ export default {
     padding: 20px 0;
   }
   &__wrapper {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 900px;

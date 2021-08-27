@@ -62,10 +62,13 @@ export default {
   border: none;
   cursor: pointer;
   border-radius: 30px;
-  transition: 0.1s linear;
+  transition: all 0.2s linear;
   box-shadow: 1px 1.5px 0px rgba(#252525, 0.6);
   &:active {
     box-shadow: 0.66px 1.06px 0px rgba(#252525, 0.6);
+  }
+  &:hover {
+    transform: scale(1.05);
   }
   &--link {
     text-decoration: none;
@@ -77,7 +80,7 @@ export default {
     justify-content: center;
     img {
       margin-right: 8px;
-      width: 12px;
+      width: 11px;
     }
   }
   &--primary {
@@ -101,7 +104,7 @@ export default {
   &--yellow {
     background-color: #ffcb86;
     &:hover {
-      background-color: rgba(#ffcb86, 0.8);
+      background-color: #fcd097;
     }
   }
   &--small {
@@ -122,8 +125,8 @@ export default {
     font-size: 16px;
     padding: 8px 15px;
     @media screen and (min-width: $tablet-width) {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 9px;
+      padding-bottom: 9px;
       padding-left: 25px;
       padding-right: 25px;
     }

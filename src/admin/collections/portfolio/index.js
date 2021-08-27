@@ -67,6 +67,12 @@ const portfolio = {
       name: 'description_full',
       label: 'Полное описание',
       widget: 'markdown'
+    },
+    {
+      name: 'project_link',
+      label: 'Ссылка на проект',
+      widget: 'string',
+      default: ''
     }
   ],
   view_filters: [

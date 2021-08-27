@@ -290,7 +290,7 @@ export default {
     border: none;
     outline: none;
     max-width: 100%;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border-radius: 20px;
     &::placeholder {
       font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
