@@ -6,38 +6,38 @@ import layout from './layout'
 export default createClass({
   render() {
     const { entry, widgetsFor, getAsset } = this.props
-    const data = {
-      title: entry.getIn(['data', 'title']),
-      logotype: getAsset(entry.getIn(['data', 'logotype'])),
-      description_full: markedToHtml(entry.getIn(['data', 'description_full'])),
-      categories: widgetsFor('categories'),
-      gallery_mobile: widgetsFor('gallery_mobile'),
-      gallery_desktop: widgetsFor('gallery_desktop'),
-      done: widgetsFor('done'),
-      technologies: widgetsFor('technologies')
-    }
+    const title = entry.getIn(['data', 'title'])
+    const logotype = getAsset(entry.getIn(['data', 'logotype']))
+    const descriptionFull = markedToHtml(
+      entry.getIn(['data', 'description_full'])
+    )
+    const categories = widgetsFor('categories')
+    const galleryMobile = widgetsFor('gallery_mobile')
+    const galleryDesktop = widgetsFor('gallery_desktop')
+    const done = widgetsFor('done')
+    const technologies = entry.getIn(['data', 'technologies'])
     return h(
       layout,
-      { title: data.title },
+      { title },
       h(
         'div',
         { className: 'portfolio-case' },
         h(
           'div',
           { className: 'portfolio-case__left' },
-          h(mobile, { images: data.gallery_mobile, getAsset: getAsset }, null)
+          h(mobile, { images: galleryMobile, getAsset: getAsset }, null)
         ),
         h(
           'div',
           { className: 'portfolio-case__right' },
           h('img', {
             className: 'portfolio-case__logotype',
-            src: data.logotype
+            src: logotype
           }),
           h(
             'ul',
             { className: 'portfolio-case__categories' },
-            data.categories.map((category) =>
+            categories.map((category) =>
               h(
                 'li',
                 { className: 'portfolio-case__category' },
@@ -48,7 +48,7 @@ export default createClass({
           h(
             'ul',
             { className: 'portfolio-case__technologies' },
-            data.technologies.map((technology) =>
+            technologies.map((technology) =>
               h(
                 'li',
                 { className: 'portfolio-case__technologies-item' },
@@ -62,7 +62,7 @@ export default createClass({
                   h(
                     'a',
                     { className: 'portfolio-case__technologies-link' },
-                    'Авто'
+                    'Технология'
                   )
                 )
               )
@@ -71,7 +71,7 @@ export default createClass({
           h(
             'ul',
             { className: 'portfolio-case__done' },
-            data.done.map((dItem) =>
+            done.map((dItem) =>
               h(
                 'li',
                 { className: 'portfolio-case__done-item' },
@@ -82,13 +82,13 @@ export default createClass({
           h('div', {
             className: 'portfolio-case__done-description',
             dangerouslySetInnerHTML: {
-              __html: data.description_full
+              __html: descriptionFull
             }
           }),
           h(
             'div',
             { className: 'portfolio-case__images' },
-            data.gallery_desktop.map((gItem) =>
+            galleryDesktop.map((gItem) =>
               h('img', {
                 className: 'portfolio-case__image',
                 src: getAsset(gItem.getIn(['data', 'img'])),

@@ -17,6 +17,8 @@ import OrderAnother from './sections/OrderAnother'
 import Stages from './sections/Stages'
 import Word from './sections/Word'
 import Service from './sections/Service'
+import Other from './sections/Other'
+import OurPortfolio from './sections/OurPortfolio'
 
 export default createClass({
   render() {
@@ -50,6 +52,7 @@ export default createClass({
             const button = section.getIn(['data', 'button'])
             const variant = section.getIn(['data', 'variant'])
             const number = section.getIn(['data', 'number'])
+            const linkList = section.getIn(['data', 'link_list'])
 
             // ---------------------------------------------
             if (section.getIn(['data', 'type']) === 'hashtagLogo') {
@@ -145,10 +148,25 @@ export default createClass({
               )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'other') {
-              return h('div', {}, 'Доп. предложения')
+              return h(
+                Other,
+                {
+                  title,
+                  color,
+                  linkList
+                },
+                null
+              )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'ourPortfolio') {
-              return h('div', {}, 'Портфолио')
+              return h(
+                OurPortfolio,
+                {
+                  title,
+                  linkList
+                },
+                null
+              )
               // ---------------------------------------------
             } else if (section.getIn(['data', 'type']) === 'service') {
               return h(
