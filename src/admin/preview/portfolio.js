@@ -92,7 +92,8 @@ export default createClass({
               h('img', {
                 className: 'portfolio-case__image',
                 src: getAsset(gItem.getIn(['data', 'img'])),
-                alt: getAsset(gItem.getIn(['data', 'title']))
+                alt: getAsset(gItem.getIn(['data', 'title'])),
+                style: { width: '100%' }
               })
             )
           ),
