@@ -9,6 +9,7 @@
       </div>
       <div class="portfolio-case__right" ref="right">
         <g-image
+          v-animate="'enter'"
           class="portfolio-case__logotype"
           :src="
             $page.portfolioCase.logotype
@@ -20,7 +21,7 @@
               : ''
           "
         />
-        <ul class="portfolio-case__categories">
+        <ul v-animate="'enter'" class="portfolio-case__categories">
           <li
             class="portfolio-case__category"
             v-for="category in $page.portfolioCase.categories"
@@ -30,7 +31,7 @@
           </li>
         </ul>
 
-        <ul class="portfolio-case__technologies">
+        <ul v-animate="'enter'" class="portfolio-case__technologies">
           <li
             class="portfolio-case__technologies-item"
             v-for="{ node } in filterTechnologies"
@@ -51,7 +52,7 @@
             </h4>
           </li>
         </ul>
-        <ul class="portfolio-case__done">
+        <ul v-animate="'enter'" class="portfolio-case__done">
           <li
             class="portfolio-case__done-item"
             v-for="done in $page.portfolioCase.done"
@@ -61,7 +62,7 @@
           </li>
         </ul>
 
-        <div class="portfolio-case__images">
+        <div class="portfolio-case__images" v-animate="'enter'">
           <LightBox
             ref="lightbox"
             :images="remakeDesktopGalleryArray"
@@ -76,7 +77,7 @@
             @click="showLightbox(image.name)"
           />
         </div>
-        <div v-html="descFullToHtml"></div>
+        <div v-animate="'enter'" v-html="descFullToHtml"></div>
       </div>
     </div>
   </Layout>
