@@ -300,13 +300,11 @@ export default {
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
-    grid-auto-rows: 180px;
     gap: 2px;
   }
   &__image {
     cursor: pointer;
     border-radius: 5px;
-    height: 100%;
     img {
     }
   }
