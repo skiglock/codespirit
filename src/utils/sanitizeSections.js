@@ -1,7 +1,16 @@
 import marked from 'marked'
 
+const mdOptions = {
+  pedantic: false,
+  gfm: true,
+  tables: true,
+  smartLists: true,
+  smartypants: true
+}
+
 export const markedToHtml = (markdown) => {
-  return marked(markdown)
+  marked.setOptions(mdOptions)
+  return markdown ? marked(markdown) : 'Введите что нибудь'
 }
 
 const sanitizeSections = (sections) => {

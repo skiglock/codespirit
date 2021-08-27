@@ -13,6 +13,7 @@ import settings from './collections/settings'
 
 // Preview Template
 import pagesPreview from './preview/pages'
+import portfolioPreview from './preview/portfolio'
 
 // CMS Locale
 CMS.registerLocale('ru', ru)
@@ -41,3 +42,7 @@ init({
 
 // Register Preview Template
 CMS.registerPreviewTemplate('pages', pagesPreview)
+CMS.registerPreviewTemplate('portfolio', portfolioPreview)
+
+// Register Preview Styles
+CMS.registerPreviewStyle('/admin/style.css')

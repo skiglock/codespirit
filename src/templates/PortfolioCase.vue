@@ -63,7 +63,11 @@
           </li>
         </ul>
 
-        <div v-animate="'enter'" v-html="descFullToHtml"></div>
+        <div
+          class="portfolio-case__done-description"
+          v-animate="'enter'"
+          v-html="descFullToHtml"
+        ></div>
 
         <div class="portfolio-case__images">
           <LightBox
@@ -296,7 +300,7 @@ export default {
     font-family: 'Chalet-NewYorkNineteenEighty', sans-serif;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
-    grid-auto-rows: minmax(180px, 1fr);
+    grid-auto-rows: 180px;
     gap: 2px;
   }
   &__image {

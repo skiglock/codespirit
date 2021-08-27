@@ -9,6 +9,9 @@ const technologies = {
   folder: 'content/technologies',
   path: '{{slug}}/index',
   create: true,
+  editor: {
+    preview: false
+  },
   fields: [
     id,
     img(),
