@@ -6,13 +6,11 @@
       @mousedown.stop="hide"
       @touchdown.stop="hide"
     >
-      <div
+      <close-button
         class="lightbox__close"
         @mousedown.stop="hide"
         @touchdown.stop="hide"
-      >
-        &times;
-      </div>
+      />
       <div
         class="lightbox__arrow lightbox__arrow--left"
         @mousedown.stop.prevent="prev"
@@ -23,18 +21,10 @@
             class="lightbox__arrow-icon"
             v-if="has_prev() && controlsVisible"
           >
-            <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="12" cy="12" r="12" fill="rgba(20, 20, 20, 0.4)" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
-                d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                fill="white"
-              />
-              <path d="M0-.5h24v24H0z" fill="none" />
+                d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"
+              ></path>
             </svg>
           </div>
         </transition>
@@ -49,18 +39,10 @@
             class="lightbox__arrow-icon"
             v-if="has_next() && controlsVisible"
           >
-            <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="12" cy="12" r="12" fill="rgba(20, 20, 20, 0.4)" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
-                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
-                fill="white"
-              />
-              <path d="M0-.25h24v24H0z" fill="none" />
+                d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"
+              ></path>
             </svg>
           </div>
         </transition>
@@ -104,6 +86,7 @@
 </template>
 
 <script>
+import CloseButton from '@/components/Base/CloseButton'
 export default {
   name: 'LightBox',
   props: {
@@ -123,6 +106,9 @@ export default {
       type: Boolean,
       default: true
     }
+  },
+  components: {
+    CloseButton
   },
   data() {
     return {
@@ -265,23 +251,17 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(#252525, 0.3);
+  background-color: rgba(#252525, 0.5);
   backdrop-filter: blur(5px);
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 200;
-  color: rgba(255, 255, 255, 0.8);
+
   &__close {
     position: fixed;
     z-index: 210;
-    right: 0;
-    top: 0;
-    padding: 1rem;
-    font-size: 1.7rem;
-    cursor: pointer;
-    width: 4rem;
-    height: 4rem;
-    color: white;
+    right: 40px;
+    top: 30px;
   }
   &__arrow {
     display: flex;
@@ -293,37 +273,76 @@ export default {
     width: 2rem;
     z-index: 100;
     &-icon {
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
       cursor: pointer;
+      border: 2px solid #252525;
+      border-radius: 3px;
+      &:hover {
+        background-color: #252525;
+        svg {
+          path {
+            fill: #f7f7f7;
+          }
+        }
+      }
+      svg {
+        width: 24px;
+        height: 24px;
+        path {
+          fill: #252525;
+        }
+      }
     }
     &--right {
-      right: 0;
+      right: 13px;
     }
     &--left {
       left: 0;
     }
   }
   &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     height: 100%;
-    padding: 80px;
+    position: relative;
+    width: 100%;
   }
   &__image {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -2.5rem;
+    bottom: 0;
+    margin: auto;
+    height: 80%;
+    width: 75%;
+    border-radius: 10px;
     img {
+      border-radius: 10px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
       max-height: 100%;
+      max-width: 100%;
     }
   }
   &__caption {
     position: absolute;
-    bottom: 15px;
+    bottom: 50px;
     width: 100%;
     z-index: 100;
     text-align: center;
     color: #fff;
     text-shadow: 1px 1px 3px rgb(26, 26, 26);
     span {
-      border-radius: 12px;
+      border-radius: 7px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 2px 10px;
       user-select: none;

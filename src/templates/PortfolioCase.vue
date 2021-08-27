@@ -209,10 +209,6 @@ export default {
     display: grid;
     row-gap: 30px;
     grid-template-rows: min-content 0.5fr min-content min-content;
-    &::-webkit-scrollbar {
-      width: 0px;
-      background: transparent;
-    }
   }
   &__categories {
     background-color: #fff;
