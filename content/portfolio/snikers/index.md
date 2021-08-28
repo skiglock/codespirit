@@ -6,9 +6,6 @@ title: SNIKERS
 img: snickers_logo_symbol.jpg
 logotype: snickers.svg
 gallery_desktop:
-  - title: Пустыня
-    img: montain.jpg
-    id: 3bd81f4f-a45f-4914-83f5-9fd9c35c7adc
   - title: Мельница
     img: image1.jpg
     id: 7f61131c-e1ef-40f4-8776-72f332631a68
