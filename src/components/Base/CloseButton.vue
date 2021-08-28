@@ -29,11 +29,11 @@ export default {
   background-color: transparent;
   border: 2px solid #252525;
   color: #fff;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   transition: all 0.2s linear;
   border-radius: 50%;
-
+  padding-top: 2px;
   &:hover {
     background-color: #252525;
     .close-button__cross {
@@ -41,9 +41,8 @@ export default {
     }
   }
   &__icon {
-    padding-top: 2px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 }
 </style>

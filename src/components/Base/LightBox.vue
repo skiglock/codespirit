@@ -260,7 +260,7 @@ export default {
   &__close {
     position: fixed;
     z-index: 210;
-    right: 40px;
+    right: 30px;
     top: 30px;
   }
   &__arrow {
@@ -268,12 +268,14 @@ export default {
     justify-content: center;
     align-items: center;
     position: absolute;
-    padding: 0 2rem;
+    padding: 2rem;
     height: 100%;
-    width: 2rem;
+    width: 1rem;
     z-index: 100;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
     &-icon {
-      padding: 7px;
       display: flex;
       align-items: center;
       justify-content: center;

@@ -232,8 +232,14 @@ export default {
       this.errors[field] = undefined
       this.$forceUpdate()
     }
+    // keyEventListener(e) {
+    //   if (e.key === 'Enter') {
+    //     this.handleSubmit()
+    //   }
+    // }
   },
   mounted() {
+    // window.addEventListener('keydown', this.keyEventListener)
     if (this.$route.path) {
       this.formData.from = `https://codespirit.ru${this.$route.path}`
     }
@@ -242,6 +248,9 @@ export default {
     } else {
       this.formData.ref = 'Скорее всего ввел сам'
     }
+  },
+  destroyed() {
+    // window.removeEventListener('keydown', this.keyEventListener)
   },
   watch: {
     getModalIsOpen(value) {

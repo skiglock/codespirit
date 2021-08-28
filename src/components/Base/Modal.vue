@@ -19,7 +19,7 @@
 <script>
 import CloseButton from '@/components/Base/CloseButton'
 import Form from '@/components/Base/Form'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'Modal',
@@ -29,6 +29,20 @@ export default {
   },
   computed: {
     ...mapGetters('modal', ['getModalTitle', 'getModalIsOpen'])
+  },
+  methods: {
+    ...mapMutations('modal', ['setModalIsOpen']),
+    keyEventListener(e) {
+      if (e.key === 'Escape') {
+        this.setModalIsOpen(false)
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.keyEventListener)
+  },
+  destroyed() {
+    window.removeEventListener('keydown', this.keyEventListener)
   }
 }
 </script>
