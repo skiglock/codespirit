@@ -37,36 +37,40 @@ export default createClass({
           h(
             'ul',
             { className: 'portfolio-case__categories' },
-            categories.map((category) =>
-              h(
-                'li',
-                { className: 'portfolio-case__category' },
-                '#' + category.getIn(['data'])
-              )
-            )
+            categories.length > 0
+              ? categories.map((category) =>
+                  h(
+                    'li',
+                    { className: 'portfolio-case__category' },
+                    '#' + category.getIn(['data'])
+                  )
+                )
+              : ''
           ),
           h(
             'ul',
             { className: 'portfolio-case__technologies' },
-            technologies.map((technology) =>
-              h(
-                'li',
-                { className: 'portfolio-case__technologies-item' },
-                h('img', {
-                  className: 'portfolio-case__technologies-img',
-                  style: { backgroundColor: 'lightgray' }
-                }),
-                h(
-                  'h4',
-                  { className: 'portfolio-case__technologies-title' },
+            technologies
+              ? technologies.map((technology) =>
                   h(
-                    'a',
-                    { className: 'portfolio-case__technologies-link' },
-                    'Технология'
+                    'li',
+                    { className: 'portfolio-case__technologies-item' },
+                    h('img', {
+                      className: 'portfolio-case__technologies-img',
+                      style: { backgroundColor: 'lightgray' }
+                    }),
+                    h(
+                      'h4',
+                      { className: 'portfolio-case__technologies-title' },
+                      h(
+                        'a',
+                        { className: 'portfolio-case__technologies-link' },
+                        'Технология'
+                      )
+                    )
                   )
                 )
-              )
-            )
+              : ''
           ),
           h(
             'ul',
