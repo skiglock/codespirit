@@ -3,7 +3,7 @@ id: 25b7196b-eafa-402c-901d-aff1891247c8
 date: 2021-08-29T09:22:55.804Z
 published: true
 title: Atollon
-img: ""
+img: backround-atollon.jpg
 logotype: screenshot_64.png
 gallery_desktop:
   - title: Заголовок
