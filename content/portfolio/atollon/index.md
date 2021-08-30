@@ -4,7 +4,7 @@ date: 2021-08-29T09:22:55.804Z
 published: true
 title: Atollon
 img: backround_at.jpg
-logotype: logotype-atollon2.png
+logotype: atollon-logo.png
 gallery_desktop:
   - title: Заголовок
     img: ""
