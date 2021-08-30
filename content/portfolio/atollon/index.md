@@ -6,9 +6,15 @@ title: Atollon
 img: backround_at.jpg
 logotype: atollon-logo.png
 gallery_desktop:
-  - title: Заголовок
-    img: ""
+  - title: Главная
+    img: picture-atollon1.png
     id: 934f43f4-4c74-4988-8687-477b60a20b76
+  - title: О команде
+    img: picture-atollon2.png
+    id: b87eaba7-68bb-48cf-8ce4-d92d711881e8
+  - title: Блог
+    img: picture-atollon3.png
+    id: 08973477-df3f-47be-b857-d7fdcca04433
 gallery_mobile:
   - title: Главная
     img: atoll1.png
