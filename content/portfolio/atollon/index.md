@@ -4,7 +4,7 @@ date: 2021-08-29T09:22:55.804Z
 published: true
 title: Atollon
 img: backround_at.jpg
-logotype: screenshot_64.png
+logotype: logotype-atollon2.png
 gallery_desktop:
   - title: Заголовок
     img: ""
@@ -20,7 +20,11 @@ categories:
 done:
   - title: Заголовок
     id: 0ffa1b4e-6551-4e0d-acf8-81463509a892
-description: Описание
-description_full: Описание Atollon
+description: Atollon - это интегратор amoCRM. Команда Atollon помогает ставить
+  планы, контролировать сотрудников, сервис и работу с клиентами. Мы помогли
+  создать простой и современный дизайн, а также сайт выполненный на
+description_full: Atollon - это интегратор amoCRM. Команда Atollon помогает
+  ставить планы, контролировать сотрудников, сервис и работу с клиентами. Мы
+  помогли создать простой и современный дизайн, а также сайт выполненный на
 project_link: https://atollon.ru/
 ---
