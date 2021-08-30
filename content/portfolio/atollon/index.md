@@ -28,6 +28,8 @@ gallery_mobile:
 technologies:
   - id: 3c32d225-1590-4c8e-aa77-41f6f4b9e9bc
     link: 18da2181-620c-4a14-ac04-d733b7372809
+  - id: 675404b9-daf4-4d25-83ec-e780e8f533c0
+    link: f941d250-35b4-44fa-b81a-f986c5c56047
 categories:
   - Digital
   - Креатив
