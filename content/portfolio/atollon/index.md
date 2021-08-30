@@ -10,16 +10,27 @@ gallery_desktop:
     img: ""
     id: 934f43f4-4c74-4988-8687-477b60a20b76
 gallery_mobile:
-  - title: Заголовок
-    img: ""
+  - title: Главная
+    img: atoll1.png
     id: 7d6f8e78-26c2-43ce-a421-23abba0bb45d
+  - title: О команде
+    img: atoll2-1.png
+    id: 24e5373c-b899-4114-9d1e-b92764f2e57c
+  - title: Блог
+    img: atoll3.png
+    id: 1ea927e7-73c4-466c-b14c-ecd806e1e12f
+technologies:
+  - id: 3c32d225-1590-4c8e-aa77-41f6f4b9e9bc
+    link: 18da2181-620c-4a14-ac04-d733b7372809
 categories:
   - Digital
   - Креатив
   - Дизайн
 done:
-  - title: Заголовок
+  - title: Разработали дизайн
     id: 0ffa1b4e-6551-4e0d-acf8-81463509a892
+  - title: Заголовок
+    id: cc2f5856-3b53-4ad5-b12d-4c3f7c917a2c
 description: Atollon - это интегратор amoCRM. Команда Atollon помогает ставить
   планы, контролировать сотрудников, сервис и работу с клиентами. Мы помогли
   создать простой и современный дизайн, а также сайт выполненный на
