@@ -4,23 +4,9 @@ date: 2021-08-16T12:51:56.728Z
 published: false
 title: Что мы делаем?
 sections:
-  - img: browser.png
-    variant: false
-    number: 1
-    color_second: "#ffcb86"
-    color_first: "#68b399"
-    title: Web разработка
-    type: service
-    link: 9841f890-8115-4f17-85e8-795f9fffd065
-    id: e0f5784f-df15-44df-a266-f75d13562922
-    description: |-
-      Процесс создания веб-сайта или веб-приложения. 
-      Основными этапами процесса являются веб-дизайн, 
-      вёрстка страниц, программирование на стороне 
-      клиента и сервера, а также конфигурирование веб-сервера.
   - img: search.png
     variant: false
-    number: 2
+    number: 1
     color_second: "#6ac7cf"
     color_first: "#efb051"
     title: Создание сайтов
@@ -39,6 +25,20 @@ sections:
       \-сайты на тильде
 
       \-интернет-магазины
+  - img: browser.png
+    variant: false
+    number: 2
+    color_second: "#ffcb86"
+    color_first: "#68b399"
+    title: Web разработка
+    type: service
+    link: 9841f890-8115-4f17-85e8-795f9fffd065
+    id: e0f5784f-df15-44df-a266-f75d13562922
+    description: |-
+      Процесс создания веб-сайта или веб-приложения. 
+      Основными этапами процесса являются веб-дизайн, 
+      вёрстка страниц, программирование на стороне 
+      клиента и сервера, а также конфигурирование веб-сервера.
   - img: photo.png
     variant: false
     number: 3
